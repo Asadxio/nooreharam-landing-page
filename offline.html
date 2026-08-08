@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offline — NOOR-E-HARAM</title>
+  <link rel="stylesheet" href="/assets/css/core.css">
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: var(--cream);
+      padding: 24px;
+      text-align: center;
+    }
+    .offline-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 40px;
+      max-width: 480px;
+      box-shadow: var(--shadow);
+    }
+    .offline-icon {
+      font-size: 64px;
+      margin-bottom: 24px;
+      display: block;
+    }
+    .offline-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      color: var(--charcoal);
+      margin-bottom: 16px;
+    }
+    .offline-desc {
+      color: var(--text-mid);
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+    .offline-btn {
+      width: 100%;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="offline-card">
+    <span class="offline-icon">🌐</span>
+    <h1 class="offline-title">You are Offline</h1>
+    <p class="offline-desc">It looks like you don't have an active internet connection right now. Don't worry, you can still call us directly to book or ask questions.</p>
+    <a href="tel:+919986925592" class="btn btn-primary offline-btn">📞 Call +91 99869 25592</a>
+    <button onclick="window.location.reload()" class="btn btn-outline offline-btn" style="color: var(--emerald); border-color: var(--emerald);">🔄 Retry Connection</button>
+  </div>
+</body>
+</html>

@@ -1,0 +1,93 @@
+/* ============================================
+   UTILITY CLASSES (replacing inline styles)
+   ============================================ */
+.text-gold { color: var(--gold) !important; }
+.text-gold-light { color: var(--gold-light) !important; }
+.text-emerald { color: var(--emerald) !important; }
+.text-white { color: white !important; }
+.text-mid { color: var(--text-mid) !important; }
+.bg-cream { background: var(--cream) !important; }
+.bg-transparent-border { background: transparent; border: 1px solid var(--border); }
+.mt-8 { margin-top: 8px !important; }
+.mt-16 { margin-top: 16px !important; }
+.mt-20 { margin-top: 20px !important; }
+.mt-24 { margin-top: 24px !important; }
+.mt-32 { margin-top: 32px !important; }
+.mt-40 { margin-top: 40px !important; }
+.mb-8 { margin-bottom: 8px !important; }
+.mb-16 { margin-bottom: 16px !important; }
+.mb-24 { margin-bottom: 24px !important; }
+.mb-48 { margin-bottom: 48px !important; }
+.fw-600 { font-weight: 600 !important; }
+.fs-28 { font-size: 28px !important; }
+.fs-14 { font-size: 14px !important; }
+.fs-18 { font-size: 18px !important; }
+.fs-32 { font-size: 32px !important; }
+.u-hidden { display: none !important; }
+.u-flex { display: flex !important; }
+.u-flex-col { flex-direction: column !important; }
+.u-gap-12 { gap: 12px !important; }
+.u-gap-10 { gap: 10px !important; }
+.u-wrap { flex-wrap: wrap !important; }
+.u-center-flex { justify-content: center !important; }
+.u-max-760 { max-width: 760px !important; }
+.u-full-width { width: 100% !important; }
+.u-line-h-160 { line-height: 1.6 !important; }
+.u-min-w-140 { min-width: 140px !important; }
+.u-flex-1 { flex: 1 !important; }
+.border-top-border { border-top: 1px solid var(--border) !important; }
+.p-section-sm { padding: 56px 0 !important; }
+.section-title-sm { font-size: 28px !important; }
+.eyebrow-gold { color: var(--gold-light) !important; }
+.section-title-white { color: white !important; }
+.subtitle-dark { color: rgba(255,255,255,0.55) !important; }
+.btn-full-center { width: 100%; justify-content: center; }
+.lbl-style { display: block; font-size: 12px; font-weight: 600; text-transform: uppercase; margin-bottom: 6px; color: var(--text-mid); }
+.wizard-heading { color: var(--emerald); font-family: 'Cormorant Garamond', serif; font-size: 28px; margin-bottom: 8px; }
+.wizard-subtitle-txt { font-size: 14px; color: var(--text-mid); }
+.wizard-result-title { color: var(--emerald); margin-bottom: 16px; font-size: 18px; border-bottom: 1.5px solid var(--border); padding-bottom: 8px; }
+.wiz-icon-lg { font-size: 32px; margin-bottom: 8px; }
+.form-status-box { display: none; margin-bottom: 16px; padding: 12px 16px; border-radius: 8px; font-size: 14px; }
+.tour-card-dubai { background: linear-gradient(135deg, #0d2137 0%, #1a4a6b 100%); }
+.tour-card-turkey { background: linear-gradient(135deg, #1a0a0a 0%, #6b1a1a 100%); }
+.tour-card-europe { background: linear-gradient(135deg, #0a1a3a 0%, #1a3a6b 100%); }
+.tour-card-heritage { background: linear-gradient(135deg, #0a2a1a 0%, #1a5a3a 100%); }
+.social-links-row { display: flex; gap: 12px; margin-top: 6px; }
+.social-link-inline { color: var(--emerald); text-decoration: none; font-weight: 500; font-size: 14px; }
+.branch-label-style { display: block; font-size: 12px; font-weight: 600; text-transform: uppercase; margin-bottom: 6px; color: var(--text-mid); }
+.wiz-prev-hidden { display: none; }
+.contact-addr-style { font-size: 13px; line-height: 1.6; }
+
+
+/* EXTRA AUDIT UTILITIES */
+.stat-number-clamp { font-size: clamp(28px, 3.5vw, 42px); line-height: 1.2; }
+.p-intro-1 { font-size: 16px; color: var(--text-mid); margin-bottom: 16px; }
+.p-intro-2 { font-size: 15px; color: var(--text-mid); margin-bottom: 24px; }
+.text-light { color: var(--text-light) !important; }
+.u-max-800 { max-width: 800px !important; }
+.mb-40 { margin-bottom: 40px !important; }
+.mb-32 { margin-bottom: 32px !important; }
+.mb-56 { margin-bottom: 56px !important; }
+.py-16 { padding-top: 16px !important; padding-bottom: 16px !important; }
+.u-gap-16 { gap: 16px !important; }
+.calculator-card { background: white; border-radius: var(--radius-xl); padding: 40px; box-shadow: var(--shadow); border: 1px solid var(--border); }
+.calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; }
+.calc-label { display: block; font-weight: 500; margin-bottom: 8px; color: var(--text-dark); font-size: 14px; }
+.calc-input { width: 100%; padding: 12px 16px; border: 1.5px solid var(--border); border-radius: var(--radius-sm); font-size: 15px; color: var(--text-dark); background: white; }
+.calc-result { background: var(--emerald-pale); border-radius: var(--radius); padding: 24px; text-align: center; margin-bottom: 24px; }
+.calc-result-title { font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: var(--emerald); margin-bottom: 8px; }
+.calc-result-price { font-family: 'Cormorant Garamond', serif; font-size: 44px; font-weight: 600; color: var(--emerald); line-height: 1; }
+.calc-result-note { font-size: 12px; color: var(--text-light); margin-top: 8px; }
+.btn-wizard-action { font-size: 14px; padding: 10px 18px; }
+.btn-email-outline { color: var(--emerald) !important; border: 1.5px solid var(--emerald) !important; }
+.footer-arabic-sub { font-size: 14px; color: rgba(255,255,255,0.4); }
+.footer-addr-item { color: rgba(255,255,255,0.35); font-size: 13px; padding: 4px 0; }
+.footer-legal-link { font-size: 12px; color: rgba(255,255,255,0.3); text-decoration: none; }
+
+/* BRANCH CARD OVERRIDE UTILITIES */
+.single-branch-card { margin: 0 auto !important; display: block !important; opacity: 1 !important; transform: none !important; width: 100% !important; }
+.branch-address-txt { font-size: 13px; color: var(--text-light); margin-bottom: 12px; line-height: 1.5; }
+.branch-manager-info { font-size: 14px; margin-bottom: 20px; font-weight: 500; color: var(--text-dark); }
+.branch-manager-name { color: var(--emerald); font-weight: 600; }
+
+

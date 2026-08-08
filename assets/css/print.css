@@ -1,0 +1,12 @@
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+@media print {
+  .header, .mobile-bar, .float-whatsapp, #pageLoader,
+  .mobile-drawer, .drawer-overlay, .nav-toggle { display: none !important; }
+  .hero { min-height: auto; }
+  body { font-size: 12px; }
+  a { text-decoration: underline; }
+}
+
+

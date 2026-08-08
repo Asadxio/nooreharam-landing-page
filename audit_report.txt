@@ -1,0 +1,32 @@
+=== NOOR-E-HARAM WEBSITE AUDIT REPORT ===
+File Size: 590.45 KB
+
+--- 1. SEO AUDIT ---
+Title Tag: 'NOOR-E-HARAM | نور حرم | Hajj • Umrah • Ziyarat'
+Meta Description: 'NOOR-E-HARAM – Trusted Hajj, Umrah & Ziyarat travel company. Professional pilgrimage packages with transparent pricing, expert guidance and dedicated support across India.'
+  WARNING: Meta description length is 171 chars (recommended: 50-160 chars)
+Canonical URL: 'https://www.nooreharam.com/'
+Number of H1 tags: 1
+Number of H2 tags: 22
+Number of H3 tags: 22
+
+--- 2. ACCESSIBILITY & MEDIA ---
+Total Images Found: 3
+SUCCESS: All images have alt attributes.
+Semantic <header> tags found: 1
+Semantic <nav> tags found: 2
+Semantic <main> tags found: 0
+Semantic <section> tags found: 24
+Semantic <footer> tags found: 1
+
+--- 3. SECURITY & PERFORMANCE ---
+Total target='_blank' links: 44
+SUCCESS: All target='_blank' links have proper security rel attributes.
+Inline <style> blocks: 1
+Elements with inline 'style' attribute: 74
+
+--- 4. STRUCTURED DATA (JSON-LD) ---
+SUCCESS: JSON-LD Structured Data block found.
+  Schema Type: TravelAgency
+  Business Name: NOOR-E-HARAM
+  Address Locality: Hubli
