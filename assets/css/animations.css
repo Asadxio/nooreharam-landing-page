@@ -3,9 +3,93 @@
 .reveal.visible { opacity: 1; transform: none; }
 
 
-/* ============================================
-   REDUCED MOTION (ACCESSIBILITY)
-   ============================================ */
+/* ============================================================
+   PREMIUM 3D EFFECTS — Noor-E-Haram
+   ============================================================ */
+
+/* ── CUSTOM CURSOR ── */
+* { cursor: none !important; }
+.nh-cursor-dot {
+  position: fixed; width: 10px; height: 10px; border-radius: 50%;
+  background: #d4ac0d; pointer-events: none; z-index: 99999;
+  opacity: 0; transform: translate(-50%,-50%);
+  transition: opacity 0.3s ease, width 0.2s ease, height 0.2s ease, background 0.2s ease;
+}
+.nh-cursor-ring {
+  position: fixed; width: 36px; height: 36px; border-radius: 50%;
+  border: 1.5px solid rgba(212,172,13,0.6); pointer-events: none; z-index: 99998;
+  opacity: 0; transform: translate(-50%,-50%);
+  transition: opacity 0.3s ease, width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
+}
+.nh-cursor-dot.nh-cursor-hover { width: 16px; height: 16px; background: #0b5345; }
+.nh-cursor-ring.nh-cursor-hover { width: 54px; height: 54px; border-color: rgba(11,83,69,0.6); }
+
+/* ── PARTICLE STARS CANVAS ── */
+.nh-stars-canvas {
+  position: absolute; inset: 0; width: 100% !important; height: 100% !important;
+  pointer-events: none; z-index: 1;
+}
+
+/* ── SHINE OVERLAY (for tilt cards) ── */
+.nh-shine {
+  position: absolute; inset: 0; border-radius: inherit;
+  pointer-events: none; z-index: 10; transition: background 0.1s ease;
+}
+
+/* ── RIPPLE EFFECT ── */
+.btn, .header-cta { position: relative; overflow: hidden; }
+.nh-ripple {
+  position: absolute; border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  transform: scale(0); animation: nhRipple 0.65s linear forwards;
+  pointer-events: none;
+}
+@keyframes nhRipple {
+  to { transform: scale(1); opacity: 0; }
+}
+
+/* ── FLOATING SHAPES ── */
+@keyframes nhFloat {
+  0%   { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(-20px) rotate(8deg); }
+}
+
+/* ── CINEMATIC SECTION REVEAL ── */
+.nh-section-reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.nh-section-reveal.nh-in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* First visible section: no delay */
+.nh-section-reveal:first-of-type { transition-delay: 0s; }
+
+/* ── GLASS MORPHISM PACKAGE CARDS ── */
+.package-card {
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  box-shadow: 0 8px 32px rgba(11,83,69,0.08), 0 1px 2px rgba(0,0,0,0.04);
+  transition: box-shadow 0.35s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+.package-card.featured {
+  box-shadow: 0 16px 48px rgba(11,83,69,0.18), 0 2px 8px rgba(0,0,0,0.06);
+}
+
+/* ── SCROLL PROGRESS BAR ── */
+#nhScrollProgress {
+  position: fixed; top: 0; left: 0; height: 3px; z-index: 10000;
+  background: linear-gradient(90deg, #d4ac0d 0%, #0b5345 100%);
+  width: 0%; transition: width 0.1s linear;
+  pointer-events: none;
+}
+
+/* ── REDUCED MOTION ── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -13,14 +97,13 @@
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  .reveal {
-    opacity: 1 !important;
-    transform: none !important;
-  }
-  #pageLoader .loader-bar-fill {
-    animation: none !important;
-    width: 100% !important;
-  }
+  .nh-section-reveal { opacity: 1 !important; transform: none !important; }
+  .nh-cursor-dot, .nh-cursor-ring { display: none !important; }
+  * { cursor: auto !important; }
 }
 
-
+/* Mobile: disable cursor hide */
+@media (pointer: coarse) {
+  * { cursor: auto !important; }
+  .nh-cursor-dot, .nh-cursor-ring { display: none !important; }
+}

@@ -23,6 +23,7 @@ import { initPageLoader } from './controllers/animations.js';
 import { initScrollReveal } from './controllers/intersection.js';
 import { initAnalytics } from './services/analytics.js';
 import { initLazyLoading } from './services/lazyload.js';
+import { initPremiumEffects } from './controllers/premium-effects.js';
 
 // Central Error Handling & Logging
 function initCentralErrorHandler() {
@@ -301,7 +302,19 @@ function initApp() {
     initPageLoader();
     initScrollReveal();
     
-    // Initialize Performance & Analytics
+    // Premium 3D Effects
+    initPremiumEffects();
+
+    // Scroll Progress Bar
+    const nhBar = document.createElement('div');
+    nhBar.id = 'nhScrollProgress';
+    document.body.prepend(nhBar);
+    window.addEventListener('scroll', () => {
+      const scrollTop = document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      nhBar.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
+    }, { passive: true });
+
     initLazyLoading();
     initAnalytics();
     
