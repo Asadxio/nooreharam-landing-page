@@ -1,28 +1,26 @@
-/* SCROLL REVEAL */
+/* ── SCROLL REVEAL (Legacy) ── */
 .reveal { opacity: 1; transform: none; }
 .reveal.visible { opacity: 1; transform: none; }
 
-
-/* ============================================================
-   PREMIUM 3D EFFECTS — Noor-E-Haram
-   ============================================================ */
+/* ================================================================
+   NOOR-E-HARAM — PREMIUM EFFECTS CSS v2.0
+   ================================================================ */
 
 /* ── CUSTOM CURSOR ── */
 * { cursor: none !important; }
 .nh-cursor-dot {
   position: fixed; width: 10px; height: 10px; border-radius: 50%;
   background: #d4ac0d; pointer-events: none; z-index: 99999;
-  opacity: 0; transform: translate(-50%,-50%);
-  transition: opacity 0.3s ease, width 0.2s ease, height 0.2s ease, background 0.2s ease;
+  opacity: 0; will-change: transform; transition: opacity .3s, width .2s, height .2s, background .2s;
 }
 .nh-cursor-ring {
   position: fixed; width: 36px; height: 36px; border-radius: 50%;
-  border: 1.5px solid rgba(212,172,13,0.6); pointer-events: none; z-index: 99998;
-  opacity: 0; transform: translate(-50%,-50%);
-  transition: opacity 0.3s ease, width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
+  border: 1.5px solid rgba(212,172,13,.6); pointer-events: none; z-index: 99998;
+  opacity: 0; will-change: transform; transition: opacity .3s, width .2s, height .2s, border-color .2s;
 }
 .nh-cursor-dot.nh-cursor-hover { width: 16px; height: 16px; background: #0b5345; }
-.nh-cursor-ring.nh-cursor-hover { width: 54px; height: 54px; border-color: rgba(11,83,69,0.6); }
+.nh-cursor-ring.nh-cursor-hover { width: 54px; height: 54px; border-color: rgba(11,83,69,.6); }
+@media (pointer: coarse) { * { cursor: auto !important; } .nh-cursor-dot,.nh-cursor-ring { display: none !important; } }
 
 /* ── PARTICLE STARS CANVAS ── */
 .nh-stars-canvas {
@@ -30,80 +28,186 @@
   pointer-events: none; z-index: 1;
 }
 
-/* ── SHINE OVERLAY (for tilt cards) ── */
+/* ── TYPEWRITER CURSOR BLINK ── */
+.nh-cursor-blink {
+  display: inline-block; color: #d4ac0d; font-weight: 300;
+  animation: nhBlink 1s step-end infinite;
+}
+@keyframes nhBlink { 0%,100% { opacity:1; } 50% { opacity:0; } }
+
+/* ── COUNTDOWN TIMER ── */
+.nh-countdown {
+  display: inline-flex; flex-direction: column; gap: 10px;
+  background: rgba(255,255,255,0.07); backdrop-filter: blur(12px);
+  border: 1px solid rgba(212,172,13,0.25); border-radius: 14px;
+  padding: 14px 20px; margin: 18px 0 22px; width: fit-content;
+}
+.nh-countdown-label {
+  font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(212,172,13,0.8);
+}
+.nh-countdown-blocks { display: flex; align-items: center; gap: 4px; }
+.nh-cd-block {
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  background: rgba(212,172,13,0.12); border-radius: 8px; padding: 8px 12px; min-width: 52px;
+}
+.nh-cd-block span {
+  font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600;
+  color: #d4ac0d; line-height: 1;
+}
+.nh-cd-block small { font-size: 9px; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,.5); }
+.nh-cd-sep { font-size: 24px; color: rgba(212,172,13,.5); font-weight: 300; margin-bottom: 10px; }
+
+/* ── GOLD SHIMMER HEADING ── */
+.nh-shimmer-text {
+  background: linear-gradient(90deg, #fff 0%, #fff 30%, #d4ac0d 50%, #fff 70%, #fff 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: nhShimmer 4s linear infinite;
+}
+.nh-shimmer-text .highlight {
+  background: linear-gradient(90deg, #d4ac0d 0%, #f0c040 40%, #d4ac0d 80%);
+  background-size: 200% auto;
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: nhShimmer 3s linear infinite;
+  font-style: italic;
+}
+@keyframes nhShimmer { to { background-position: 200% center; } }
+
+/* ── CONFETTI CANVAS ── */
+#nhConfettiCanvas { display: block; }
+
+/* ── SHINE OVERLAY (tilt cards) ── */
 .nh-shine {
   position: absolute; inset: 0; border-radius: inherit;
-  pointer-events: none; z-index: 10; transition: background 0.1s ease;
+  pointer-events: none; z-index: 10; transition: background .1s ease;
 }
 
 /* ── RIPPLE EFFECT ── */
-.btn, .header-cta { position: relative; overflow: hidden; }
+.btn, .header-cta { position: relative !important; overflow: hidden !important; }
 .nh-ripple {
   position: absolute; border-radius: 50%;
-  background: rgba(255,255,255,0.25);
-  transform: scale(0); animation: nhRipple 0.65s linear forwards;
+  background: rgba(255,255,255,.25);
+  transform: scale(0); animation: nhRipple .65s linear forwards;
   pointer-events: none;
 }
-@keyframes nhRipple {
-  to { transform: scale(1); opacity: 0; }
-}
+@keyframes nhRipple { to { transform: scale(1); opacity: 0; } }
 
-/* ── FLOATING SHAPES ── */
-@keyframes nhFloat {
-  0%   { transform: translateY(0px) rotate(0deg); }
-  100% { transform: translateY(-20px) rotate(8deg); }
-}
+/* ── FLOATING ISLAMIC SHAPES ── */
+@keyframes nhFloat { 0% { transform: translateY(0) rotate(0deg); } 100% { transform: translateY(-20px) rotate(8deg); } }
 
 /* ── CINEMATIC SECTION REVEAL ── */
 .nh-section-reveal {
-  opacity: 0;
-  transform: translateY(36px);
-  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  opacity: 0; transform: translateY(36px);
+  transition: opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1);
 }
-.nh-section-reveal.nh-in-view {
-  opacity: 1;
-  transform: translateY(0);
-}
+.nh-section-reveal.nh-in-view { opacity: 1; transform: translateY(0); }
 
-/* First visible section: no delay */
-.nh-section-reveal:first-of-type { transition-delay: 0s; }
+/* ── STAGGERED CARDS ── */
+.nh-stagger-card {
+  opacity: 0; transform: translateY(28px) scale(0.97);
+  transition: opacity .6s cubic-bezier(.22,1,.36,1), transform .6s cubic-bezier(.22,1,.36,1);
+}
+.nh-stagger-card.nh-stagger-in { opacity: 1; transform: translateY(0) scale(1); }
 
 /* ── GLASS MORPHISM PACKAGE CARDS ── */
 .package-card {
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
-  box-shadow: 0 8px 32px rgba(11,83,69,0.08), 0 1px 2px rgba(0,0,0,0.04);
-  transition: box-shadow 0.35s ease;
-  transform-style: preserve-3d;
-  will-change: transform;
+  backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px);
+  box-shadow: 0 8px 32px rgba(11,83,69,.08), 0 1px 2px rgba(0,0,0,.04);
+  transition: box-shadow .35s ease; transform-style: preserve-3d; will-change: transform;
 }
-.package-card.featured {
-  box-shadow: 0 16px 48px rgba(11,83,69,0.18), 0 2px 8px rgba(0,0,0,0.06);
+.package-card.featured { box-shadow: 0 16px 48px rgba(11,83,69,.18), 0 2px 8px rgba(0,0,0,.06); }
+
+/* ── ANIMATED GLOW BORDER (featured card) ── */
+.nh-glow-border {
+  position: relative; z-index: 0;
 }
+.nh-glow-border::before {
+  content: ''; position: absolute; inset: -2px; border-radius: inherit; z-index: -1;
+  background: linear-gradient(90deg, #0b5345, #d4ac0d, #0b5345);
+  background-size: 300% 300%;
+  animation: nhGlowBorder 4s linear infinite;
+}
+@keyframes nhGlowBorder {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ── GLASSMORPHISM NAVBAR ON SCROLL ── */
+.nh-glass-nav {
+  background: rgba(7, 38, 30, 0.85) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  box-shadow: 0 4px 30px rgba(0,0,0,.3) !important;
+  transition: all .4s ease !important;
+}
+.nh-nav-hide { transform: translateY(-100%) !important; transition: transform .35s ease !important; }
 
 /* ── SCROLL PROGRESS BAR ── */
 #nhScrollProgress {
-  position: fixed; top: 0; left: 0; height: 3px; z-index: 10000;
+  position: fixed; top: 0; left: 0; height: 3px; z-index: 100000;
   background: linear-gradient(90deg, #d4ac0d 0%, #0b5345 100%);
-  width: 0%; transition: width 0.1s linear;
-  pointer-events: none;
+  width: 0%; pointer-events: none;
+}
+
+/* ── FLOATING WHATSAPP BUBBLE ── */
+.nh-wa-bubble {
+  position: fixed; bottom: 28px; right: 24px; z-index: 9999;
+  display: flex; align-items: center; gap: 10px;
+  background: #25d366; color: white !important;
+  padding: 12px 20px; border-radius: 50px;
+  text-decoration: none !important; font-weight: 600; font-size: 14px;
+  box-shadow: 0 6px 24px rgba(37,211,102,.45);
+  animation: nhWaPulse 2.5s ease-in-out infinite;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.nh-wa-bubble:hover { transform: scale(1.07) translateY(-2px); box-shadow: 0 10px 32px rgba(37,211,102,.6); }
+.nh-wa-icon { font-size: 20px; }
+.nh-wa-ping {
+  position: absolute; top: -4px; right: -4px; width: 14px; height: 14px;
+  border-radius: 50%; background: #ff4444;
+  animation: nhPing 1.5s ease-in-out infinite;
+}
+@keyframes nhWaPulse {
+  0%,100% { box-shadow: 0 6px 24px rgba(37,211,102,.45); }
+  50%      { box-shadow: 0 8px 40px rgba(37,211,102,.7); }
+}
+@keyframes nhPing { 0%,100% { transform: scale(1); opacity:1; } 50% { transform: scale(1.6); opacity:.4; } }
+
+/* ── NOTIFICATION TOAST ── */
+.nh-toast {
+  position: fixed; bottom: 96px; right: 24px; z-index: 9998;
+  display: flex; align-items: center; gap: 10px;
+  background: white; color: #1a1a2e;
+  padding: 12px 18px; border-radius: 12px; font-size: 13px; font-weight: 500;
+  box-shadow: 0 8px 32px rgba(0,0,0,.18);
+  border-left: 4px solid #0b5345;
+  transform: translateX(120%); opacity: 0;
+  transition: transform .45s cubic-bezier(.22,1,.36,1), opacity .45s ease;
+  max-width: 300px;
+}
+.nh-toast.nh-toast-show { transform: translateX(0); opacity: 1; }
+.nh-toast-icon { font-size: 18px; }
+
+/* ── GRAIN TEXTURE OVERLAY ── */
+.nh-grain-overlay {
+  position: fixed; inset: 0; z-index: 99990; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.022;
 }
 
 /* ── REDUCED MOTION ── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important; animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important; scroll-behavior: auto !important;
   }
   .nh-section-reveal { opacity: 1 !important; transform: none !important; }
+  .nh-stagger-card   { opacity: 1 !important; transform: none !important; }
   .nh-cursor-dot, .nh-cursor-ring { display: none !important; }
   * { cursor: auto !important; }
-}
-
-/* Mobile: disable cursor hide */
-@media (pointer: coarse) {
-  * { cursor: auto !important; }
-  .nh-cursor-dot, .nh-cursor-ring { display: none !important; }
+  .nh-shimmer-text { background: none; -webkit-text-fill-color: white; }
 }

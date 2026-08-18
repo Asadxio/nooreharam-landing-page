@@ -302,18 +302,8 @@ function initApp() {
     initPageLoader();
     initScrollReveal();
     
-    // Premium 3D Effects
+    // Premium 3D Effects (all effects bundled in premium-effects.js)
     initPremiumEffects();
-
-    // Scroll Progress Bar
-    const nhBar = document.createElement('div');
-    nhBar.id = 'nhScrollProgress';
-    document.body.prepend(nhBar);
-    window.addEventListener('scroll', () => {
-      const scrollTop = document.documentElement.scrollTop;
-      const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      nhBar.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
-    }, { passive: true });
 
     initLazyLoading();
     initAnalytics();

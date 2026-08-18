@@ -225,10 +225,25 @@
     <div class="hero-content">
       <span class="hero-arabic-opener">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْم</span>
       <p class="hero-tagline">Safar Mubarak &bull; Niyyat Paak &bull; Khidmat Aala</p>
-      <h1 class="hero-title">Your <span class="highlight">Sacred</span><br>Journey Starts Here</h1>
-      <p class="hero-subtitle">Professional Hajj, Umrah &amp; Ziyarat services with transparent pricing, expert guidance and dedicated support across India.</p>
+      <h1 class="hero-title nh-shimmer-text">Your <span class="highlight">Sacred</span><br>Journey Starts Here</h1>
+      <p class="hero-subtitle"><span id="nhTypewriter"></span><span class="nh-cursor-blink">|</span></p>
+
+      <!-- DEPARTURE COUNTDOWN -->
+      <div class="nh-countdown" id="nhCountdown">
+        <div class="nh-countdown-label">☽ Next Umrah Batch Departing In</div>
+        <div class="nh-countdown-blocks">
+          <div class="nh-cd-block"><span id="nhCdDays">00</span><small>Days</small></div>
+          <div class="nh-cd-sep">:</div>
+          <div class="nh-cd-block"><span id="nhCdHrs">00</span><small>Hours</small></div>
+          <div class="nh-cd-sep">:</div>
+          <div class="nh-cd-block"><span id="nhCdMin">00</span><small>Mins</small></div>
+          <div class="nh-cd-sep">:</div>
+          <div class="nh-cd-block"><span id="nhCdSec">00</span><small>Secs</small></div>
+        </div>
+      </div>
+
       <div class="hero-buttons">
-        <a href="#contact" class="btn btn-gold">Book Consultation</a>
+        <a href="#contact" class="btn btn-gold nh-confetti-trigger">✨ Book Consultation</a>
         <a href="#packages" class="btn btn-primary">Explore Packages</a>
         <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum.%20I%20am%20interested%20in%20Noor-E-Haram%20Umrah%20Package.%20Please%20share%20details." class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">💬 WhatsApp Now</a>
       </div>
@@ -1404,6 +1419,26 @@
     </div>
   </div>
 </div>
+
+<!-- ── FLOATING WHATSAPP BUBBLE ── -->
+<a href="https://wa.me/919986925592?text=Assalamu%20Alaikum.%20I%20am%20interested%20in%20Noor-E-Haram%20Umrah%20Package.%20Please%20share%20details." 
+   class="nh-wa-bubble" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+  <span class="nh-wa-icon">💬</span>
+  <span class="nh-wa-text">Chat with us</span>
+  <span class="nh-wa-ping"></span>
+</a>
+
+<!-- ── NOTIFICATION TOAST ── -->
+<div class="nh-toast" id="nhToast">
+  <span class="nh-toast-icon">✅</span>
+  <span class="nh-toast-msg" id="nhToastMsg">3 people booked a package today!</span>
+</div>
+
+<!-- ── CONFETTI CANVAS ── -->
+<canvas id="nhConfettiCanvas" style="position:fixed;inset:0;pointer-events:none;z-index:99997;width:100%;height:100%;"></canvas>
+
+<!-- ── GRAIN TEXTURE OVERLAY ── -->
+<div class="nh-grain-overlay" aria-hidden="true"></div>
 
 <script type="module" src="/assets/js/main.js"></script>
 
