@@ -3,7 +3,8 @@
 .reveal.visible { opacity: 1; transform: none; }
 
 /* ================================================================
-   NOOR-E-HARAM — PREMIUM EFFECTS CSS v2.0
+   NOOR-E-HARAM — PREMIUM EFFECTS CSS v3.0 (PERFORMANCE OPTIMISED)
+   All animations use transform/opacity only (GPU composited)
    ================================================================ */
 
 /* ── CUSTOM CURSOR ── */
@@ -11,21 +12,34 @@
 .nh-cursor-dot {
   position: fixed; width: 10px; height: 10px; border-radius: 50%;
   background: #d4ac0d; pointer-events: none; z-index: 99999;
-  opacity: 0; will-change: transform; transition: opacity .3s, width .2s, height .2s, background .2s;
+  opacity: 0; will-change: transform;
+  transition: opacity .3s, width .2s, height .2s, background .2s;
 }
 .nh-cursor-ring {
   position: fixed; width: 36px; height: 36px; border-radius: 50%;
   border: 1.5px solid rgba(212,172,13,.6); pointer-events: none; z-index: 99998;
-  opacity: 0; will-change: transform; transition: opacity .3s, width .2s, height .2s, border-color .2s;
+  opacity: 0; will-change: transform;
+  transition: opacity .3s, width .2s, height .2s;
 }
 .nh-cursor-dot.nh-cursor-hover { width: 16px; height: 16px; background: #0b5345; }
 .nh-cursor-ring.nh-cursor-hover { width: 54px; height: 54px; border-color: rgba(11,83,69,.6); }
-@media (pointer: coarse) { * { cursor: auto !important; } .nh-cursor-dot,.nh-cursor-ring { display: none !important; } }
+@media (pointer: coarse) {
+  * { cursor: auto !important; }
+  .nh-cursor-dot, .nh-cursor-ring { display: none !important; }
+}
 
-/* ── PARTICLE STARS CANVAS ── */
-.nh-stars-canvas {
-  position: absolute; inset: 0; width: 100% !important; height: 100% !important;
-  pointer-events: none; z-index: 1;
+/* ── CSS STARS (replaces canvas — GPU composited via transform+opacity) ── */
+.nh-css-stars {
+  position: absolute; inset: 0; pointer-events: none; z-index: 1; overflow: hidden;
+}
+.nh-css-stars span {
+  position: absolute; border-radius: 50%;
+  animation: nhStarTwinkle 3s ease-in-out infinite alternate;
+  will-change: opacity, transform;
+}
+@keyframes nhStarTwinkle {
+  0%   { opacity: 0.05; transform: scale(0.8); }
+  100% { opacity: 0.85; transform: scale(1.2); }
 }
 
 /* ── TYPEWRITER CURSOR BLINK ── */
@@ -38,14 +52,11 @@
 /* ── COUNTDOWN TIMER ── */
 .nh-countdown {
   display: inline-flex; flex-direction: column; gap: 10px;
-  background: rgba(255,255,255,0.07); backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.07); backdrop-filter: blur(8px);
   border: 1px solid rgba(212,172,13,0.25); border-radius: 14px;
   padding: 14px 20px; margin: 18px 0 22px; width: fit-content;
 }
-.nh-countdown-label {
-  font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
-  color: rgba(212,172,13,0.8);
-}
+.nh-countdown-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(212,172,13,0.8); }
 .nh-countdown-blocks { display: flex; align-items: center; gap: 4px; }
 .nh-cd-block {
   display: flex; flex-direction: column; align-items: center; gap: 2px;
@@ -58,99 +69,90 @@
 .nh-cd-block small { font-size: 9px; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,.5); }
 .nh-cd-sep { font-size: 24px; color: rgba(212,172,13,.5); font-weight: 300; margin-bottom: 10px; }
 
-/* ── GOLD SHIMMER HEADING ── */
-.nh-shimmer-text {
-  background: linear-gradient(90deg, #fff 0%, #fff 30%, #d4ac0d 50%, #fff 70%, #fff 100%);
-  background-size: 200% auto;
-  -webkit-background-clip: text; background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: nhShimmer 4s linear infinite;
+/* ── GOLD SHIMMER HEADING (GPU composited — uses transform) ── */
+.nh-shimmer-text { position: relative; display: inline-block; color: white; }
+.nh-shimmer-text::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(105deg, transparent 30%, rgba(212,172,13,0.55) 50%, transparent 70%);
+  animation: nhShimmerSlide 4s linear infinite;
+  will-change: transform; pointer-events: none;
 }
-.nh-shimmer-text .highlight {
-  background: linear-gradient(90deg, #d4ac0d 0%, #f0c040 40%, #d4ac0d 80%);
-  background-size: 200% auto;
-  -webkit-background-clip: text; background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: nhShimmer 3s linear infinite;
-  font-style: italic;
+@keyframes nhShimmerSlide {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(300%); }
 }
-@keyframes nhShimmer { to { background-position: 200% center; } }
+.hero-title .highlight { color: #d4ac0d; font-style: italic; }
 
-/* ── CONFETTI CANVAS ── */
-#nhConfettiCanvas { display: block; }
-
-/* ── SHINE OVERLAY (tilt cards) ── */
+/* ── SHINE OVERLAY ── */
 .nh-shine {
   position: absolute; inset: 0; border-radius: inherit;
-  pointer-events: none; z-index: 10; transition: background .1s ease;
+  pointer-events: none; z-index: 10; transition: background .08s ease;
 }
 
 /* ── RIPPLE EFFECT ── */
 .btn, .header-cta { position: relative !important; overflow: hidden !important; }
 .nh-ripple {
   position: absolute; border-radius: 50%;
-  background: rgba(255,255,255,.25);
-  transform: scale(0); animation: nhRipple .65s linear forwards;
-  pointer-events: none;
+  background: rgba(255,255,255,.22);
+  transform: scale(0); animation: nhRipple .6s linear forwards;
+  pointer-events: none; will-change: transform, opacity;
 }
 @keyframes nhRipple { to { transform: scale(1); opacity: 0; } }
 
-/* ── FLOATING ISLAMIC SHAPES ── */
-@keyframes nhFloat { 0% { transform: translateY(0) rotate(0deg); } 100% { transform: translateY(-20px) rotate(8deg); } }
+/* ── FLOATING SHAPES ── */
+@keyframes nhFloat {
+  0%   { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-18px) rotate(6deg); }
+}
 
 /* ── CINEMATIC SECTION REVEAL ── */
 .nh-section-reveal {
-  opacity: 0; transform: translateY(36px);
-  transition: opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1);
+  opacity: 0; transform: translateY(30px);
+  transition: opacity .75s cubic-bezier(.22,1,.36,1), transform .75s cubic-bezier(.22,1,.36,1);
+  will-change: opacity, transform;
 }
 .nh-section-reveal.nh-in-view { opacity: 1; transform: translateY(0); }
 
 /* ── STAGGERED CARDS ── */
 .nh-stagger-card {
-  opacity: 0; transform: translateY(28px) scale(0.97);
-  transition: opacity .6s cubic-bezier(.22,1,.36,1), transform .6s cubic-bezier(.22,1,.36,1);
+  opacity: 0; transform: translateY(24px) scale(0.98);
+  transition: opacity .55s cubic-bezier(.22,1,.36,1), transform .55s cubic-bezier(.22,1,.36,1);
+  will-change: opacity, transform;
 }
 .nh-stagger-card.nh-stagger-in { opacity: 1; transform: translateY(0) scale(1); }
 
-/* ── GLASS MORPHISM PACKAGE CARDS ── */
+/* ── PACKAGE CARDS ── */
 .package-card {
-  backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px);
   box-shadow: 0 8px 32px rgba(11,83,69,.08), 0 1px 2px rgba(0,0,0,.04);
-  transition: box-shadow .35s ease; transform-style: preserve-3d; will-change: transform;
+  transition: box-shadow .3s ease, transform .5s cubic-bezier(.25,.46,.45,.94);
+  transform-style: preserve-3d; will-change: transform;
 }
-.package-card.featured { box-shadow: 0 16px 48px rgba(11,83,69,.18), 0 2px 8px rgba(0,0,0,.06); }
+.package-card.featured { box-shadow: 0 16px 48px rgba(11,83,69,.18); }
 
-/* ── ANIMATED GLOW BORDER (featured card) ── */
-.nh-glow-border {
-  position: relative; z-index: 0;
-}
+/* ── ANIMATED GLOW BORDER — uses transform-based gradient animation ── */
+.nh-glow-border { position: relative; z-index: 0; }
 .nh-glow-border::before {
   content: ''; position: absolute; inset: -2px; border-radius: inherit; z-index: -1;
-  background: linear-gradient(90deg, #0b5345, #d4ac0d, #0b5345);
-  background-size: 300% 300%;
-  animation: nhGlowBorder 4s linear infinite;
+  background: conic-gradient(from 0deg, #0b5345, #d4ac0d, #0b5345);
+  animation: nhSpinBorder 4s linear infinite;
+  will-change: transform;
 }
-@keyframes nhGlowBorder {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
+@keyframes nhSpinBorder { to { transform: rotate(360deg); } }
 
-/* ── GLASSMORPHISM NAVBAR ON SCROLL ── */
+/* ── GLASSMORPHISM NAVBAR ── */
 .nh-glass-nav {
-  background: rgba(7, 38, 30, 0.85) !important;
-  backdrop-filter: blur(20px) !important;
-  -webkit-backdrop-filter: blur(20px) !important;
-  box-shadow: 0 4px 30px rgba(0,0,0,.3) !important;
-  transition: all .4s ease !important;
+  background: rgba(7,38,30,.88) !important;
+  backdrop-filter: blur(18px) !important; -webkit-backdrop-filter: blur(18px) !important;
+  box-shadow: 0 4px 24px rgba(0,0,0,.25) !important;
 }
-.nh-nav-hide { transform: translateY(-100%) !important; transition: transform .35s ease !important; }
+.nh-nav-hide { transform: translateY(-100%) !important; }
+.header { transition: background .35s ease, box-shadow .35s ease, transform .3s ease; }
 
 /* ── SCROLL PROGRESS BAR ── */
 #nhScrollProgress {
   position: fixed; top: 0; left: 0; height: 3px; z-index: 100000;
   background: linear-gradient(90deg, #d4ac0d 0%, #0b5345 100%);
-  width: 0%; pointer-events: none;
+  width: 0%; pointer-events: none; will-change: width;
 }
 
 /* ── FLOATING WHATSAPP BUBBLE ── */
@@ -160,22 +162,24 @@
   background: #25d366; color: white !important;
   padding: 12px 20px; border-radius: 50px;
   text-decoration: none !important; font-weight: 600; font-size: 14px;
-  box-shadow: 0 6px 24px rgba(37,211,102,.45);
+  box-shadow: 0 6px 20px rgba(37,211,102,.4);
   animation: nhWaPulse 2.5s ease-in-out infinite;
-  transition: transform .3s ease, box-shadow .3s ease;
+  will-change: transform;
+  transition: transform .3s ease;
 }
-.nh-wa-bubble:hover { transform: scale(1.07) translateY(-2px); box-shadow: 0 10px 32px rgba(37,211,102,.6); }
+.nh-wa-bubble:hover { transform: scale(1.07) translateY(-2px) !important; }
 .nh-wa-icon { font-size: 20px; }
 .nh-wa-ping {
   position: absolute; top: -4px; right: -4px; width: 14px; height: 14px;
   border-radius: 50%; background: #ff4444;
-  animation: nhPing 1.5s ease-in-out infinite;
+  animation: nhPing 1.5s ease-in-out infinite; will-change: transform, opacity;
 }
+/* GPU composited: transform scale instead of box-shadow */
 @keyframes nhWaPulse {
-  0%,100% { box-shadow: 0 6px 24px rgba(37,211,102,.45); }
-  50%      { box-shadow: 0 8px 40px rgba(37,211,102,.7); }
+  0%,100% { transform: scale(1); }
+  50%      { transform: scale(1.04); }
 }
-@keyframes nhPing { 0%,100% { transform: scale(1); opacity:1; } 50% { transform: scale(1.6); opacity:.4; } }
+@keyframes nhPing { 0%,100% { transform: scale(1); opacity:1; } 50% { transform: scale(1.7); opacity:.35; } }
 
 /* ── NOTIFICATION TOAST ── */
 .nh-toast {
@@ -183,11 +187,10 @@
   display: flex; align-items: center; gap: 10px;
   background: white; color: #1a1a2e;
   padding: 12px 18px; border-radius: 12px; font-size: 13px; font-weight: 500;
-  box-shadow: 0 8px 32px rgba(0,0,0,.18);
-  border-left: 4px solid #0b5345;
+  box-shadow: 0 8px 28px rgba(0,0,0,.15); border-left: 4px solid #0b5345;
   transform: translateX(120%); opacity: 0;
-  transition: transform .45s cubic-bezier(.22,1,.36,1), opacity .45s ease;
-  max-width: 300px;
+  transition: transform .4s cubic-bezier(.22,1,.36,1), opacity .4s ease;
+  max-width: 290px; will-change: transform, opacity;
 }
 .nh-toast.nh-toast-show { transform: translateX(0); opacity: 1; }
 .nh-toast-icon { font-size: 18px; }
@@ -195,19 +198,18 @@
 /* ── GRAIN TEXTURE OVERLAY ── */
 .nh-grain-overlay {
   position: fixed; inset: 0; z-index: 99990; pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
-  opacity: 0.022;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.02;
 }
 
 /* ── REDUCED MOTION ── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important; animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important; scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
-  .nh-section-reveal { opacity: 1 !important; transform: none !important; }
-  .nh-stagger-card   { opacity: 1 !important; transform: none !important; }
+  .nh-section-reveal, .nh-stagger-card { opacity: 1 !important; transform: none !important; }
   .nh-cursor-dot, .nh-cursor-ring { display: none !important; }
   * { cursor: auto !important; }
-  .nh-shimmer-text { background: none; -webkit-text-fill-color: white; }
+  .nh-shimmer-text::after { display: none; }
 }

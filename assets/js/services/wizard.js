@@ -238,8 +238,8 @@ function shareWizardWhatsApp() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  initTheme();
-  setLang(currentLang);
+  if (typeof initTheme === 'function') initTheme();
+  if (typeof setLang === 'function') setLang(currentLang);
   if (typeof initBranchLocator === 'function') initBranchLocator();
   if (typeof resetWizard === 'function') resetWizard();
   if (typeof calculateCost === 'function') calculateCost();
