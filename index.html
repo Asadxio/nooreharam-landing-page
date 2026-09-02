@@ -130,14 +130,24 @@
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-<!-- ── LIVE EXCHANGE RATE TICKER BAR ── -->
+<!-- ── TOP UTILITY & REAL-TIME CURRENCY BAR ── -->
 <div class="top-ticker-bar">
-  <div class="container u-flex u-justify-between u-align-center">
-    <div class="ticker-text">
-      ✨ <strong>Live Exchange Rate:</strong> 1 SAR = <strong>₹22.25 INR</strong> &nbsp;|&nbsp; 🕋 Hajj &amp; Umrah 2026 Booking Open &nbsp;|&nbsp; 📞 Call: +91 99869 25592
+  <div class="container">
+    <div class="ticker-left" id="currencyTicker">
+      <!-- Populated non-blockingly by currency.js with Live / Cached status -->
+      <span class="currency-badge status-loading">
+        <span class="currency-dot loading" aria-hidden="true"></span>
+        <span class="currency-label">Fetching SAR rate...</span>
+      </span>
     </div>
-    <div class="global-search-inline">
-      <input type="text" id="globalSearchInput" placeholder="🔍 Search packages..." aria-label="Search packages">
+    <div class="ticker-center">
+      <span class="ticker-notice">Serving Hajj, Umrah &amp; Ziyarat Pilgrims Across India</span>
+    </div>
+    <div class="ticker-right">
+      <a href="tel:+919986925592" class="ticker-helpline" title="Call 24/7 Helpline">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>24/7 Helpline: +91 99869 25592</span>
+      </a>
     </div>
   </div>
 </div>
@@ -145,16 +155,12 @@
 <header class="header hero-mode" id="header">
   <div class="container">
     <div class="header-inner">
-      <a href="#home" class="logo-wrap">
-        <picture class="logo-img-picture">
+      <a href="#home" class="logo-wrap" aria-label="Noor-E-Haram Home">
+        <picture class="logo-picture">
           <source srcset="/assets/images/logos/header-logo.avif" type="image/avif">
           <source srcset="/assets/images/logos/header-logo.webp" type="image/webp">
-          <img src="/assets/images/logos/header-logo.png" alt="Noor-E-Haram Logo" class="logo-img" width="160" height="48" loading="eager">
+          <img src="/assets/images/logos/header-logo.png" alt="Noor-E-Haram Logo" class="header-logo-img" width="180" height="52" loading="eager">
         </picture>
-        <span class="logo-text-group">
-          <span class="logo-en">NOOR-E-HARAM</span>
-          <span class="logo-ar">نور حرم &nbsp;|&nbsp; حج • عمره • زيارات</span>
-        </span>
       </a>
       <nav class="nav">
         <a href="#about" data-i18n="nav.about">About</a>
@@ -164,30 +170,39 @@
         <div class="nav-item">
           <a href="#branches" data-i18n="nav.branches">Branches</a>
           <div class="nav-dropdown">
-            <a href="#branches" class="nav-dd-item"><span class="nav-dd-icon">📍</span> Branches Across India</a>
-            <a href="#privacy-policy" class="nav-dd-item"><span class="nav-dd-icon">🔒</span> Privacy Policy</a>
-            <a href="#terms-conditions" class="nav-dd-item"><span class="nav-dd-icon">📋</span> Terms &amp; Conditions</a>
-            <a href="#refund-policy" class="nav-dd-item"><span class="nav-dd-icon">💰</span> Refund Policy</a>
+            <a href="#branches" class="nav-dd-item">Branches Across India</a>
+            <a href="#privacy-policy" class="nav-dd-item">Privacy Policy</a>
+            <a href="#terms-conditions" class="nav-dd-item">Terms &amp; Conditions</a>
+            <a href="#refund-policy" class="nav-dd-item">Refund Policy</a>
           </div>
         </div>
         <a href="#contact" data-i18n="nav.contact">Contact</a>
       </nav>
       <div class="header-actions">
         <div class="lang-switcher">
-          <button class="lang-btn" id="langBtn">🌐 <span id="langLabel">EN</span></button>
+          <button class="lang-btn" id="langBtn" aria-label="Select Language">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <span id="langLabel">EN</span>
+          </button>
           <div class="lang-dropdown" id="langDropdown">
-            <div class="lang-option active" data-lang="en" onclick="setLang('en')"><span class="lang-flag">🇬🇧</span> English</div>
-            <div class="lang-option" data-lang="ur" onclick="setLang('ur')"><span class="lang-flag">🇵🇰</span> اردو</div>
-            <div class="lang-option" data-lang="ar" onclick="setLang('ar')"><span class="lang-flag">🇸🇦</span> العربية</div>
-            <div class="lang-option" data-lang="kn" onclick="setLang('kn')"><span class="lang-flag">🇮🇳</span> ಕನ್ನಡ</div>
-            <div class="lang-option" data-lang="hinglish" onclick="setLang('hinglish')"><span class="lang-flag">🇮🇳</span> Hinglish</div>
+            <div class="lang-option active" data-lang="en" onclick="setLang('en')">English</div>
+            <div class="lang-option" data-lang="ur" onclick="setLang('ur')">اردو</div>
+            <div class="lang-option" data-lang="ar" onclick="setLang('ar')">العربية</div>
+            <div class="lang-option" data-lang="kn" onclick="setLang('kn')">ಕನ್ನಡ</div>
+            <div class="lang-option" data-lang="hinglish" onclick="setLang('hinglish')">Hinglish</div>
           </div>
         </div>
         <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
-          <span class="theme-icon">🌙</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         </button>
-        <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum.%20I%20am%20interested%20in%20Noor-E-Haram%20Umrah%20Package.%20Please%20share%20details." class="header-cta" target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
-        <button class="nav-toggle" id="navToggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+        <a href="#contact" class="header-cta btn-consultation" data-i18n="nav.bookConsultation">Book Consultation</a>
+        <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum.%20I%20am%20interested%20in%20Noor-E-Haram%20Umrah%20Package.%20Please%20share%20details." class="header-wa-link" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.93 11.93 0 0 0 12.04 0C5.43 0 .06 5.37.06 11.98c0 2.11.55 4.17 1.6 6L0 24l6.2-1.63a11.95 11.95 0 0 0 5.84 1.51h.01c6.61 0 11.98-5.37 11.98-11.98 0-3.2-1.25-6.21-3.51-8.42zM12.05 21.88a9.92 9.92 0 0 1-5.06-1.39l-.36-.22-3.76.99 1-3.66-.24-.38a9.92 9.92 0 0 1-1.52-5.24c0-5.48 4.46-9.94 9.95-9.94 2.65 0 5.15 1.03 7.03 2.91a9.88 9.88 0 0 1 2.91 7.03c0 5.48-4.46 9.9-9.95 9.9zm5.45-7.44c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.78-1.67-2.08-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.05 1.03-1.05 2.51s1.07 2.92 1.22 3.12c.15.2 2.11 3.22 5.11 4.51.71.31 1.27.5 1.7.63.72.23 1.37.2 1.88.12.58-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35z"/></svg>
+          <span>WhatsApp</span>
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
   </div>
@@ -197,7 +212,13 @@
 
 <div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
 <div class="mobile-drawer" id="mobileDrawer">
-  <button class="drawer-close" id="drawerCloseBtn" onclick="closeDrawer()">✕</button>
+  <div class="drawer-header">
+    <picture class="logo-picture">
+      <source srcset="/assets/images/logos/header-logo.webp" type="image/webp">
+      <img src="/assets/images/logos/header-logo.png" alt="Noor-E-Haram" class="header-logo-img" width="140" height="42">
+    </picture>
+    <button class="drawer-close" id="drawerCloseBtn" onclick="closeDrawer()" aria-label="Close menu">✕</button>
+  </div>
   <nav>
     <a href="#about" onclick="closeDrawer()">About Us</a>
     <a href="#packages" onclick="closeDrawer()">Packages</a>
@@ -208,13 +229,19 @@
     <a href="#ramadan" onclick="closeDrawer()">Ramadan Umrah</a>
     <a href="#women" onclick="closeDrawer()">Sisters Support</a>
     <a href="#team" onclick="closeDrawer()">Our Team</a>
-    <a href="#branches" onclick="closeDrawer()">Branches</a>
-    <a href="#faq" onclick="closeDrawer()">FAQ</a>
-    <a href="#contact" onclick="closeDrawer()">Contact</a>
+    <a href="#branches" onclick="closeDrawer()">Branches Across India</a>
+    <a href="#faq" onclick="closeDrawer()">Frequently Asked Questions</a>
+    <a href="#contact" onclick="closeDrawer()">Contact &amp; Consult</a>
   </nav>
   <div class="mt-24 u-flex u-flex-col u-gap-10">
-    <a href="tel:+919986925592" class="btn btn-primary">📞 Call Now</a>
-    <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum.%20I%20am%20interested%20in%20Noor-E-Haram%20Umrah%20Package.%20Please%20share%20details." class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
+    <a href="tel:+919986925592" class="btn btn-primary">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span>Call +91 99869 25592</span>
+    </a>
+    <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum.%20I%20am%20interested%20in%20Noor-E-Haram%20Umrah%20Package.%20Please%20share%20details." class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.93 11.93 0 0 0 12.04 0C5.43 0 .06 5.37.06 11.98c0 2.11.55 4.17 1.6 6L0 24l6.2-1.63a11.95 11.95 0 0 0 5.84 1.51h.01c6.61 0 11.98-5.37 11.98-11.98 0-3.2-1.25-6.21-3.51-8.42zM12.05 21.88a9.92 9.92 0 0 1-5.06-1.39l-.36-.22-3.76.99 1-3.66-.24-.38a9.92 9.92 0 0 1-1.52-5.24c0-5.48 4.46-9.94 9.95-9.94 2.65 0 5.15 1.03 7.03 2.91a9.88 9.88 0 0 1 2.91 7.03c0 5.48-4.46 9.9-9.95 9.9zm5.45-7.44c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.78-1.67-2.08-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.05 1.03-1.05 2.51s1.07 2.92 1.22 3.12c.15.2 2.11 3.22 5.11 4.51.71.31 1.27.5 1.7.63.72.23 1.37.2 1.88.12.58-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35z"/></svg>
+      <span>WhatsApp Consultation</span>
+    </a>
   </div>
 </div>
 
@@ -1229,52 +1256,75 @@
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
-      <div>
-        <a href="#home" class="logo-wrap">
+      <div class="footer-brand-col">
+        <a href="#home" class="logo-wrap" aria-label="Noor-E-Haram Home">
           <picture class="footer-logo-picture">
-          <source srcset="/assets/images/logos/footer-logo.avif" type="image/avif">
-          <source srcset="/assets/images/logos/footer-logo.webp" type="image/webp">
-          <img src="/assets/images/logos/footer-logo.png" alt="Noor-E-Haram Logo" class="footer-logo-img" width="140" height="42" loading="lazy">
-        </picture>
-          <span class="logo-en">NOOR-E-HARAM</span>
+            <source srcset="/assets/images/logos/footer-logo.avif" type="image/avif">
+            <source srcset="/assets/images/logos/footer-logo.webp" type="image/webp">
+            <img src="/assets/images/logos/footer-logo.png" alt="Noor-E-Haram Logo" class="footer-logo-img" width="180" height="54" loading="lazy">
+          </picture>
         </a>
-        <p class="footer-tagline">Trusted Hajj, Umrah &amp; Ziyarat travel company providing complete pilgrimage solutions across India since 10+ years.</p>
+        <p class="footer-tagline">Trusted Hajj, Umrah &amp; Ziyarat travel company providing complete, end-to-end pilgrimage solutions across India for over a decade.</p>
         <div class="footer-arabic-msg arabic">نسأل الله أن يتقبل حجكم وعمرتكم<br><span class="footer-arabic-sub">اللهم ارزقنا حجاً مبروراً وعمرةً مقبولة</span></div>
-        <div class="mt-20">
-          <div class="social-links">
-            <a href="https://www.instagram.com/nooreharamindia" class="social-link" target="_blank" rel="noopener noreferrer" title="Instagram">📷</a>
-            <a href="https://www.facebook.com/share/1E5LeFEY8f/" class="social-link" target="_blank" rel="noopener noreferrer" title="Facebook">📘</a>
-            <a href="https://wa.me/919986925592" class="social-link" target="_blank" rel="noopener noreferrer" title="WhatsApp">💬</a>
-            <a href="tel:+919986925592" class="social-link" title="Call">📞</a>
-          </div>
+        <div class="social-links">
+          <a href="https://www.instagram.com/nooreharamindia" class="social-link" target="_blank" rel="noopener noreferrer" title="Instagram" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://www.facebook.com/share/1E5LeFEY8f/" class="social-link" target="_blank" rel="noopener noreferrer" title="Facebook" aria-label="Facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://wa.me/919986925592" class="social-link" target="_blank" rel="noopener noreferrer" title="WhatsApp" aria-label="WhatsApp">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.93 11.93 0 0 0 12.04 0C5.43 0 .06 5.37.06 11.98c0 2.11.55 4.17 1.6 6L0 24l6.2-1.63a11.95 11.95 0 0 0 5.84 1.51h.01c6.61 0 11.98-5.37 11.98-11.98 0-3.2-1.25-6.21-3.51-8.42zM12.05 21.88a9.92 9.92 0 0 1-5.06-1.39l-.36-.22-3.76.99 1-3.66-.24-.38a9.92 9.92 0 0 1-1.52-5.24c0-5.48 4.46-9.94 9.95-9.94 2.65 0 5.15 1.03 7.03 2.91a9.88 9.88 0 0 1 2.91 7.03c0 5.48-4.46 9.9-9.95 9.9zm5.45-7.44c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.78-1.67-2.08-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.05 1.03-1.05 2.51s1.07 2.92 1.22 3.12c.15.2 2.11 3.22 5.11 4.51.71.31 1.27.5 1.7.63.72.23 1.37.2 1.88.12.58-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35z"/></svg>
+          </a>
+          <a href="tel:+919986925592" class="social-link" title="Call Us" aria-label="Call Us">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </a>
         </div>
       </div>
-      <div>
+      <div class="footer-col">
         <h4>Quick Links</h4>
         <ul class="footer-links">
-          <li><a href="#about">About Us</a></li><li><a href="#packages">Our Packages</a></li><li><a href="#ziyarat">Ziyarat Guide</a></li>
-          <li><a href="#scholar">Scholar Corner</a></li><li><a href="#preparation">Before Departure</a></li><li><a href="#faq">FAQ</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#packages">Our Packages</a></li>
+          <li><a href="#ziyarat">Ziyarat Guide</a></li>
+          <li><a href="#scholar">Scholar Corner</a></li>
+          <li><a href="#preparation">Before Departure</a></li>
+          <li><a href="#faq">FAQ</a></li>
         </ul>
       </div>
-      <div>
+      <div class="footer-col">
         <h4>Packages</h4>
         <ul class="footer-links">
-          <li><a href="#packages">Hajj 2027</a></li><li><a href="#packages">Group Umrah (Hubli)</a></li><li><a href="#packages">Couple Umrah</a></li>
-          <li><a href="#packages">Family Umrah</a></li><li><a href="#packages">Group Umrah (Mumbai)</a></li><li><a href="#ramadan">Ramadan Umrah</a></li><li><a href="#international">International Tours</a></li>
+          <li><a href="#packages">Hajj 2027</a></li>
+          <li><a href="#packages">Group Umrah (Hubli)</a></li>
+          <li><a href="#packages">Couple Umrah</a></li>
+          <li><a href="#packages">Family Umrah</a></li>
+          <li><a href="#packages">Group Umrah (Mumbai)</a></li>
+          <li><a href="#ramadan">Ramadan Umrah</a></li>
+          <li><a href="#international">International Tours</a></li>
         </ul>
       </div>
-      <div>
-        <h4>Contact</h4>
+      <div class="footer-col">
+        <h4>Contact &amp; Head Office</h4>
         <ul class="footer-links">
-          <li><a href="tel:+919986925592">+91 99869 25592</a></li>
-          <li><a href="mailto:nooreharamindia@gmail.com">nooreharamindia@gmail.com</a></li>
-          <li class="footer-addr-item">Behind Barnabas Hall,<br>Mantoor Road,<br>Hubli - 580020, Karnataka</li>
-          <li><a href="#branches">All Branches →</a></li>
+          <li class="footer-contact-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:+919986925592">+91 99869 25592</a>
+          </li>
+          <li class="footer-contact-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:nooreharamindia@gmail.com">nooreharamindia@gmail.com</a>
+          </li>
+          <li class="footer-contact-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Behind Barnabas Hall, Mantoor Road, Hubli - 580020, Karnataka</span>
+          </li>
+          <li><a href="#branches">View All Branches Across India →</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2024 NOOR-E-HARAM. All rights reserved. | Branches across Karnataka, Kerala &amp; India</p>
+      <p>© 2026 NOOR-E-HARAM. All rights reserved. | Established 2016</p>
       <div class="u-flex u-gap-16 u-wrap">
         <a href="#privacy-policy" class="footer-legal-link">Privacy Policy</a>
         <a href="#terms-conditions" class="footer-legal-link">Terms &amp; Conditions</a>
@@ -1284,13 +1334,24 @@
   </div>
 </footer>
 
-<a href="https://wa.me/919986925592?text=Assalamu%20Alaikum.%20I%20am%20interested%20in%20Noor-E-Haram%20Umrah%20Package.%20Please%20share%20details." class="float-whatsapp" target="_blank" rel="noopener noreferrer" title="Chat on WhatsApp">💬</a>
-
-<div class="mobile-bar">
-  <a href="tel:+919986925592" class="mobile-bar-btn teal"><span class="icon">📞</span>Call</a>
-  <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum.%20I%20am%20interested%20in%20Noor-E-Haram%20Umrah%20Package.%20Please%20share%20details." class="mobile-bar-btn green" target="_blank" rel="noopener noreferrer"><span class="icon">💬</span>WhatsApp</a>
-  <a href="#packages" class="mobile-bar-btn"><span class="icon">🕋</span>Packages</a>
-  <a href="#branches" class="mobile-bar-btn"><span class="icon">📍</span>Branches</a>
+<div class="mobile-bar" role="navigation" aria-label="Mobile Navigation">
+  <a href="#home" class="mobile-bar-btn active">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    <span>Home</span>
+  </a>
+  <a href="#packages" class="mobile-bar-btn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+    <span>Packages</span>
+  </a>
+  <a href="#branches" class="mobile-bar-btn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    <span>Branches</span>
+  </a>
+  <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum.%20I%20am%20interested%20in%20Noor-E-Haram%20Umrah%20Package.%20Please%20share%20details." class="mobile-bar-btn whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Consultation">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.93 11.93 0 0 0 12.04 0C5.43 0 .06 5.37.06 11.98c0 2.11.55 4.17 1.6 6L0 24l6.2-1.63a11.95 11.95 0 0 0 5.84 1.51h.01c6.61 0 11.98-5.37 11.98-11.98 0-3.2-1.25-6.21-3.51-8.42zM12.05 21.88a9.92 9.92 0 0 1-5.06-1.39l-.36-.22-3.76.99 1-3.66-.24-.38a9.92 9.92 0 0 1-1.52-5.24c0-5.48 4.46-9.94 9.95-9.94 2.65 0 5.15 1.03 7.03 2.91a9.88 9.88 0 0 1 2.91 7.03c0 5.48-4.46 9.9-9.95 9.9zm5.45-7.44c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.78-1.67-2.08-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.05 1.03-1.05 2.51s1.07 2.92 1.22 3.12c.15.2 2.11 3.22 5.11 4.51.71.31 1.27.5 1.7.63.72.23 1.37.2 1.88.12.58-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35z"/></svg>
+    <span>WhatsApp</span>
+  </a>
+</div>
 <!-- ── WHATSAPP QUICK BOOKING MODAL ── -->
 <div class="modal-overlay" id="quickBookModal" style="display: none;">
   <div class="modal-card">

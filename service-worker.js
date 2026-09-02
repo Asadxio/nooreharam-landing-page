@@ -4,7 +4,7 @@
  * and Cache-First for static assets (CSS, JS, images, logos).
  */
 
-const CACHE_NAME = 'nh-cache-v10';
+const CACHE_NAME = 'nh-cache-v11';
 const OFFLINE_URL = '/offline.html';
 
 const ASSETS_TO_CACHE = [
@@ -22,6 +22,7 @@ const ASSETS_TO_CACHE = [
   '/assets/js/config/translations.js',
   '/assets/js/config/branches.data.js',
   '/assets/js/services/i18n.js',
+  '/assets/js/services/currency.js',
   '/assets/js/services/theme.js',
   '/assets/js/services/audio.js',
   '/assets/js/services/branches.js',
@@ -66,6 +67,13 @@ self.addEventListener('activate', event => {
 self.addEventListener('fetch', event => {
   // Ignore non-GET requests
   if (event.request.method !== 'GET') return;
+
+  const url = new URL(event.request.url);
+
+  // Never intercept or cache external currency APIs
+  if (url.origin !== self.location.origin) {
+    return;
+  }
 
   // Network-First for HTML/document requests to ensure fresh content
   if (event.request.mode === 'navigate') {

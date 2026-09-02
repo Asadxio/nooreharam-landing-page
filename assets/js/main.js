@@ -24,6 +24,7 @@ import { initScrollReveal } from './controllers/intersection.js';
 import { initAnalytics } from './services/analytics.js';
 import { initLazyLoading } from './services/lazyload.js';
 import { initPremiumEffects } from './controllers/premium-effects.js';
+import { initCurrencyTicker } from './services/currency.js';
 
 // Central Error Handling & Logging
 function initCentralErrorHandler() {
@@ -307,6 +308,7 @@ function initApp() {
 
     initLazyLoading();
     initAnalytics();
+    initCurrencyTicker('currencyTicker');
     
     // Register service worker for PWA support (Task 8)
     if ('serviceWorker' in navigator) {
