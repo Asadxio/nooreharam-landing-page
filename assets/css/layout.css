@@ -91,6 +91,10 @@
   color: var(--gold-light);
 }
 
+.ticker-phone-short {
+  display: none;
+}
+
 /* ── HEADER NAVIGATION ── */
 .header {
   position: fixed;
@@ -631,13 +635,16 @@
 
 @media (max-width: 768px) {
   .top-ticker-bar { font-size: 11px; padding: 6px 0; }
+  .ticker-phone-full { display: none; }
+  .ticker-phone-short { display: inline; }
   .header { top: 33px; padding: 8px 0; }
   .header.scrolled { top: 0; }
-  .header-logo-img { height: 42px; }
+  .header-logo-img { height: 40px; }
   .header-cta.btn-consultation { display: none; }
   .header-wa-link { display: none; }
   .mobile-bar { display: grid; }
   body, #main-content { padding-bottom: 72px; }
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
   .footer { padding-top: 48px; }
+  .nh-wa-bubble { display: none !important; }
 }

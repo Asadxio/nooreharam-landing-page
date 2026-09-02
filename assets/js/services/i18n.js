@@ -92,12 +92,20 @@ function applyAllTranslations(t) {
     if (key && t[key]) a.textContent = t[key];
   });
   const drawerBtns = document.querySelectorAll('.mobile-drawer .btn');
-  if (drawerBtns[0] && t['drawer.call']) drawerBtns[0].textContent = '📞 ' + t['drawer.call'];
-  if (drawerBtns[1] && t['drawer.whatsapp']) drawerBtns[1].textContent = '💬 ' + t['drawer.whatsapp'];
+  if (drawerBtns[0] && t['drawer.call']) {
+    const span = drawerBtns[0].querySelector('span');
+    if (span) span.textContent = 'Call ' + t['drawer.call'];
+    else drawerBtns[0].textContent = 'Call ' + t['drawer.call'];
+  }
+  if (drawerBtns[1] && t['drawer.whatsapp']) {
+    const span = drawerBtns[1].querySelector('span');
+    if (span) span.textContent = 'WhatsApp ' + t['drawer.whatsapp'];
+    else drawerBtns[1].textContent = 'WhatsApp ' + t['drawer.whatsapp'];
+  }
 
   // HEADER CTA
-  const hCta = document.querySelector('.header-cta');
-  if (hCta && t['nav.whatsapp']) hCta.textContent = '💬 ' + t['nav.whatsapp'];
+  const hCta = document.querySelector('.header-cta.btn-consultation');
+  if (hCta) hCta.textContent = t['hero.btn1'] || 'Book Consultation';
 
   // HERO
   const heroTagline = document.querySelector('.hero-tagline');
@@ -109,7 +117,7 @@ function applyAllTranslations(t) {
   const heroBtns = document.querySelectorAll('.hero-buttons .btn');
   if (heroBtns[0] && t['hero.btn1']) heroBtns[0].textContent = t['hero.btn1'];
   if (heroBtns[1] && t['hero.btn2']) heroBtns[1].textContent = t['hero.btn2'];
-  if (heroBtns[2] && t['hero.btn3']) heroBtns[2].textContent = '💬 ' + t['hero.btn3'];
+  if (heroBtns[2] && t['hero.btn3']) heroBtns[2].textContent = t['hero.btn3'];
   const trustItems = document.querySelectorAll('.hero-trust-item');
   const trustData = [['hero.trust1.value','hero.trust1.label'],['hero.trust2.value','hero.trust2.label'],['hero.trust3.value','hero.trust3.label']];
   trustItems.forEach((item, i) => {

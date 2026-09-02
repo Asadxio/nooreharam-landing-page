@@ -1,21 +1,19 @@
 /**
- * Noor-E-Haram — Real Live Currency Service
- * Fetches runtime SAR -> INR exchange rate with timeout, fallbacks,
+ * Noor-E-Haram — Real Live Currency Service (Phase 2.3)
+ * Fetches runtime SAR -> INR exchange rate with timeout, multiple fallbacks,
  * localStorage caching (1-hour TTL), and non-blocking initialization.
  */
 
 const STORAGE_KEY = 'nh_currency_sar_inr_v1';
 const CACHE_TTL_MS = 60 * 60 * 1000; // 1 hour
-const FETCH_TIMEOUT_MS = 4000; // 4 seconds timeout
+const FETCH_TIMEOUT_MS = 5000; // 5 seconds timeout
 
 const PRIMARY_API = 'https://open.er-api.com/v6/latest/SAR';
-const FALLBACK_API = 'https://api.exchangerate-api.com/v4/latest/SAR';
+const FALLBACK_API_1 = 'https://api.exchangerate-api.com/v4/latest/SAR';
+const FALLBACK_API_2 = 'https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/sar.json';
 
 let currentRateData = null;
 
-/**
- * Reads cached currency data from localStorage if present and valid
- */
 function readCache() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
@@ -30,13 +28,10 @@ function readCache() {
   return null;
 }
 
-/**
- * Saves fresh currency data to localStorage
- */
 function writeCache(rate) {
   try {
     const payload = {
-      rate: parseFloat(rate.toFixed(2)),
+      rate: parseFloat(Number(rate).toFixed(2)),
       timestamp: Date.now()
     };
     localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
@@ -47,9 +42,6 @@ function writeCache(rate) {
   return null;
 }
 
-/**
- * Formats time elapsed since timestamp
- */
 function formatTimeAgo(timestamp) {
   const diffMs = Date.now() - timestamp;
   const mins = Math.floor(diffMs / 60000);
@@ -61,14 +53,12 @@ function formatTimeAgo(timestamp) {
   return `${days}d ago`;
 }
 
-/**
- * Fetch with timeout using AbortController
- */
 async function fetchWithTimeout(url, timeoutMs) {
   const controller = new AbortController();
   const id = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const res = await fetch(url, { signal: controller.signal, cache: 'no-cache' });
+    // Standard simple GET request without custom headers to ensure zero CORS preflight issues
+    const res = await fetch(url, { signal: controller.signal });
     clearTimeout(id);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     return await res.json();
@@ -78,41 +68,44 @@ async function fetchWithTimeout(url, timeoutMs) {
   }
 }
 
-/**
- * Fetches real-time rate from API with secondary fallback
- */
 async function fetchRuntimeRate() {
-  // Try primary API
+  // Try primary API (open.er-api.com)
   try {
     const json = await fetchWithTimeout(PRIMARY_API, FETCH_TIMEOUT_MS);
     if (json && json.rates && typeof json.rates.INR === 'number') {
       return json.rates.INR;
     }
   } catch (err) {
-    console.warn('[Currency] Primary API failed, trying fallback:', err.message);
+    console.warn('[Currency] Primary API error, trying fallback 1:', err.message);
   }
 
-  // Try fallback API
+  // Try fallback API 1 (api.exchangerate-api.com)
   try {
-    const json2 = await fetchWithTimeout(FALLBACK_API, FETCH_TIMEOUT_MS);
-    if (json2 && json2.rates && typeof json2.rates.INR === 'number') {
-      return json2.rates.INR;
+    const json1 = await fetchWithTimeout(FALLBACK_API_1, FETCH_TIMEOUT_MS);
+    if (json1 && json1.rates && typeof json1.rates.INR === 'number') {
+      return json1.rates.INR;
+    }
+  } catch (err1) {
+    console.warn('[Currency] Fallback 1 error, trying fallback 2:', err1.message);
+  }
+
+  // Try fallback API 2 (jsdelivr currency-api)
+  try {
+    const json2 = await fetchWithTimeout(FALLBACK_API_2, FETCH_TIMEOUT_MS);
+    if (json2 && json2.sar && typeof json2.sar.inr === 'number') {
+      return json2.sar.inr;
     }
   } catch (err2) {
-    console.warn('[Currency] Fallback API failed:', err2.message);
+    console.warn('[Currency] Fallback 2 error:', err2.message);
   }
 
   return null;
 }
 
-/**
- * Main public getter: returns live or cached exchange rate
- */
 export async function getLiveCurrency() {
   const cached = readCache();
   const isCacheFresh = cached && (Date.now() - cached.timestamp < CACHE_TTL_MS);
 
-  // If cache is fresh, use it immediately
   if (isCacheFresh) {
     currentRateData = {
       rate: cached.rate,
@@ -123,7 +116,6 @@ export async function getLiveCurrency() {
     return currentRateData;
   }
 
-  // Otherwise, attempt fresh fetch
   try {
     const liveRate = await fetchRuntimeRate();
     if (typeof liveRate === 'number' && liveRate > 0) {
@@ -140,7 +132,6 @@ export async function getLiveCurrency() {
     console.error('[Currency] Fetch error:', err);
   }
 
-  // If API failed but we have stale cache, use it gracefully
   if (cached) {
     currentRateData = {
       rate: cached.rate,
@@ -151,7 +142,6 @@ export async function getLiveCurrency() {
     return currentRateData;
   }
 
-  // Both API and cache unavailable
   currentRateData = {
     rate: null,
     status: 'UNAVAILABLE',
@@ -161,9 +151,6 @@ export async function getLiveCurrency() {
   return currentRateData;
 }
 
-/**
- * Synchronous getter for calculator / other modules (returns current rate or cached fallback or null)
- */
 export function getCurrentSarRate() {
   if (currentRateData && typeof currentRateData.rate === 'number') {
     return currentRateData.rate;
@@ -172,15 +159,10 @@ export function getCurrentSarRate() {
   return cached ? cached.rate : null;
 }
 
-/**
- * Initializes and renders the currency widget into the target container.
- * Completely non-blocking. Never throws. Uses clean SVGs, NO emoji.
- */
 export function initCurrencyTicker(containerId = 'currencyTicker') {
   const container = document.getElementById(containerId);
   if (!container) return;
 
-  // Immediate optimistic render from cache to eliminate FOUC / layout shift
   const cached = readCache();
   if (cached) {
     renderTickerUI(container, {
@@ -189,29 +171,17 @@ export function initCurrencyTicker(containerId = 'currencyTicker') {
       updatedText: `Updated ${formatTimeAgo(cached.timestamp)}`,
       isLive: false
     });
-  } else {
-    // Initial loading placeholder without layout shift
-    container.innerHTML = `
-      <span class="currency-badge status-loading">
-        <span class="currency-dot loading"></span>
-        <span class="currency-label">Fetching SAR rate...</span>
-      </span>
-    `;
   }
 
-  // Background non-blocking fetch
   getLiveCurrency().then(result => {
     if (result) {
       renderTickerUI(container, result);
     }
   }).catch(e => {
-    console.warn('[Currency] Initialization error:', e);
+    console.warn('[Currency] Init error:', e);
   });
 }
 
-/**
- * Renders the accessible, clean SVG UI for currency status
- */
 function renderTickerUI(container, data) {
   if (!container) return;
 
