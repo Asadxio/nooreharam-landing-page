@@ -123,35 +123,6 @@ function initParallaxHero() {
   });
 }
 
-/* ── 4. 3D TILT CARDS ───────────────────────────────────────────────────── */
-function applyTilt(card) {
-  if (card.dataset.tiltInit) return; card.dataset.tiltInit = '1';
-  let ticking = false;
-  card.addEventListener('mousemove', e => {
-    if (ticking) return; ticking = true;
-    requestAnimationFrame(() => {
-      const r = card.getBoundingClientRect();
-      const x = e.clientX - r.left, y = e.clientY - r.top;
-      const rY = ((x - r.width/2) / (r.width/2)) * 9;
-      const rX = -((y - r.height/2) / (r.height/2)) * 7;
-      card.style.transform = `perspective(1000px) rotateX(${rX}deg) rotateY(${rY}deg) translateY(-6px) scale(1.015)`;
-      let sh = card.querySelector('.nh-shine');
-      if (!sh) { sh = document.createElement('div'); sh.className = 'nh-shine'; card.appendChild(sh); }
-      sh.style.background = `radial-gradient(circle at ${(x/r.width)*100}% ${(y/r.height)*100}%,rgba(255,255,255,.1) 0%,transparent 55%)`;
-      ticking = false;
-    });
-  }, { passive: true });
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0) scale(1)';
-    const sh = card.querySelector('.nh-shine'); if (sh) sh.style.background = 'transparent';
-  });
-}
-function initTiltCards() {
-  if (IS_MOBILE || REDUCED) return;
-  document.querySelectorAll('.package-card,.tilt-card').forEach(applyTilt);
-  const grid = document.getElementById('packagesGrid');
-  if (grid) new MutationObserver(() => document.querySelectorAll('.package-card').forEach(applyTilt)).observe(grid, { childList: true });
-}
 
 /* ── 5. MAGNETIC BUTTONS ────────────────────────────────────────────────── */
 function initMagneticButtons() {
@@ -314,77 +285,12 @@ function initGlassNav() {
   }, { passive: true });
 }
 
-/* ── 14. ANIMATED GLOW BORDER (featured card) ──────────────────────────── */
-function initAnimatedBorders() {
-  document.querySelectorAll('.package-card.featured').forEach(c => c.classList.add('nh-glow-border'));
-  const grid = document.getElementById('packagesGrid');
-  if (grid) new MutationObserver(() => {
-    document.querySelectorAll('.package-card.featured:not(.nh-glow-border)').forEach(c => c.classList.add('nh-glow-border'));
-  }).observe(grid, { childList: true });
-}
-
-/* ── 15. NUMBER SCRAMBLE ────────────────────────────────────────────────── */
-function initNumberScramble() {
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      const el = entry.target, original = el.textContent.trim();
-      const numMatch = original.match(/\d[\d,]*/); if (!numMatch) return;
-      const target = parseInt(numMatch[0].replace(/,/g,'')), suffix = original.slice(original.indexOf(numMatch[0])+numMatch[0].length);
-      let frame = 0; const total = 40;
-      const timer = setInterval(() => {
-        frame++;
-        if (frame < total - 8) el.textContent = Math.floor(Math.random()*target).toLocaleString('en-IN') + suffix;
-        else { const p = (frame-(total-8))/8; el.textContent = Math.floor(target*p).toLocaleString('en-IN') + suffix; }
-        if (frame >= total) { clearInterval(timer); el.textContent = original; }
-      }, 35);
-      obs.unobserve(el);
-    });
-  }, { threshold: 0.5 });
-  document.querySelectorAll('.stat-number').forEach(n => obs.observe(n));
-}
-
-/* ── 16. SOCIAL PROOF TOASTS ────────────────────────────────────────────── */
-function initNotificationToasts() {
-  const toast = document.getElementById('nhToast'), msg = document.getElementById('nhToastMsg');
-  if (!toast || !msg) return;
-  const msgs = [
-    '🕋 Ahmed from Bengaluru just booked a Deluxe package!',
-    '✅ 5 people booked Umrah packages today!',
-    '📞 Fatima from Mumbai enquired about Ziyarat.',
-    '🌙 3 families from Hubli confirmed their departure!',
-    '🛫 Next batch: only 4 seats remaining — book now!'
-  ];
-  let idx = 0;
-  function show() {
-    msg.textContent = msgs[idx++ % msgs.length];
-    toast.classList.add('nh-toast-show');
-    setTimeout(() => toast.classList.remove('nh-toast-show'), 4500);
-  }
-  setTimeout(() => { show(); setInterval(show, 12000); }, 7000);
-}
-
-/* ── 17. SCROLL PROGRESS BAR ────────────────────────────────────────────── */
-function initScrollProgress() {
-  const bar = document.createElement('div'); bar.id = 'nhScrollProgress'; document.body.prepend(bar);
-  let ticking = false;
-  window.addEventListener('scroll', () => {
-    if (ticking) return; ticking = true;
-    requestAnimationFrame(() => {
-      const st = document.documentElement.scrollTop, dh = document.documentElement.scrollHeight - window.innerHeight;
-      bar.style.width = (dh > 0 ? (st/dh)*100 : 0) + '%';
-      ticking = false;
-    });
-  }, { passive: true });
-}
-
 /* ── INIT ALL — deferred after page load ────────────────────────────────── */
 export function initPremiumEffects() {
   // Critical: cursor & nav (start early)
   initCustomCursor();
   initGlassNav();
   initRippleEffect();
-  initScrollProgress();
   initCountdown();
   initTypewriter();
 
@@ -396,16 +302,12 @@ export function initPremiumEffects() {
   }, 300);
 
   defer(() => {
-    initTiltCards();
     initMagneticButtons();
     initStaggeredCards();
-    initAnimatedBorders();
     initCinematicReveal();
   }, 800);
 
   defer(() => {
-    initNumberScramble();
-    initNotificationToasts();
     initConfetti();
   }, 1500);
 }
