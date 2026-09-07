@@ -379,7 +379,9 @@ Please assist me with booking and options.`;
       statusBox.textContent = translations[lang]['contact.form.error'] || 'Could not send. Please try WhatsApp or Email instead.';
     } finally {
       submitBtn.disabled = false;
-      submitBtn.textContent = '📨 Submit Inquiry';
+      const t = translations[lang];
+      const sendTxt = t ? (t["contact.form.submit"] || "Submit Inquiry") : "Submit Inquiry";
+      submitBtn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg> <span>${sendTxt}</span>`;
     }
   });
 })();

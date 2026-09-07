@@ -18,7 +18,7 @@ import { calculateCost } from './services/forms.js';
 import { toggleDuaAudio } from './services/audio.js';
 import { initNavigation } from './controllers/navigation.js';
 import { closeDrawer } from './controllers/drawer.js';
-import { toggleFaq } from './controllers/faq.js';
+import { toggleFaq, initFaqSearch } from './controllers/faq.js';
 import { initPageLoader } from './controllers/animations.js';
 import { initScrollReveal } from './controllers/intersection.js';
 import { initAnalytics } from './services/analytics.js';
@@ -309,6 +309,7 @@ function initApp() {
     initLazyLoading();
     initAnalytics();
     initCurrencyTicker('currencyTicker');
+    initFaqSearch();
     
     // Register service worker for PWA support (Task 8)
     if ('serviceWorker' in navigator) {
