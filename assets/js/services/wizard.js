@@ -1,4 +1,5 @@
 import { translations } from '../config/translations.js';
+import { currentLang } from './i18n.js';
 
 // Checklist Wizard Service
 // ── DOCUMENT CHECKLIST WIZARD LOGIC ──
@@ -237,51 +238,6 @@ function shareWizardWhatsApp() {
   window.open(`https://wa.me/919986925592?text=${realEncoded}`, "_blank");
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  if (typeof initTheme === 'function') initTheme();
-  if (typeof setLang === 'function') setLang(currentLang);
-  if (typeof initBranchLocator === 'function') initBranchLocator();
-  if (typeof resetWizard === 'function') resetWizard();
-  if (typeof calculateCost === 'function') calculateCost();
-
-  // Close lang dropdown on outside click
-  document.addEventListener('click', e => {
-    const switcher = document.querySelector('.lang-switcher');
-    if (switcher && !switcher.contains(e.target)) switcher.classList.remove('open');
-  });
-  const langBtn = document.getElementById('langBtn');
-  if (langBtn) langBtn.addEventListener('click', e => {
-    e.stopPropagation();
-    document.querySelector('.lang-switcher').classList.toggle('open');
-  });
-
-  // Toggle nav dropdown on click/tap
-  const navItem = document.querySelector('.nav-item');
-  if (navItem) {
-    const navLink = navItem.querySelector('a');
-    if (navLink) {
-      navLink.addEventListener('click', e => {
-        e.preventDefault();
-        e.stopPropagation();
-        navItem.classList.toggle('open');
-      });
-    }
-    const ddItems = navItem.querySelectorAll('.nav-dd-item');
-    ddItems.forEach(item => {
-      item.addEventListener('click', () => {
-        navItem.classList.remove('open');
-      });
-    });
-  }
-
-  // Close nav dropdown on outside click
-  document.addEventListener('click', e => {
-    const navItem = document.querySelector('.nav-item');
-    if (navItem && !navItem.contains(e.target)) {
-      navItem.classList.remove('open');
-    }
-  });
-});
 
 
 

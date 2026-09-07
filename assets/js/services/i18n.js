@@ -617,7 +617,7 @@ function renderSingleCard(pkg, t, container, isFeatured) {
       ${statusBadgeHtml}
       <div class="package-price">
         <span class="price-from">${t['pkg.priceFrom'] || 'Starting'}</span>
-        <span class="price-amount">${formattedPrice}</span>
+        <span class="price-amount" data-inr="${startPrice}">${formattedPrice}</span>
       </div>
       <ul class="package-features">
         ${featuresHtml}
@@ -677,7 +677,7 @@ function renderGroupUmrahCard(t, container) {
             ${mumbaiGroup.variants.map(v => `
               <tr>
                 <td>${v.name}</td>
-                <td>${formatter.format(v.price)}</td>
+                <td data-inr="${v.price}">${formatter.format(v.price)}</td>
               </tr>
             `).join('')}
           </tbody>
@@ -702,7 +702,7 @@ function renderGroupUmrahCard(t, container) {
             ${hubliGroup.variants.map(v => `
               <tr>
                 <td>${v.name}</td>
-                <td>${formatter.format(v.price)}${v.isStartingLabel ? ' onwards' : ''}</td>
+                <td data-inr="${v.price}">${formatter.format(v.price)}${v.isStartingLabel ? ' onwards' : ''}</td>
               </tr>
             `).join('')}
           </tbody>

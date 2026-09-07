@@ -4,7 +4,7 @@
  * and Cache-First for static assets (CSS, JS, images, logos).
  */
 
-const CACHE_NAME = 'nh-cache-v11';
+const CACHE_NAME = 'nh-cache-v12';
 const OFFLINE_URL = '/offline.html';
 
 const ASSETS_TO_CACHE = [

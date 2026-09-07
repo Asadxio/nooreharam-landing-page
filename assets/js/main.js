@@ -24,7 +24,7 @@ import { initScrollReveal } from './controllers/intersection.js';
 import { initAnalytics } from './services/analytics.js';
 import { initLazyLoading } from './services/lazyload.js';
 import { initPremiumEffects } from './controllers/premium-effects.js';
-import { initCurrencyTicker } from './services/currency.js';
+import { initCurrencyTicker, getCurrentSarRate } from './services/currency.js';
 
 // Central Error Handling & Logging
 function initCentralErrorHandler() {
@@ -164,10 +164,8 @@ function bindDOMEvents() {
     }
   });
 
-  // Currency Switcher Event Binding
+  // Currency Switcher Event Binding (Phase 2.3 Live Currency Integration)
   let currentCurrency = 'INR';
-  const currencyRates = { INR: 1, SAR: 0.045, USD: 0.012 };
-  const currencySymbols = { INR: '₹', SAR: '﷼ ', USD: '$' };
 
   document.querySelectorAll('.currency-pill').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -175,15 +173,26 @@ function bindDOMEvents() {
       btn.classList.add('active');
       currentCurrency = btn.dataset.currency;
       
-      const rate = currencyRates[currentCurrency] || 1;
-      const symbol = currencySymbols[currentCurrency] || '₹';
-      document.querySelectorAll('.pkg-price-num, .price-val').forEach(el => {
-        const inrPrice = parseFloat(el.dataset.inr || el.textContent.replace(/[^0-9.]/g, ''));
-        if (!el.dataset.inr && inrPrice) el.dataset.inr = inrPrice;
-        const base = parseFloat(el.dataset.inr || 0);
-        if (base) {
-          const converted = Math.round(base * rate);
-          el.textContent = symbol + converted.toLocaleString();
+      const sarRate = getCurrentSarRate() || 25.33; // 1 SAR = ~25.33 INR
+      const usdRate = 86.80; // Benchmark USD rate
+      
+      // Target both main card price headers and table cells
+      document.querySelectorAll('.price-amount, .pkg-price-num, .price-val, .package-pricing-table td:last-child').forEach(el => {
+        if (!el.dataset.inr) {
+          const rawNum = el.textContent.replace(/[^0-9]/g, '');
+          if (rawNum) el.dataset.inr = rawNum;
+        }
+        const baseInr = parseFloat(el.dataset.inr || 0);
+        if (baseInr) {
+          if (currentCurrency === 'SAR') {
+            const converted = Math.round(baseInr / sarRate);
+            el.textContent = `SAR ${converted.toLocaleString()}`;
+          } else if (currentCurrency === 'USD') {
+            const converted = Math.round(baseInr / usdRate);
+            el.textContent = `$${converted.toLocaleString()}`;
+          } else {
+            el.textContent = `₹${baseInr.toLocaleString('en-IN')}`;
+          }
         }
       });
     });

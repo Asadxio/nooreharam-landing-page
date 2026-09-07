@@ -1,19 +1,132 @@
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .about-grid { grid-template-columns: 1fr; gap: 40px; }
-  .about-visual { display: none; }
-  .contact-grid { grid-template-columns: 1fr; }
-  .footer-grid { grid-template-columns: 1fr 1fr; }
+/* ================================================================
+   NOOR-E-HARAM — COMPREHENSIVE RESPONSIVE DESIGN SYSTEM
+   Tested Viewports: 1440px, 1280px, 1024px, 768px, 480px, 390px, 375px
+   ================================================================ */
+
+/* Large Desktop / Wide Screens (1280px - 1440px) */
+@media (min-width: 1280px) {
+  .container { max-width: 1240px; padding: 0 32px; }
+  .hero-content { padding: 140px 0 100px; }
+}
+
+/* Standard Desktop / Small Laptop (1024px - 1279px) */
+@media (max-width: 1279px) {
+  .container { max-width: 1040px; padding: 0 24px; }
+  .about-grid { gap: 48px; }
+  .footer-grid { gap: 32px; }
+  .journey-route-diagram svg { max-width: 100%; }
+}
+
+/* Tablets & Medium Screens (769px - 1023px) */
+@media (max-width: 1023px) {
   .nav { display: none; }
   .nav-toggle { display: flex; }
   .header-cta { display: none; }
+  .header-wa-link { display: none; }
+  
+  .about-grid { 
+    grid-template-columns: 1fr; 
+    gap: 40px; 
+  }
+  .about-visual { 
+    max-height: 380px; 
+    aspect-ratio: 16/9;
+  }
+  
+  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  
+  .packages-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+  
+  .trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
-@media (max-width: 600px) {
-  .section { padding: 56px 0; }
-  .footer-grid { grid-template-columns: 1fr; }
+
+/* Small Tablets & Large Mobiles (481px - 768px) */
+@media (max-width: 768px) {
+  .section { padding: 64px 0; }
+  .section-title { font-size: 32px; }
+  
+  /* Top utility bar */
+  .top-ticker-bar .container {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+  .ticker-center { display: none; }
+  
+  /* Hero adjustments */
+  .hero-content { padding: 110px 0 60px; }
+  .hero-buttons { gap: 10px; }
+  .hero-buttons .btn { width: 100%; justify-content: center; }
+  .hero-trust { gap: 20px; }
+  
+  /* Route Map on tablet/mobile */
+  .journey-route-wrap { padding: 24px 16px; }
+  .journey-route-diagram svg { min-width: 600px; }
+  .journey-route-diagram { overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 8px; }
+  
+  .route-stages-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  
+  /* Timeline */
+  .timeline::before { left: 24px; }
+  .timeline-step { gap: 16px; padding-bottom: 28px; }
+  .step-num { width: 48px; height: 48px; font-size: 20px; }
+  .step-content { padding: 14px 16px; }
+  
+  /* Calculator */
+  .calc-grid { grid-template-columns: 1fr; gap: 16px; }
+  
+  /* Team */
+  .team-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+  
+  /* Branches */
+  .branches-filter-panel { grid-template-columns: 1fr; gap: 12px; }
+  
+  /* FAQ search */
+  .faq-filter-pills { justify-content: flex-start; overflow-x: auto; padding-bottom: 6px; -webkit-overflow-scrolling: touch; }
+}
+
+/* Standard Mobile (390px - 480px) */
+@media (max-width: 480px) {
+  .section { padding: 48px 0; }
+  .container { padding: 0 16px; }
+  
+  .section-title { font-size: 28px; }
+  .section-subtitle { font-size: 15px; margin-bottom: 32px; }
+  
+  .hero-arabic-opener { font-size: 20px; }
+  .hero-title { font-size: 36px; }
+  .hero-subtitle { font-size: 16px; }
+  
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .stat-number { font-size: 36px; }
+  .stat-card { padding: 24px 16px; }
+  
+  .route-stages-grid { grid-template-columns: 1fr; }
+  .trust-grid { grid-template-columns: 1fr; }
+  
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; text-align: center; gap: 12px; }
+  
   .mobile-bar { display: grid; }
-  .float-whatsapp { bottom: 72px; }
-  .hero-buttons { flex-direction: column; }
+  .float-whatsapp { bottom: 76px; }
+  .nh-wa-bubble { bottom: 76px; }
+}
+
+/* Compact Mobile (320px - 375px) */
+@media (max-width: 375px) {
+  .hero-title { font-size: 32px; }
+  .btn { padding: 11px 20px; font-size: 13.5px; }
+  .stats-grid { grid-template-columns: 1fr; }
+  .header-logo-img { height: 42px; }
+  .package-pricing-table th, .package-pricing-table td { padding: 6px 8px; font-size: 11px; }
 }
 
 
