@@ -346,8 +346,13 @@ function initApp() {
     const errorBanner = document.createElement('div');
     errorBanner.style.cssText = 'position:fixed; bottom:16px; left:16px; right:16px; background:#fde2e2; color:#a33; border:1px solid #f5c6cb; padding:12px 16px; border-radius:8px; font-size:14px; z-index:100000; box-shadow:0 4px 12px rgba(0,0,0,0.15); display:flex; justify-content:space-between; align-items:center;';
     errorBanner.innerHTML = `
-      <span>⚠️ <strong>System Notice:</strong> Some interactive elements failed to load. You can still browse the page or contact us on WhatsApp.</span>
-      <button onclick="this.parentElement.remove()" style="background:none; border:none; color:#a33; font-weight:bold; cursor:pointer; font-size:16px; margin-left:12px;">×</button>
+      <span style="display:inline-flex;align-items:center;gap:8px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        <span><strong>System Notice:</strong> Some interactive elements failed to load. You can still browse the page or contact us on WhatsApp.</span>
+      </span>
+      <button onclick="this.parentElement.remove()" style="background:none; border:none; color:#a33; font-weight:bold; cursor:pointer; display:inline-flex; align-items:center; margin-left:12px;" aria-label="Dismiss">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
     `;
     document.body.appendChild(errorBanner);
   }

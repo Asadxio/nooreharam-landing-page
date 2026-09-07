@@ -235,8 +235,8 @@ function applyAllTranslations(t) {
   const duaData = [['duas.label1','duas.trans1'],['duas.label2','duas.trans2'],['duas.label3','duas.trans3']];
   duaCards.forEach((card, i) => {
     if (!duaData[i]) return;
-    const label = card.querySelector('.dua-label'), trans = card.querySelector('.dua-translation');
-    if (label && t[duaData[i][0]]) label.textContent = t[duaData[i][0]];
+    const labelSpan = card.querySelector('.dua-label span'), trans = card.querySelector('.dua-translation');
+    if (labelSpan && t[duaData[i][0]]) labelSpan.textContent = t[duaData[i][0]];
     if (trans && t[duaData[i][1]]) trans.textContent = t[duaData[i][1]];
   });
 

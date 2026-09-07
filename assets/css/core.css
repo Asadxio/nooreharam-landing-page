@@ -69,10 +69,15 @@ body {
   gap: 8px;
 }
 .eyebrow::before, .eyebrow::after {
-  content: "✦";
-  font-size: 8px;
-  color: var(--gold-premium);
-  opacity: 0.8;
+  content: "";
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23C9A24B'%3E%3Cpath d='M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5Z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.85;
 }
 .eyebrow.no-stars::before, .eyebrow.no-stars::after { display: none; }
 .eyebrow-gold { color: var(--gold-premium); }

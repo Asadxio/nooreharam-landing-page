@@ -165,14 +165,18 @@ function initCinematicReveal() {
 function initFloatingShapes() {
   if (REDUCED) return;
   const hero = document.querySelector('.hero'); if (!hero) return;
+  const crescentSvg = `<svg width="100%" height="100%" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.79c.07-.37.14-.74.14-1.11H12z"/></svg>`;
+  const starSvg = `<svg width="100%" height="100%" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5Z"/></svg>`;
   [
-    { s: '☽', x: '85%', y: '12%', sz: '60px', o: .06, d: '8s' },
-    { s: '✦', x: '5%',  y: '28%', sz: '20px', o: .10, d: '6s' },
-    { s: '✦', x: '92%', y: '60%', sz: '14px', o: .08, d: '7s' },
-    { s: '☽', x: '8%',  y: '78%', sz: '32px', o: .05, d: '9s' },
+    { svg: crescentSvg, x: '85%', y: '12%', sz: '54px', o: .06, d: '8s' },
+    { svg: starSvg,     x: '5%',  y: '28%', sz: '18px', o: .10, d: '6s' },
+    { svg: starSvg,     x: '92%', y: '60%', sz: '14px', o: .08, d: '7s' },
+    { svg: crescentSvg, x: '8%',  y: '78%', sz: '30px', o: .05, d: '9s' },
   ].forEach(s => {
-    const el = document.createElement('div'); el.textContent = s.s; el.setAttribute('aria-hidden', 'true');
-    el.style.cssText = `position:absolute;left:${s.x};top:${s.y};font-size:${s.sz};opacity:${s.o};color:#d4ac0d;pointer-events:none;z-index:1;animation:nhFloat ${s.d} ease-in-out infinite alternate;user-select:none;will-change:transform;`;
+    const el = document.createElement('div');
+    el.innerHTML = s.svg;
+    el.setAttribute('aria-hidden', 'true');
+    el.style.cssText = `position:absolute;left:${s.x};top:${s.y};width:${s.sz};height:${s.sz};opacity:${s.o};color:#d4ac0d;pointer-events:none;z-index:1;animation:nhFloat ${s.d} ease-in-out infinite alternate;user-select:none;will-change:transform;`;
     hero.appendChild(el);
   });
 }
