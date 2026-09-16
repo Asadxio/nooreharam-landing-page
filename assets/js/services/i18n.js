@@ -112,8 +112,13 @@ function applyAllTranslations(t) {
   if (heroTagline && t['hero.tagline']) heroTagline.textContent = t['hero.tagline'];
   const heroTitle = document.querySelector('.hero-title');
   if (heroTitle && t['hero.title1']) heroTitle.innerHTML = t['hero.title1'] + ' <span class="highlight">' + t['hero.title2'] + '</span><br>' + t['hero.title3'];
+  const heroTw = document.getElementById('nhTypewriter');
   const heroSub = document.querySelector('.hero-subtitle');
-  if (heroSub && t['hero.subtitle']) heroSub.textContent = t['hero.subtitle'];
+  if (heroTw && t['hero.subtitle']) {
+    heroTw.textContent = t['hero.subtitle'];
+  } else if (heroSub && t['hero.subtitle']) {
+    heroSub.textContent = t['hero.subtitle'];
+  }
   const heroBtns = document.querySelectorAll('.hero-buttons .btn');
   if (heroBtns[0] && t['hero.btn1']) heroBtns[0].textContent = t['hero.btn1'];
   if (heroBtns[1] && t['hero.btn2']) heroBtns[1].textContent = t['hero.btn2'];
@@ -200,6 +205,9 @@ function applyAllTranslations(t) {
   svcCards.forEach((el, i) => { if (svcKeys[i] && t[svcKeys[i]]) el.textContent = t[svcKeys[i]]; });
 
   // REUSABLE DEFAULTS
+  setText('#packages .eyebrow', 'packages.eyebrow');
+  setText('#packages .section-title', 'packages.title');
+  setText('#packages .section-subtitle', 'packages.subtitle');
   const pkgNote = document.querySelector('#packages > .container > div.text-center.mt-32 p');
   if (pkgNote && t['pkg.note']) pkgNote.textContent = t['pkg.note'];
   const pkgCustomBtn = document.querySelector('#packages > .container > div.text-center.mt-32 a.btn');

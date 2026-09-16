@@ -241,20 +241,33 @@ function bindDOMEvents() {
   const quickBookModal = document.getElementById('quickBookModal');
   const closeQbBtn = document.getElementById('closeQuickBookModal');
   const qbSubmitBtn = document.getElementById('qbSubmitBtn');
+  let qbLastFocus = null;
+
+  function closeQuickBook() {
+    if (!quickBookModal) return;
+    quickBookModal.style.display = 'none';
+    document.body.style.overflow = '';
+    if (qbLastFocus && typeof qbLastFocus.focus === 'function') {
+      qbLastFocus.focus();
+    }
+  }
+
+  window.closeQuickBook = closeQuickBook;
 
   if (closeQbBtn && quickBookModal) {
-    closeQbBtn.addEventListener('click', () => {
-      quickBookModal.style.display = 'none';
-    });
+    closeQbBtn.addEventListener('click', closeQuickBook);
     quickBookModal.addEventListener('click', (e) => {
-      if (e.target === quickBookModal) quickBookModal.style.display = 'none';
+      if (e.target === quickBookModal) closeQuickBook();
     });
   }
 
   window.openQuickBook = function(packageName) {
     if (!quickBookModal) return;
+    qbLastFocus = document.activeElement;
     document.getElementById('qbPackageName').value = packageName || 'Noor-E-Haram Package';
     quickBookModal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    if (closeQbBtn) closeQbBtn.focus();
   };
 
   if (qbSubmitBtn) {
@@ -275,7 +288,7 @@ function bindDOMEvents() {
 Please share availability and package details.`;
       
       window.open(`https://wa.me/919986925592?text=${encodeURIComponent(msg)}`, '_blank');
-      quickBookModal.style.display = 'none';
+      closeQuickBook();
     });
   }
 }

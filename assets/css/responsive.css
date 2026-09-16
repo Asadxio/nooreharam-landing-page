@@ -48,7 +48,7 @@
 /* Small Tablets & Large Mobiles (481px - 768px) */
 @media (max-width: 768px) {
   .section { padding: 64px 0; }
-  .section-title { font-size: 32px; }
+  .section-title { font-size: var(--text-2xl); }
   
   /* Top utility bar */
   .top-ticker-bar .container {
@@ -77,7 +77,7 @@
   /* Timeline */
   .timeline::before { left: 24px; }
   .timeline-step { gap: 16px; padding-bottom: 28px; }
-  .step-num { width: 48px; height: 48px; font-size: 20px; }
+  .step-num { width: 48px; height: 48px; font-size: var(--text-xl); }
   .step-content { padding: 14px 16px; }
   
   /* Calculator */
@@ -98,15 +98,15 @@
   .section { padding: 48px 0; }
   .container { padding: 0 16px; }
   
-  .section-title { font-size: 28px; }
-  .section-subtitle { font-size: 15px; margin-bottom: 32px; }
+  .section-title { font-size: var(--text-2xl); }
+  .section-subtitle { font-size: var(--text-sm); margin-bottom: 32px; }
   
-  .hero-arabic-opener { font-size: 20px; }
-  .hero-title { font-size: 36px; }
-  .hero-subtitle { font-size: 16px; }
+  .hero-arabic-opener { font-size: var(--text-xl); }
+  .hero-title { font-size: var(--text-3xl); }
+  .hero-subtitle { font-size: var(--text-md); }
   
   .stats-grid { grid-template-columns: 1fr 1fr; }
-  .stat-number { font-size: 36px; }
+  .stat-number { font-size: var(--text-3xl); }
   .stat-card { padding: 24px 16px; }
   
   .route-stages-grid { grid-template-columns: 1fr; }
@@ -122,11 +122,11 @@
 
 /* Compact Mobile (320px - 375px) */
 @media (max-width: 375px) {
-  .hero-title { font-size: 32px; }
-  .btn { padding: 11px 20px; font-size: 13.5px; }
+  .hero-title { font-size: var(--text-3xl); }
+  .btn { padding: 10px 18px; font-size: var(--text-sm); }
   .stats-grid { grid-template-columns: 1fr; }
   .header-logo-img { height: 42px; }
-  .package-pricing-table th, .package-pricing-table td { padding: 6px 8px; font-size: 11px; }
+  .package-pricing-table th, .package-pricing-table td { padding: 6px 8px; font-size: var(--text-xs); }
 }
 
 

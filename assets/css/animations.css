@@ -7,27 +7,6 @@
    All animations use transform/opacity only (GPU composited)
    ================================================================ */
 
-/* ── CUSTOM CURSOR ── */
-* { cursor: none !important; }
-.nh-cursor-dot {
-  position: fixed; width: 10px; height: 10px; border-radius: 50%;
-  background: #d4ac0d; pointer-events: none; z-index: 99999;
-  opacity: 0; will-change: transform;
-  transition: opacity .3s, width .2s, height .2s, background .2s;
-}
-.nh-cursor-ring {
-  position: fixed; width: 36px; height: 36px; border-radius: 50%;
-  border: 1.5px solid rgba(212,172,13,.6); pointer-events: none; z-index: 99998;
-  opacity: 0; will-change: transform;
-  transition: opacity .3s, width .2s, height .2s;
-}
-.nh-cursor-dot.nh-cursor-hover { width: 16px; height: 16px; background: #0b5345; }
-.nh-cursor-ring.nh-cursor-hover { width: 54px; height: 54px; border-color: rgba(11,83,69,.6); }
-@media (pointer: coarse) {
-  * { cursor: auto !important; }
-  .nh-cursor-dot, .nh-cursor-ring { display: none !important; }
-}
-
 /* ── CSS STARS (GPU composited via transform+opacity) ── */
 .nh-css-stars {
   position: absolute; inset: 0; pointer-events: none; z-index: 1; overflow: hidden;
@@ -53,21 +32,21 @@
 .nh-countdown {
   display: inline-flex; flex-direction: column; gap: 10px;
   background: rgba(255,255,255,0.07); backdrop-filter: blur(8px);
-  border: 1px solid rgba(212,172,13,0.25); border-radius: 14px;
+  border: 1px solid rgba(212,172,13,0.25); border-radius: var(--radius-lg);
   padding: 14px 20px; margin: 18px 0 22px; width: fit-content;
 }
-.nh-countdown-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(212,172,13,0.8); }
+.nh-countdown-label { font-size: var(--text-xs); letter-spacing: 2px; text-transform: uppercase; color: rgba(212,172,13,0.9); }
 .nh-countdown-blocks { display: flex; align-items: center; gap: 4px; }
 .nh-cd-block {
   display: flex; flex-direction: column; align-items: center; gap: 2px;
-  background: rgba(212,172,13,0.12); border-radius: 8px; padding: 8px 12px; min-width: 52px;
+  background: rgba(212,172,13,0.12); border-radius: var(--radius-sm); padding: 8px 12px; min-width: 52px;
 }
 .nh-cd-block span {
-  font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600;
+  font-family: 'Cormorant Garamond', serif; font-size: var(--text-2xl); font-weight: 600;
   color: #d4ac0d; line-height: 1;
 }
-.nh-cd-block small { font-size: 9px; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,.5); }
-.nh-cd-sep { font-size: 24px; color: rgba(212,172,13,.5); font-weight: 300; margin-bottom: 10px; }
+.nh-cd-block small { font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,.6); }
+.nh-cd-sep { font-size: var(--text-xl); color: rgba(212,172,13,.5); font-weight: 300; margin-bottom: 10px; }
 
 /* ── HERO TITLE HIGHLIGHT ── */
 .hero-title .highlight { color: #d4ac0d; font-style: italic; }
@@ -128,16 +107,17 @@
 .nh-wa-bubble {
   position: fixed; bottom: 28px; right: 24px; z-index: 9999;
   display: flex; align-items: center; gap: 10px;
-  background: #25d366; color: white !important;
-  padding: 12px 20px; border-radius: 50px;
-  text-decoration: none !important; font-weight: 600; font-size: 14px;
-  box-shadow: 0 6px 20px rgba(37,211,102,.4);
+  background: var(--wa-green); color: var(--text-on-dark) !important;
+  min-height: 44px;
+  padding: 12px 20px; border-radius: var(--radius-pill);
+  text-decoration: none !important; font-weight: 600; font-size: var(--text-sm);
+  box-shadow: 0 6px 20px rgba(7,94,84,.4);
   animation: nhWaPulse 2.5s ease-in-out infinite;
   will-change: transform;
   transition: transform .3s ease;
 }
 .nh-wa-bubble:hover { transform: scale(1.07) translateY(-2px) !important; }
-.nh-wa-icon { font-size: 20px; }
+.nh-wa-icon { font-size: var(--text-lg); }
 .nh-wa-ping {
   position: absolute; top: -4px; right: -4px; width: 14px; height: 14px;
   border-radius: 50%; background: #ff4444;
@@ -149,13 +129,6 @@
 }
 @keyframes nhPing { 0%,100% { transform: scale(1); opacity:1; } 50% { transform: scale(1.7); opacity:.35; } }
 
-/* ── GRAIN TEXTURE OVERLAY ── */
-.nh-grain-overlay {
-  position: fixed; inset: 0; z-index: 99990; pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  opacity: 0.02;
-}
-
 /* ── REDUCED MOTION ── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -163,6 +136,4 @@
     transition-duration: 0.01ms !important;
   }
   .nh-section-reveal, .nh-stagger-card { opacity: 1 !important; transform: none !important; }
-  .nh-cursor-dot, .nh-cursor-ring { display: none !important; }
-  * { cursor: auto !important; }
 }

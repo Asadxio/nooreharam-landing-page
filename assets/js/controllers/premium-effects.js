@@ -20,50 +20,8 @@ function defer(fn, delay = 0) {
   }
 }
 
-/* ── 1. CUSTOM CURSOR ───────────────────────────────────────────────────── */
-function initCustomCursor() {
-  if (IS_MOBILE || REDUCED) return;
-  const dot = document.createElement('div');
-  const ring = document.createElement('div');
-  dot.className = 'nh-cursor-dot';
-  ring.className = 'nh-cursor-ring';
-  document.body.appendChild(dot);
-  document.body.appendChild(ring);
-
-  let mx = 0, my = 0, rx = 0, ry = 0, visible = false, rafId;
-
-  document.addEventListener('mousemove', e => {
-    mx = e.clientX; my = e.clientY;
-    if (!visible) { dot.style.opacity = '1'; ring.style.opacity = '1'; visible = true; }
-  }, { passive: true });
-  document.addEventListener('mouseleave', () => { dot.style.opacity = '0'; ring.style.opacity = '0'; visible = false; });
-
-  const hoverQ = 'a,button,.btn,.package-card,.service-card';
-  document.addEventListener('mouseover', e => {
-    if (e.target.closest(hoverQ)) { dot.classList.add('nh-cursor-hover'); ring.classList.add('nh-cursor-hover'); }
-  });
-  document.addEventListener('mouseout', e => {
-    if (e.target.closest(hoverQ)) { dot.classList.remove('nh-cursor-hover'); ring.classList.remove('nh-cursor-hover'); }
-  });
-
-  let lastT = 0;
-  function animate(t) {
-    // Throttle to ~60fps max, skip if tab hidden
-    if (!document.hidden) {
-      dot.style.transform = `translate(${mx-5}px,${my-5}px)`;
-      rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
-      ring.style.transform = `translate(${rx-18}px,${ry-18}px)`;
-    }
-    rafId = requestAnimationFrame(animate);
-  }
-  rafId = requestAnimationFrame(animate);
-
-  // Pause when tab hidden
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden) cancelAnimationFrame(rafId);
-    else rafId = requestAnimationFrame(animate);
-  });
-}
+/* ── 1. CUSTOM CURSOR (Disabled — Native OS cursor preserved) ───────────── */
+function initCustomCursor() {}
 
 /* ── 2. CSS STARS (replaces canvas — GPU composited) ───────────────────── */
 function initCSSStars() {
@@ -185,8 +143,8 @@ function initFloatingShapes() {
 function initTypewriter() {
   const el = document.getElementById('nhTypewriter'); if (!el) return;
   const phrases = [
-    'Professional Hajj, Umrah & Ziyarat services across India.',
-    'Transparent pricing. Expert guidance. 10+ Years of trust.',
+    'Professional Hajj, Umrah & Ziyarat services with clear pricing, expert guidance and dedicated support across India.',
+    'Clear pricing. Expert guidance. 10+ Years of trust.',
     'Your sacred journey — planned with love and care.',
     'Serving pilgrims since 2016 — Alhamdulillah.'
   ];
@@ -222,6 +180,7 @@ function initCountdown() {
 
 /* ── 11. CONFETTI (only on click, not continuous) ───────────────────────── */
 function initConfetti() {
+  if (REDUCED || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const canvas = document.getElementById('nhConfettiCanvas'); if (!canvas) return;
   canvas.width = window.innerWidth; canvas.height = window.innerHeight;
   window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }, { passive: true });
@@ -230,6 +189,7 @@ function initConfetti() {
   let particles = [], rafId;
 
   function burst(x, y) {
+    canvas.style.display = 'block';
     for (let i = 0; i < 60; i++) {
       const angle = Math.random() * Math.PI * 2, speed = Math.random() * 7 + 2;
       particles.push({ x, y, vx: Math.cos(angle)*speed, vy: Math.sin(angle)*speed-5,
@@ -247,7 +207,11 @@ function initConfetti() {
       ctx.save(); ctx.globalAlpha = Math.max(0, p.alpha); ctx.fillStyle = p.color;
       ctx.fillRect(p.x - p.r/2, p.y - p.r/2, p.r, p.r); ctx.restore();
     });
-    if (particles.length) rafId = requestAnimationFrame(animate);
+    if (particles.length) {
+      rafId = requestAnimationFrame(animate);
+    } else {
+      canvas.style.display = 'none';
+    }
   }
 
   document.addEventListener('click', e => {
@@ -291,8 +255,7 @@ function initGlassNav() {
 
 /* ── INIT ALL — deferred after page load ────────────────────────────────── */
 export function initPremiumEffects() {
-  // Critical: cursor & nav (start early)
-  initCustomCursor();
+  // Navigation & UI utilities
   initGlassNav();
   initRippleEffect();
   initCountdown();
@@ -306,7 +269,6 @@ export function initPremiumEffects() {
   }, 300);
 
   defer(() => {
-    initMagneticButtons();
     initStaggeredCards();
     initCinematicReveal();
   }, 800);
