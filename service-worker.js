@@ -4,42 +4,42 @@
  * and Cache-First for static assets (CSS, JS, images, logos).
  */
 
-const CACHE_NAME = 'nh-cache-v12';
-const OFFLINE_URL = '/offline.html';
+const CACHE_NAME = 'nh-cache-v13';
+const OFFLINE_URL = './offline.html';
 
 const ASSETS_TO_CACHE = [
-  '/',
-  '/index.html',
+  './',
+  './index.html',
   OFFLINE_URL,
-  '/assets/css/core.css',
-  '/assets/css/layout.css',
-  '/assets/css/components.css',
-  '/assets/css/utilities.css',
-  '/assets/css/animations.css',
-  '/assets/css/responsive.css',
-  '/assets/css/print.css',
-  '/assets/js/main.js',
-  '/assets/js/config/translations.js',
-  '/assets/js/config/branches.data.js',
-  '/assets/js/services/i18n.js',
-  '/assets/js/services/currency.js',
-  '/assets/js/services/theme.js',
-  '/assets/js/services/audio.js',
-  '/assets/js/services/branches.js',
-  '/assets/js/services/wizard.js',
-  '/assets/js/services/forms.js',
-  '/assets/js/services/analytics.js',
-  '/assets/js/services/lazyload.js',
-  '/assets/js/controllers/animations.js',
-  '/assets/js/controllers/navigation.js',
-  '/assets/js/controllers/drawer.js',
-  '/assets/js/controllers/faq.js',
-  '/assets/js/controllers/intersection.js',
-  '/assets/images/logos/page-loader-logo.webp',
-  '/assets/images/logos/header-logo.webp',
-  '/assets/images/logos/footer-logo.webp',
-  '/favicon-32x32.png',
-  '/apple-touch-icon.png'
+  './assets/css/core.css',
+  './assets/css/layout.css',
+  './assets/css/components.css',
+  './assets/css/utilities.css',
+  './assets/css/animations.css',
+  './assets/css/responsive.css',
+  './assets/css/print.css',
+  './assets/js/main.js',
+  './assets/js/config/translations.js',
+  './assets/js/config/branches.data.js',
+  './assets/js/services/i18n.js',
+  './assets/js/services/currency.js',
+  './assets/js/services/theme.js',
+  './assets/js/services/audio.js',
+  './assets/js/services/branches.js',
+  './assets/js/services/wizard.js',
+  './assets/js/services/forms.js',
+  './assets/js/services/analytics.js',
+  './assets/js/services/lazyload.js',
+  './assets/js/controllers/animations.js',
+  './assets/js/controllers/navigation.js',
+  './assets/js/controllers/drawer.js',
+  './assets/js/controllers/faq.js',
+  './assets/js/controllers/intersection.js',
+  './assets/images/logos/page-loader-logo.webp',
+  './assets/images/logos/header-logo.webp',
+  './assets/images/logos/footer-logo.webp',
+  './favicon-32x32.png',
+  './apple-touch-icon.png'
 ];
 
 self.addEventListener('install', event => {

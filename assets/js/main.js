@@ -336,7 +336,7 @@ function initApp() {
     // Register service worker for PWA support (Task 8)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/service-worker.js')
+        navigator.serviceWorker.register('./service-worker.js')
           .then(reg => {
             if (window.NH_DEBUG) console.log('[PWA ServiceWorker]: Registered with scope:', reg.scope);
           })
