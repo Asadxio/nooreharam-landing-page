@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
+Sitemap: https://nooreharam.com/sitemap.xml
 Sitemap: https://www.nooreharam.com/sitemap.xml
