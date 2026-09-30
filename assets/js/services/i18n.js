@@ -94,13 +94,13 @@ function applyAllTranslations(t) {
   const drawerBtns = document.querySelectorAll('.mobile-drawer .btn');
   if (drawerBtns[0] && t['drawer.call']) {
     const span = drawerBtns[0].querySelector('span');
-    if (span) span.textContent = 'Call ' + t['drawer.call'];
-    else drawerBtns[0].textContent = 'Call ' + t['drawer.call'];
+    if (span) span.textContent = t['drawer.call'];
+    else drawerBtns[0].textContent = t['drawer.call'];
   }
   if (drawerBtns[1] && t['drawer.whatsapp']) {
     const span = drawerBtns[1].querySelector('span');
-    if (span) span.textContent = 'WhatsApp ' + t['drawer.whatsapp'];
-    else drawerBtns[1].textContent = 'WhatsApp ' + t['drawer.whatsapp'];
+    if (span) span.textContent = t['drawer.whatsapp'];
+    else drawerBtns[1].textContent = t['drawer.whatsapp'];
   }
 
   // HEADER CTA
