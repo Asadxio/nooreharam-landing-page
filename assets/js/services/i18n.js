@@ -146,6 +146,7 @@ function applyAllTranslations(t) {
   setText('#lblAdults', 'calc.lblAdults');
   setText('#lblKids', 'calc.lblKids');
   setText('#lblEstTotal', 'calc.lblEstTotal');
+  setText('#lblEstPerPerson', 'calc.lblEstPerPerson');
   setText('#calcNote', 'calc.note');
   setText('#calcWhatsAppBtn', 'calc.whatsappBtn');
 

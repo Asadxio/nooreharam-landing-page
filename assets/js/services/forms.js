@@ -234,9 +234,15 @@ export function calculateCost() {
   });
 
   const formattedTotal = formatter.format(total);
+  const formattedAdult = formatter.format(adultPrice);
+
   const priceDisplayEl = document.getElementById('calcEstimatedPrice');
   if (priceDisplayEl) {
     priceDisplayEl.textContent = hasStartingMarker ? `${formattedTotal} onwards` : formattedTotal;
+  }
+  const perPersonDisplayEl = document.getElementById('calcPerPersonPrice');
+  if (perPersonDisplayEl) {
+    perPersonDisplayEl.textContent = hasStartingMarker ? `${formattedAdult} onwards / person` : `${formattedAdult} / person`;
   }
 
   // --- UPDATE METADATA HIDDEN FIELDS ON INQUIRY FORM (CTO Recommendation 5) ---
@@ -272,11 +278,12 @@ export function calculateCost() {
 - *Departure:* ${departureName}
 - *Variant:* ${variantName}
 - *Room Sharing:* ${sharingName}
-- *Adults:* ${adults}
-- *Children:* ${kids}
+- *Pilgrims:* ${adults} Adults${kids > 0 ? `, ${kids} Children` : ''}
+- *Est. Per Person:* ${formattedAdult}${hasStartingMarker ? ' onwards' : ''}
 - *Estimated Total:* ${formattedTotal}${hasStartingMarker ? ' onwards' : ''}
 
-Please assist me with booking and options.`;
+Inclusions noted: Saudi Visa + Insurance, Return Flights, Hotels, Buffet Food & Guided Ziyarat.
+Please share live seat availability, hotel options, and the official booking quote.`;
 
   const encodedText = encodeURIComponent(messageText);
   const calcWaBtn = document.getElementById('calcWhatsAppBtn');

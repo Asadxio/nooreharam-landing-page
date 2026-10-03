@@ -328,6 +328,7 @@
             <a href="/umrah/umrah-packages-mumbai/" class="nav-dd-item">Mumbai Departure (BOM)</a>
             <a href="/umrah/umrah-packages-bangalore/" class="nav-dd-item">Bangalore Departure (BLR)</a>
             <a href="/umrah/umrah-packages-hubli/" class="nav-dd-item">Hubli &amp; Karnataka</a>
+            <a href="/cities/north-karnataka/" class="nav-dd-item">North Karnataka Hub</a>
             <a href="/umrah/umrah-packages-india/" class="nav-dd-item">All-India Packages</a>
           </div>
         </div>
@@ -336,6 +337,7 @@
           <div class="nav-dropdown">
             <a href="/hajj/" class="nav-dd-item">Hajj Hub</a>
             <a href="/hajj/hajj-2027/" class="nav-dd-item">Hajj 2027 Package</a>
+            <a href="/hajj/nusuk-hajj-guide/" class="nav-dd-item">Nusuk Hajj Platform Guide</a>
           </div>
         </div>
         <div class="nav-item">
@@ -360,6 +362,7 @@
           <div class="nav-dropdown">
             <a href="/guides/" class="nav-dd-item">All Guides Hub</a>
             <a href="/guides/nusuk-rawdah-guide/" class="nav-dd-item">Nusuk Rawdah Guide</a>
+            <a href="/guides/umrah-for-women-rules/" class="nav-dd-item">Umrah for Women (Mahram Rules)</a>
             <a href="/guides/umrah-packing-list/" class="nav-dd-item">Umrah Packing List</a>
             <a href="/guides/umrah-for-elderly/" class="nav-dd-item">Umrah for Senior Citizens</a>
             <a href="/guides/umrah-guide/" class="nav-dd-item">Step-by-Step Umrah</a>
@@ -370,6 +373,8 @@
           <a href="#branches" data-i18n="nav.branches">Branches</a>
           <div class="nav-dropdown">
             <a href="#branches" class="nav-dd-item">Branches Across India</a>
+            <a href="/cities/north-karnataka/" class="nav-dd-item">North Karnataka Hub</a>
+            <a href="/trust/" class="nav-dd-item">Trust &amp; Pilgrim Assurance</a>
             <a href="/packages/" class="nav-dd-item">Packages Catalog</a>
             <a href="#privacy-policy" class="nav-dd-item">Privacy Policy</a>
             <a href="#terms-conditions" class="nav-dd-item">Terms &amp; Conditions</a>
@@ -425,17 +430,21 @@
     <a href="/umrah/umrah-packages-mumbai/" onclick="closeDrawer()">Mumbai Umrah (BOM)</a>
     <a href="/umrah/umrah-packages-bangalore/" onclick="closeDrawer()">Bangalore Umrah (BLR)</a>
     <a href="/umrah/umrah-packages-hubli/" onclick="closeDrawer()">Hubli &amp; Karnataka Umrah</a>
+    <a href="/cities/north-karnataka/" onclick="closeDrawer()">North Karnataka Pilgrim Hub</a>
     <a href="/hajj/" onclick="closeDrawer()">Hajj 2027 Hub</a>
+    <a href="/hajj/nusuk-hajj-guide/" onclick="closeDrawer()">Nusuk Hajj Platform Guide</a>
     <a href="/visa/" onclick="closeDrawer()">Saudi Visa Services</a>
     <a href="/visa/umrah-visa-cost/" onclick="closeDrawer()">Saudi Visa Cost Breakdown</a>
     <a href="/ziyarat/" onclick="closeDrawer()">Ziyarat Guide (41 Sites)</a>
     <a href="/ziyarat/41-ziyarat-places/" onclick="closeDrawer()">41 Sacred Ziyarat Catalog</a>
     <a href="/guides/" onclick="closeDrawer()">All Pilgrim Guides</a>
+    <a href="/guides/umrah-for-women-rules/" onclick="closeDrawer()">Umrah for Women (Mahram Rules)</a>
     <a href="/guides/nusuk-rawdah-guide/" onclick="closeDrawer()">Nusuk Rawdah Guide</a>
     <a href="/guides/umrah-packing-list/" onclick="closeDrawer()">Umrah Packing Checklist</a>
     <a href="/guides/umrah-for-elderly/" onclick="closeDrawer()">Umrah for Senior Citizens</a>
     <a href="/guides/umrah-guide/" onclick="closeDrawer()">Step-by-Step Umrah Guide</a>
     <a href="/guides/umrah-cost-india/" onclick="closeDrawer()">Umrah Cost Breakdown India</a>
+    <a href="/trust/" onclick="closeDrawer()">Trust &amp; Pilgrim Assurance</a>
     <a href="/packages/" onclick="closeDrawer()">Packages Comparison</a>
     <a href="#about" onclick="closeDrawer()">About Us</a>
     <a href="#branches" onclick="closeDrawer()">Branches Across India</a>
@@ -746,9 +755,29 @@
       
       <!-- Result Panel -->
       <div class="calc-result">
-        <h3 class="calc-result-title" id="lblEstTotal">Estimated Total Cost</h3>
-        <div class="calc-result-price" id="calcEstimatedPrice">₹68,786</div>
-        <p class="calc-result-note" id="calcNote">*Pricing is approximate and subject to travel date & seasonal rates.</p>
+        <div style="display:flex; justify-content:space-around; align-items:center; flex-wrap:wrap; gap:16px; margin-bottom:16px;">
+          <div>
+            <h3 class="calc-result-title" id="lblEstTotal" style="margin-bottom:4px;">Estimated Total Cost</h3>
+            <div class="calc-result-price" id="calcEstimatedPrice">₹68,786</div>
+          </div>
+          <div style="border-left:1px solid rgba(6,40,30,0.15); padding-left:24px;">
+            <h3 class="calc-result-title" id="lblEstPerPerson" style="margin-bottom:4px; color:var(--gold-dark, #8F6B10);">Estimated Per Person</h3>
+            <div class="calc-result-price" id="calcPerPersonPrice" style="font-size:1.85rem; color:var(--gold-dark, #8F6B10);">₹68,786 / person</div>
+          </div>
+        </div>
+
+        <!-- Inclusions Strip -->
+        <div style="display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin:16px 0 12px;">
+          <span style="background:rgba(6,40,30,0.08); color:var(--emerald,#06281E); font-size:11.5px; padding:4px 10px; border-radius:12px; font-weight:600;">✓ Saudi MOFA Visa &amp; CHI Insurance</span>
+          <span style="background:rgba(6,40,30,0.08); color:var(--emerald,#06281E); font-size:11.5px; padding:4px 10px; border-radius:12px; font-weight:600;">✓ Roundtrip Flights &amp; Luggage</span>
+          <span style="background:rgba(6,40,30,0.08); color:var(--emerald,#06281E); font-size:11.5px; padding:4px 10px; border-radius:12px; font-weight:600;">✓ Makkah &amp; Madinah Star Hotels</span>
+          <span style="background:rgba(6,40,30,0.08); color:var(--emerald,#06281E); font-size:11.5px; padding:4px 10px; border-radius:12px; font-weight:600;">✓ Daily Buffet Meals &amp; AC Transit</span>
+          <span style="background:rgba(6,40,30,0.08); color:var(--emerald,#06281E); font-size:11.5px; padding:4px 10px; border-radius:12px; font-weight:600;">✓ 41 Guided Historical Ziyarats</span>
+        </div>
+
+        <p class="calc-result-note" id="calcNote" style="font-size:12px; color:#555; line-height:1.5; margin-top:10px;">
+          <strong>*Planning Estimate:</strong> Exact quotations vary by airline PNR seat availability, hotel inventory, forex exchange rates, and peak Ramadan/seasonal dates. Final fixed quote provided upon booking confirmation.
+        </p>
       </div>
       
       <!-- Action button -->
@@ -1823,7 +1852,9 @@
           <li><a href="/umrah/umrah-packages-mumbai/">Mumbai Umrah (BOM)</a></li>
           <li><a href="/umrah/umrah-packages-bangalore/">Bangalore Umrah (BLR)</a></li>
           <li><a href="/umrah/umrah-packages-hubli/">Hubli &amp; Karnataka Umrah</a></li>
+          <li><a href="/cities/north-karnataka/">North Karnataka Hub (Hubli HQ)</a></li>
           <li><a href="/hajj/">Hajj 2027 Comprehensive</a></li>
+          <li><a href="/hajj/nusuk-hajj-guide/">Nusuk Hajj Platform Guide</a></li>
           <li><a href="/visa/">Saudi Umrah Visa Guide</a></li>
           <li><a href="/visa/umrah-visa-cost/">Visa Cost Breakdown</a></li>
           <li><a href="/ziyarat/41-ziyarat-places/">41 Sacred Ziyarat Sites</a></li>
@@ -1833,11 +1864,13 @@
         <h3 class="footer-heading">Guides &amp; Packages</h3>
         <ul class="footer-links">
           <li><a href="/packages/">All Packages Catalog</a></li>
+          <li><a href="/guides/umrah-for-women-rules/">Umrah for Women (Mahram Rules)</a></li>
           <li><a href="/guides/nusuk-rawdah-guide/">Nusuk Rawdah Guide</a></li>
           <li><a href="/guides/umrah-packing-list/">Umrah Packing Checklist</a></li>
           <li><a href="/guides/umrah-for-elderly/">Umrah for Senior Citizens</a></li>
           <li><a href="/guides/umrah-guide/">Step-by-Step Umrah Guide</a></li>
           <li><a href="/guides/umrah-cost-india/">Umrah Cost Breakdown</a></li>
+          <li><a href="/trust/">Trust &amp; Pilgrim Assurance</a></li>
           <li><a href="/ziyarat/makkah-ziyarat/">Makkah Ziyarat Guide</a></li>
           <li><a href="/ziyarat/madinah-ziyarat/">Madinah Ziyarat Guide</a></li>
           <li><a href="#branches">Branches Across India</a></li>
@@ -1870,6 +1903,7 @@
     <div class="footer-bottom">
       <p>© 2026 NOOR-E-HARAM. All rights reserved. | Established 2016</p>
       <div class="u-flex u-gap-16 u-wrap">
+        <a href="/trust/" class="footer-legal-link">Trust &amp; Pilgrim Assurance</a>
         <a href="#privacy-policy" class="footer-legal-link">Privacy Policy</a>
         <a href="#terms-conditions" class="footer-legal-link">Terms &amp; Conditions</a>
         <a href="#refund-policy" class="footer-legal-link">Refund Policy</a>
