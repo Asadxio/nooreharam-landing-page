@@ -317,7 +317,110 @@
             </details>
           </div>
         </section>
+
+        <!-- REAL REVIEW ACQUISITION WORKFLOW (PHASE 4 SECTION 14) -->
+        <section class="content-block" id="review-submission" style="background: var(--bg-cream, #FAF8F5); border: 1.5px solid var(--border-gold, #D4AF37); border-radius: 12px; padding: 32px 24px; margin-top: 36px;">
+          <div style="max-width: 680px; margin: 0 auto;">
+            <span class="info-card-badge" style="background: var(--emerald); color: white;">Verified Pilgrim Voice</span>
+            <h2 style="margin-top: 8px; font-size: 1.6rem;">Submit Your Verified Pilgrim Experience</h2>
+            <p style="color: var(--text-mid); font-size: 0.95rem; margin-bottom: 24px;">
+              Have you performed Hajj, Umrah, or Ziyarat with NOOR-E-HARAM? We invite all verified pilgrims to share their honest experiences. In strict compliance with our ethical guidelines, every submission is cross-referenced with travel records before publishing. We never incentivize positive ratings, delete critical feedback, or publish fabricated reviews.
+            </p>
+            
+            <form id="pilgrimReviewForm" onsubmit="handleReviewSubmit(event)" style="display: grid; gap: 16px;">
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                <div>
+                  <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-dark);" for="revName">Full Name *</label>
+                  <input type="text" id="revName" required placeholder="e.g. Mohammed Farooq" style="width: 100%; padding: 10px 14px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.9rem;">
+                </div>
+                <div>
+                  <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-dark);" for="revCity">City &amp; State *</label>
+                  <input type="text" id="revCity" required placeholder="e.g. Hubli, Karnataka" style="width: 100%; padding: 10px 14px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.9rem;">
+                </div>
+              </div>
+              
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                <div>
+                  <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-dark);" for="revPackage">Package Traveled *</label>
+                  <select id="revPackage" required style="width: 100%; padding: 10px 14px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.9rem; background: white;">
+                    <option value="Group Umrah (Mumbai Departure)">Group Umrah (Mumbai Departure)</option>
+                    <option value="Group Umrah (Hubli/Bangalore)">Group Umrah (Hubli/Bangalore Departure)</option>
+                    <option value="Ramadan Umrah Tour">Ramadan Umrah Tour</option>
+                    <option value="Couple/Family Custom Umrah">Couple/Family Custom Umrah</option>
+                    <option value="Hajj Pilgrimage">Hajj Pilgrimage</option>
+                    <option value="41 Ziyarat Historical Tour">41 Ziyarat Historical Tour</option>
+                  </select>
+                </div>
+                <div>
+                  <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-dark);" for="revYear">Travel Month &amp; Year *</label>
+                  <input type="text" id="revYear" required placeholder="e.g. January 2026 / Ramadan 1447" style="width: 100%; padding: 10px 14px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.9rem;">
+                </div>
+              </div>
+              
+              <div>
+                <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-dark);" for="revRating">Overall Experience Rating *</label>
+                <select id="revRating" required style="width: 100%; padding: 10px 14px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.9rem; background: white;">
+                  <option value="5/5 - Outstanding Khidmat">5 out of 5 — Outstanding Khidmat &amp; Organization</option>
+                  <option value="4/5 - Very Good">4 out of 5 — Very Good with Minor Room for Improvement</option>
+                  <option value="3/5 - Satisfactory">3 out of 5 — Satisfactory Service</option>
+                  <option value="2/5 - Needs Improvement">2 out of 5 — Needs Operational Improvement</option>
+                  <option value="1/5 - Unsatisfactory">1 out of 5 — Unsatisfactory Experience</option>
+                </select>
+              </div>
+
+              <div>
+                <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-dark);" for="revFeedback">Your Honest Experience &amp; Practical Advice for Future Pilgrims *</label>
+                <textarea id="revFeedback" required rows="4" placeholder="Detail your experience regarding hotel walking proximity, scholar guidance, buffet food quality, ground transit in Makkah &amp; Madinah, or areas where service can be enhanced." style="width: 100%; padding: 10px 14px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.9rem; font-family: inherit;"></textarea>
+              </div>
+              
+              <div style="margin: 8px 0;">
+                <label style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.85rem; color: var(--text-mid); cursor: pointer;">
+                  <input type="checkbox" id="revConsent" required style="margin-top: 3px;">
+                  <span>I confirm that I was a genuine pilgrim traveling with NOOR-E-HARAM. I grant explicit consent for NOOR-E-HARAM to verify my booking records and publish my review with my name and city on this website.</span>
+                </label>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="justify-content: center; padding: 12px 24px; font-weight: 600; width: 100%;">
+                Submit Verified Review for Human Review &amp; Publication
+              </button>
+              <div id="revSuccessMsg" style="display: none; background: #e6f4ea; color: #137333; padding: 14px; border-radius: 6px; font-size: 0.9rem; text-align: center; margin-top: 8px;">
+                ✓ Jazakallahu Khair. Your review has been submitted to the NOOR-E-HARAM quality assurance team. Once verified against booking records, it will be published to the trust registry.
+              </div>
+            </form>
+          </div>
+        </section>
       </article>
+
+      <script>
+      function handleReviewSubmit(e) {
+        e.preventDefault();
+        var name = document.getElementById('revName').value.trim();
+        var city = document.getElementById('revCity').value.trim();
+        var pkg = document.getElementById('revPackage').value;
+        var year = document.getElementById('revYear').value.trim();
+        var rating = document.getElementById('revRating').value;
+        var feedback = document.getElementById('revFeedback').value.trim();
+        var consent = document.getElementById('revConsent').checked;
+
+        if (!consent) {
+          alert('Please confirm your consent to publish verified feedback.');
+          return;
+        }
+
+        var msg = "Assalamu Alaikum. Here is my verified pilgrim review for NOOR-E-HARAM:%0A%0A" +
+          "*Name:* " + encodeURIComponent(name) + "%0A" +
+          "*City:* " + encodeURIComponent(city) + "%0A" +
+          "*Package:* " + encodeURIComponent(pkg) + "%0A" +
+          "*Travel Date:* " + encodeURIComponent(year) + "%0A" +
+          "*Rating:* " + encodeURIComponent(rating) + "%0A" +
+          "*Experience:* " + encodeURIComponent(feedback) + "%0A" +
+          "*Consent Granted:* Yes";
+
+        document.getElementById('revSuccessMsg').style.display = 'block';
+        document.getElementById('pilgrimReviewForm').reset();
+        window.open("https://wa.me/919986925592?text=" + msg, "_blank");
+      }
+      </script>
 
       <aside class="sidebar-sticky">
         <div class="sidebar-card cta-card">

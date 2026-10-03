@@ -1,0 +1,641 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "meta": {
+    "site": "NOOR-E-HARAM",
+    "domain": "https://nooreharam.com",
+    "version": "4.0.0",
+    "lastUpdated": "2026-10-04",
+    "totalCanonicalUrls": 27
+  },
+  "routes": [
+    {
+      "url": "/",
+      "canonical": "https://nooreharam.com/",
+      "pageType": "homepage",
+      "contentCluster": "Core",
+      "status": "active",
+      "lastReviewed": "2026-10-04",
+      "primaryIntent": "Primary brand hub, PAN-India pilgrimage trust, service comparison & dynamic cost calculator",
+      "targetQueryCluster": [
+        "Noor E Haram",
+        "Noor E Haram Hubli",
+        "Noor E Haram tours and travels",
+        "Umrah packages India 2026 2027",
+        "Hajj tour operator India"
+      ],
+      "internalLinkParent": null,
+      "internalLinkChildren": [
+        "/umrah/",
+        "/hajj/",
+        "/visa/",
+        "/ziyarat/",
+        "/guides/",
+        "/packages/",
+        "/cities/north-karnataka/",
+        "/trust/"
+      ]
+    },
+    {
+      "url": "/umrah/",
+      "canonical": "https://nooreharam.com/umrah/",
+      "pageType": "hub",
+      "contentCluster": "Umrah",
+      "status": "active",
+      "lastReviewed": "2026-10-04",
+      "primaryIntent": "Umrah departures overview, tier breakdowns, pricing transparency and airport gateways",
+      "targetQueryCluster": [
+        "Umrah packages 2026",
+        "Umrah packages 2027",
+        "Umrah package price India",
+        "Umrah group tour India",
+        "Umrah cost from India"
+      ],
+      "internalLinkParent": "/",
+      "internalLinkChildren": [
+        "/umrah/umrah-packages-mumbai/",
+        "/umrah/umrah-packages-bangalore/",
+        "/umrah/umrah-packages-hubli/",
+        "/umrah/umrah-packages-india/",
+        "/packages/ramadan-umrah/",
+        "/cities/north-karnataka/"
+      ]
+    },
+    {
+      "url": "/umrah/umrah-packages-mumbai/",
+      "canonical": "https://nooreharam.com/umrah/umrah-packages-mumbai/",
+      "pageType": "city-gateway",
+      "contentCluster": "Umrah",
+      "status": "active",
+      "lastReviewed": "2026-10-04",
+      "primaryIntent": "Commercial Mumbai (CSMIA BOM) departures with direct Saudi airline connections to Jeddah & Madinah",
+      "targetQueryCluster": [
+        "Umrah packages Mumbai",
+        "Umrah from Mumbai direct flight",
+        "Mumbai to Jeddah Umrah",
+        "Umrah tour operator Mumbai",
+        "cheap Umrah packages Mumbai"
+      ],
+      "internalLinkParent": "/umrah/",
+      "internalLinkChildren": [
+        "/umrah/",
+        "/packages/ramadan-umrah/",
+        "/visa/umrah-visa-cost/",
+        "/trust/"
+      ]
+    },
+    {
+      "url": "/umrah/umrah-packages-bangalore/",
+      "canonical": "https://nooreharam.com/umrah/umrah-packages-bangalore/",
+      "pageType": "city-gateway",
+      "contentCluster": "Umrah",
+      "status": "active",
+      "lastReviewed": "2026-10-04",
+      "primaryIntent": "Commercial Bangalore (BLR Kempegowda) departures for Karnataka & South India pilgrims",
+      "targetQueryCluster": [
+        "Umrah packages Bangalore",
+        "Bangalore Umrah tours",
+        "Umrah from Bangalore Kempegowda",
+        "BLR to Jeddah Umrah flights",
+        "Karnataka Umrah package"
+      ],
+      "internalLinkParent": "/umrah/",
+      "internalLinkChildren": [
+        "/umrah/",
+        "/cities/north-karnataka/",
+        "/guides/umrah-cost-india/",
+        "/trust/"
+      ]
+    },
+    {
+      "url": "/umrah/umrah-packages-hubli/",
+      "canonical": "https://nooreharam.com/umrah/umrah-packages-hubli/",
+      "pageType": "city-gateway",
+      "contentCluster": "Umrah",
+      "status": "active",
+      "lastReviewed": "2026-10-04",
+      "primaryIntent": "Direct local departures organized from Hubli Head Office with doorstep pilgrim guidance",
+      "targetQueryCluster": [
+        "Umrah packages Hubli",
+        "Hubli Umrah tours",
+        "Umrah travel agency Hubli",
+        "Noor E Haram Hubli office",
+        "North Karnataka Umrah"
+      ],
+      "internalLinkParent": "/umrah/",
+      "internalLinkChildren": [
+        "/umrah/",
+        "/cities/north-karnataka/",
+        "/guides/umrah-packing-list/",
+        "/trust/"
+      ]
+    },
+    {
+      "url": "/umrah/umrah-packages-india/",
+      "canonical": "https://nooreharam.com/umrah/umrah-packages-india/",
+      "pageType": "hub",
+      "contentCluster": "Umrah",
+      "status": "active",
+      "lastReviewed": "2026-10-04",
+      "primaryIntent": "Nationwide All-India group, couple, and custom Umrah packages overview",
+      "targetQueryCluster": [
+        "Umrah packages India",
+        "All India Umrah package",
+        "group Umrah package India",
+        "custom Umrah package India",
+        "best Umrah agency India"
+      ],
+      "internalLinkParent": "/umrah/",
+      "internalLinkChildren": [
+        "/umrah/",
+        "/packages/",
+        "/guides/umrah-guide/",
+        "/trust/"
+      ]
+    },
+    {
+      "url": "/packages/",
+      "canonical": "https://nooreharam.com/packages/",
+      "pageType": "comparison",
+      "contentCluster": "Umrah",
+      "status": "active",
+      "lastReviewed": "2026-10-04",
+      "primaryIntent": "Side-by-side package comparison across group, couple, family, and luxury tiers with pricing & inclusions",
+      "targetQueryCluster": [
+        "compare Umrah packages",
+        "Umrah package comparison India",
+        "Umrah price list India",
+        "luxury vs economy Umrah",
+        "family Umrah cost"
+      ],
+      "internalLinkParent": "/",
+      "internalLinkChildren": [
+        "/umrah/",
+        "/packages/ramadan-umrah/",
+        "/hajj/hajj-2027/",
+        "/trust/"
+      ]
+    },
+    {
+      "url": "/packages/ramadan-umrah/",
+      "canonical": "https://nooreharam.com/packages/ramadan-umrah/",
+      "pageType": "seasonal-package",
+      "contentCluster": "Umrah",
+      "status": "active",
+      "lastReviewed": "2026-10-04",
+      "primaryIntent": "Ramadan 2027 Umrah packages: First 15 Days & Last 10 Days (Laylat al-Qadr) with Courtyard Iftar",
+      "targetQueryCluster": [
+        "Ramadan Umrah package 2027",
+        "Ramadan Umrah price India",
+        "last 10 days Ramadan Umrah",
+        "Ramadan Umrah Mumbai",
+        "Ramadan Umrah Bangalore"
+      ],
+      "internalLinkParent": "/packages/",
+      "internalLinkChildren": [
+        "/umrah/",
+        "/guides/umrah-cost-india/",
+        "/guides/umrah-packing-list/",
+        "/trust/"
+      ]
+    },
+    {
+      "url": "/hajj/",
+      "canonical": "https://nooreharam.com/hajj/",
+      "pageType": "hub",
+      "contentCluster": "Hajj",
+      "status": "active",
+      "lastReviewed": "2026-10-04",
+      "primaryIntent": "Hajj comprehensive services hub, 5 sacred days breakdown, scholar mentorship & Maktab arrangements",
+      "targetQueryCluster": [
+        "Hajj packages India",
+        "Hajj 2027 India",
+        "Hajj package price India",
+        "private Hajj package India",
+        "Hajj registration Karnataka"
+      ],
+      "internalLinkParent": "/",
+      "internalLinkChildren": [
+        "/hajj/hajj-2027/",
+        "/hajj/nusuk-hajj-guide/",
+        "/guides/umrah-guide/",
+        "/trust/"
+      ]
+    },
+    {
+      "url": "/hajj/hajj-2027/",
+      "canonical": "https://nooreharam.com/hajj/hajj-2027/",
+      "pageType": "product-detail",
+      "contentCluster": "Hajj",
+      "status": "active",
+      "lastReviewed": "2026-10-04",
+      "primaryIntent": "Detailed Hajj 2027 comprehensive package registration, Azizia stay, Mina Maktab tents & pricing",
+      "targetQueryCluster": [
+        "Hajj 2027 package details",
+        "Hajj 2027 booking India",
+        "Hajj 2027 price India",
+        "Hajj itinerary 2027",
+        "Hajj Azizia packages"
+      ],
+      "internalLinkParent": "/hajj/",
+      "internalLinkChildren": [
+        "/hajj/",
+        "/hajj/nusuk-hajj-guide/",
+        "/trust/"
+      ]
+    },
+    {
+      "url": "/hajj/nusuk-hajj-guide/",
+      "canonical": "https://nooreharam.com/hajj/nusuk-hajj-guide/",
+      "pageType": "informational-guide",
+      "contentCluster": "Hajj",
+      "status": "active",
+      "lastReviewed": "2026-10-04",
+      "primaryIntent": "Regulatory guide to Saudi Nusuk Hajj platform for India, 70:30 HCoI vs Private HGO quota & Nusuk Card",
+      "targetQueryCluster": [
+        "Nusuk Hajj India 2027",
+        "Nusuk Hajj platform registration",
+        "HCoI vs private HGO quota",
+        "Nusuk Smart Card Hajj",
+        "Mina Maktab zone A B D"
+      ],
+      "internalLinkParent": "/hajj/",
+      "internalLinkChildren": [
+        "/hajj/",
+        "/hajj/hajj-2027/",
+        "/trust/"
+      ]
+    },
+    {
+      "url": "/visa/",
+      "canonical": "https://nooreharam.com/visa/",
+      "pageType": "hub",
+      "contentCluster": "Visa",
+      "status": "active",
+      "lastReviewed": "2026-10-04",
+      "primaryIntent": "Authorized Saudi Umrah visa facilitation overview for Indian citizens with transparent fee policies",
+      "targetQueryCluster": [
+        "Saudi Umrah visa India",
+        "Umrah visa process India",
+        "Saudi visa services India",
+        "MOFA Umrah visa India",
+        "tourist visa vs Umrah visa"
+      ],
+      "internalLinkParent": "/",
+      "internalLinkChildren": [
+        "/visa/umrah-visa-india/",
+        "/visa/umrah-visa-cost/",
+        "/guides/umrah-for-women-rules/",
+        "/trust/"
+      ]
+    },
+    {
+      "url": "/visa/umrah-visa-india/",
+      "canonical": "https://nooreharam.com/visa/umrah-visa-india/",
+      "pageType": "informational-guide",
+      "contentCluster": "Visa",
+      "status": "active",
+      "lastReviewed": "2026-10-04",
+      "primaryIntent": "Complete requirements, required documents, photo specs & timeline for Saudi Umrah visa from India",
+      "targetQueryCluster": [
+        "Umrah visa requirements India",
+        "Umrah visa documents India",
+        "Umrah visa for Indians",
+        "Saudi electronic visa India",
+        "how to get Umrah visa India"
+      ],
+      "internalLinkParent": "/visa/",
+      "internalLinkChildren": [
+        "/visa/",
+        "/visa/umrah-visa-cost/",
+        "/guides/umrah-for-women-rules/",
+        "/trust/"
+      ]
+    },
+    {
+      "url": "/visa/umrah-visa-cost/",
+      "canonical": "https://nooreharam.com/visa/umrah-visa-cost/",
+      "pageType": "informational-guide",
+      "contentCluster": "Visa",
+      "status": "active",
+      "lastReviewed": "2026-10-04",
+      "primaryIntent": "Itemized official Saudi MOFA fee breakdown: SAR 300 visa fee, CHI insurance, ground handling & VAT",
+      "targetQueryCluster": [
+        "Umrah visa cost India",
+        "Saudi Umrah visa fee 2026 2027",
+        "official MOFA visa fee",
+        "Umrah health insurance cost CHI",
+        "Umrah visa charges INR"
+      ],
+      "internalLinkParent": "/visa/",
+      "internalLinkChildren": [
+        "/visa/",
+        "/visa/umrah-visa-india/",
+        "/guides/umrah-cost-india/",
+        "/trust/"
+      ]
+    },
+    {
+      "url": "/ziyarat/",
+      "canonical": "https://nooreharam.com/ziyarat/",
+      "pageType": "hub",
+      "contentCluster": "Ziyarat",
+      "status": "active",
+      "lastReviewed": "2026-10-04",
+      "primaryIntent": "Guided historical Islamic Ziyarat tours in Makkah & Madinah with authentic prophetic context",
+      "targetQueryCluster": [
+        "Makkah and Madinah Ziyarat",
+        "Ziyarat tour package India",
+        "guided Ziyarat tours",
+        "Islamic historical places Makkah",
+        "Islamic historical places Madinah"
+      ],
+      "internalLinkParent": "/",
+      "internalLinkChildren": [
+        "/ziyarat/41-ziyarat-places/",
+        "/ziyarat/makkah-ziyarat/",
+        "/ziyarat/madinah-ziyarat/",
+        "/trust/"
+      ]
+    },
+    {
+      "url": "/ziyarat/41-ziyarat-places/",
+      "canonical": "https://nooreharam.com/ziyarat/41-ziyarat-places/",
+      "pageType": "catalog",
+      "contentCluster": "Ziyarat",
+      "status": "active",
+      "lastReviewed": "2026-10-04",
+      "primaryIntent": "Exhaustive catalog of 41 sacred Ziyarat sites: 18 holy sites in Makkah and 23 blessed landmarks in Madinah",
+      "targetQueryCluster": [
+        "41 Ziyarat places",
+        "41 Ziyarat places in Makkah and Madinah",
+        "complete Ziyarat list",
+        "Ziyarat locations with history",
+        "Madinah sacred wells and gardens"
+      ],
+      "internalLinkParent": "/ziyarat/",
+      "internalLinkChildren": [
+        "/ziyarat/",
+        "/ziyarat/makkah-ziyarat/",
+        "/ziyarat/madinah-ziyarat/",
+        "/trust/"
+      ]
+    },
+    {
+      "url": "/ziyarat/makkah-ziyarat/",
+      "canonical": "https://nooreharam.com/ziyarat/makkah-ziyarat/",
+      "pageType": "informational-guide",
+      "contentCluster": "Ziyarat",
+      "status": "active",
+      "lastReviewed": "2026-10-04",
+      "primaryIntent": "Makkah holy sites guide: Jabal al-Noor (Hira), Jabal Thawr, Mina, Arafat, Muzdalifah & Jannat al-Mualla",
+      "targetQueryCluster": [
+        "Makkah Ziyarat places",
+        "Makkah Ziyarat list",
+        "Jabal al Noor visit",
+        "Cave of Hira guide",
+        "Jannat al Mualla Makkah"
+      ],
+      "internalLinkParent": "/ziyarat/",
+      "internalLinkChildren": [
+        "/ziyarat/",
+        "/ziyarat/41-ziyarat-places/",
+        "/ziyarat/madinah-ziyarat/",
+        "/trust/"
+      ]
+    },
+    {
+      "url": "/ziyarat/madinah-ziyarat/",
+      "canonical": "https://nooreharam.com/ziyarat/madinah-ziyarat/",
+      "pageType": "informational-guide",
+      "contentCluster": "Ziyarat",
+      "status": "active",
+      "lastReviewed": "2026-10-04",
+      "primaryIntent": "Madinah holy sites guide: Masjid Quba, Mount Uhud, Martyrs Cemetery, Masjid al-Qiblatain & Seven Mosques",
+      "targetQueryCluster": [
+        "Madinah Ziyarat places",
+        "Madinah historical sites",
+        "Masjid Quba visit reward",
+        "Uhud battlefield Martyrs",
+        "Masjid Qiblatain Madinah"
+      ],
+      "internalLinkParent": "/ziyarat/",
+      "internalLinkChildren": [
+        "/ziyarat/",
+        "/ziyarat/41-ziyarat-places/",
+        "/ziyarat/makkah-ziyarat/",
+        "/trust/"
+      ]
+    },
+    {
+      "url": "/guides/",
+      "canonical": "https://nooreharam.com/guides/",
+      "pageType": "hub",
+      "contentCluster": "Guides",
+      "status": "active",
+      "lastReviewed": "2026-10-04",
+      "primaryIntent": "Pilgrim knowledge repository, ritual preparation, gear checklists, cost analysis & vulnerable traveler support",
+      "targetQueryCluster": [
+        "Umrah guide",
+        "how to perform Umrah",
+        "Umrah preparation guide India",
+        "Umrah rules and regulations",
+        "pilgrim guides Makkah Madinah"
+      ],
+      "internalLinkParent": "/",
+      "internalLinkChildren": [
+        "/guides/umrah-guide/",
+        "/guides/nusuk-rawdah-guide/",
+        "/guides/umrah-for-women-rules/",
+        "/guides/umrah-packing-list/",
+        "/guides/umrah-for-elderly/",
+        "/guides/umrah-cost-india/",
+        "/trust/"
+      ]
+    },
+    {
+      "url": "/guides/nusuk-rawdah-guide/",
+      "canonical": "https://nooreharam.com/guides/nusuk-rawdah-guide/",
+      "pageType": "informational-guide",
+      "contentCluster": "Guides",
+      "status": "active",
+      "lastReviewed": "2026-10-04",
+      "primaryIntent": "Official Nusuk app Rawdah permit guide: 365-day repeat rule, Friday slot release, men vs women gates",
+      "targetQueryCluster": [
+        "Nusuk Rawdah permit",
+        "how to book Rawdah on Nusuk",
+        "Rawdah timings for women",
+        "Rawdah permit 365 day rule",
+        "Nusuk app login India"
+      ],
+      "internalLinkParent": "/guides/",
+      "internalLinkChildren": [
+        "/guides/",
+        "/guides/umrah-guide/",
+        "/guides/umrah-for-women-rules/",
+        "/trust/"
+      ]
+    },
+    {
+      "url": "/guides/umrah-packing-list/",
+      "canonical": "https://nooreharam.com/guides/umrah-packing-list/",
+      "pageType": "informational-guide",
+      "contentCluster": "Guides",
+      "status": "active",
+      "lastReviewed": "2026-10-04",
+      "primaryIntent": "Complete Umrah packing checklist: seamless white Ihram, unscented toiletries, footwear, first aid & baggage rules",
+      "targetQueryCluster": [
+        "Umrah packing list",
+        "what to pack for Umrah from India",
+        "Umrah checklist for men and women",
+        "Ihram clothing packing",
+        "unscented soap for Ihram"
+      ],
+      "internalLinkParent": "/guides/",
+      "internalLinkChildren": [
+        "/guides/",
+        "/guides/umrah-guide/",
+        "/guides/umrah-for-elderly/",
+        "/trust/"
+      ]
+    },
+    {
+      "url": "/guides/umrah-for-elderly/",
+      "canonical": "https://nooreharam.com/guides/umrah-for-elderly/",
+      "pageType": "informational-guide",
+      "contentCluster": "Guides",
+      "status": "active",
+      "lastReviewed": "2026-10-04",
+      "primaryIntent": "Senior citizen Umrah guide: manual wheelchairs, Tanaqol app electric carts, accessible transit & hotel proximity",
+      "targetQueryCluster": [
+        "Umrah for elderly",
+        "Umrah with senior citizen parents",
+        "wheelchair in Tawaf",
+        "electric cart Sa'i Tanaqol",
+        "accessible hotels near Haram"
+      ],
+      "internalLinkParent": "/guides/",
+      "internalLinkChildren": [
+        "/guides/",
+        "/guides/umrah-guide/",
+        "/guides/umrah-packing-list/",
+        "/trust/"
+      ]
+    },
+    {
+      "url": "/guides/umrah-guide/",
+      "canonical": "https://nooreharam.com/guides/umrah-guide/",
+      "pageType": "informational-guide",
+      "contentCluster": "Guides",
+      "status": "active",
+      "lastReviewed": "2026-10-04",
+      "primaryIntent": "Step-by-step Sunnah Umrah rituals: Miqat Niyyah & Talbiyah, Tawaf around Kaaba, Maqam Ibrahim, Sa'i, Halq/Taqsir",
+      "targetQueryCluster": [
+        "step by step Umrah guide",
+        "how to do Umrah",
+        "Umrah rituals step by step",
+        "Umrah ki dua",
+        "Tawaf and Sai steps"
+      ],
+      "internalLinkParent": "/guides/",
+      "internalLinkChildren": [
+        "/guides/",
+        "/guides/umrah-for-women-rules/",
+        "/guides/nusuk-rawdah-guide/",
+        "/trust/"
+      ]
+    },
+    {
+      "url": "/guides/umrah-cost-india/",
+      "canonical": "https://nooreharam.com/guides/umrah-cost-india/",
+      "pageType": "informational-guide",
+      "contentCluster": "Guides",
+      "status": "active",
+      "lastReviewed": "2026-10-04",
+      "primaryIntent": "Transparent breakdown of Umrah expenses from India: airfare brackets, hotel sharing, food, transport, forex & hidden fees",
+      "targetQueryCluster": [
+        "Umrah cost India",
+        "total cost of Umrah from India",
+        "Umrah budget for family",
+        "how much does Umrah cost",
+        "hidden charges in Umrah"
+      ],
+      "internalLinkParent": "/guides/",
+      "internalLinkChildren": [
+        "/guides/",
+        "/visa/umrah-visa-cost/",
+        "/packages/",
+        "/trust/"
+      ]
+    },
+    {
+      "url": "/guides/umrah-for-women-rules/",
+      "canonical": "https://nooreharam.com/guides/umrah-for-women-rules/",
+      "pageType": "informational-guide",
+      "contentCluster": "Guides",
+      "status": "active",
+      "lastReviewed": "2026-10-04",
+      "primaryIntent": "Authoritative guide on women's Umrah: Saudi law vs. 4 Madhhabs Mahram rules, Ihram attire, Hayd protocols & Rawdah hours",
+      "targetQueryCluster": [
+        "Umrah for women without Mahram India",
+        "Umrah Mahram rules 2026 2027",
+        "can women go to Umrah alone",
+        "women Ihram dress code",
+        "periods during Umrah rules"
+      ],
+      "internalLinkParent": "/guides/",
+      "internalLinkChildren": [
+        "/guides/",
+        "/guides/umrah-guide/",
+        "/guides/nusuk-rawdah-guide/",
+        "/visa/umrah-visa-india/",
+        "/trust/"
+      ]
+    },
+    {
+      "url": "/cities/north-karnataka/",
+      "canonical": "https://nooreharam.com/cities/north-karnataka/",
+      "pageType": "city-gateway",
+      "contentCluster": "Cities",
+      "status": "active",
+      "lastReviewed": "2026-10-04",
+      "primaryIntent": "Regional feeder authority hub connecting Hubli, Dharwad, Haveri, Hangal, Savnur, Harihar & Hospet with AC coach transit",
+      "targetQueryCluster": [
+        "Umrah packages Hubli",
+        "Umrah Dharwad",
+        "Umrah Haveri",
+        "Umrah Hangal",
+        "Umrah Savnur Harihar Hospet"
+      ],
+      "internalLinkParent": "/",
+      "internalLinkChildren": [
+        "/umrah/umrah-packages-hubli/",
+        "/umrah/umrah-packages-bangalore/",
+        "/umrah/umrah-packages-mumbai/",
+        "/trust/"
+      ]
+    },
+    {
+      "url": "/trust/",
+      "canonical": "https://nooreharam.com/trust/",
+      "pageType": "trust-center",
+      "contentCluster": "Trust",
+      "status": "active",
+      "lastReviewed": "2026-10-04",
+      "primaryIntent": "Trust & verification center: corporate registry, 4 pillars of transparency, legitimate bank transfers, refund terms & reviews workflow",
+      "targetQueryCluster": [
+        "Noor E Haram reviews",
+        "Noor E Haram genuine",
+        "Noor E Haram Hubli Karnataka",
+        "Umrah payment security India",
+        "Umrah cancellation refund terms"
+      ],
+      "internalLinkParent": "/",
+      "internalLinkChildren": [
+        "/packages/",
+        "/cities/north-karnataka/",
+        "/umrah/",
+        "/hajj/"
+      ]
+    }
+  ]
+}

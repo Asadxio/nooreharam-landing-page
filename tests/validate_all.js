@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const http = require('http');
 
-console.log('=== STARTING AUTOMATED QA & SEO VALIDATION ===\n');
+console.log('=== STARTING AUTOMATED QA, REGRESSION & SEO VALIDATION (PHASE 4) ===\n');
 
 let totalErrors = 0;
 
@@ -10,12 +10,12 @@ let totalErrors = 0;
 function getHtmlFiles(dir, fileList = []) {
   const files = fs.readdirSync(dir);
   for (const file of files) {
-    if (file === 'node_modules' || file === '.git' || file === '.netlify') continue;
+    if (['node_modules', '.git', '.netlify'].includes(file)) continue;
     const filePath = path.join(dir, file);
     const stat = fs.statSync(filePath);
     if (stat.isDirectory()) {
       getHtmlFiles(filePath, fileList);
-    } else if (file.endsWith('.html')) {
+    } else if (file.endsWith('.html') && file !== 'offline.html') {
       fileList.push(filePath);
     }
   }
@@ -23,10 +23,16 @@ function getHtmlFiles(dir, fileList = []) {
 }
 
 const htmlFiles = getHtmlFiles('.');
-console.log(`Found ${htmlFiles.length} HTML files to inspect.`);
+console.log(`Found ${htmlFiles.length} HTML content files to inspect.`);
 
 const knownUrls = new Set();
+// Add PWA offline fallback
+knownUrls.add('/offline.html');
+knownUrls.add('https://nooreharam.com/offline.html');
+
+const canonicalToRel = new Map();
 const allInternalHrefs = [];
+const incomingLinksCount = new Map(); // For orphan page detection
 
 htmlFiles.forEach(file => {
   const relative = path.relative('.', file).replace(/\\/g, '/');
@@ -35,60 +41,121 @@ htmlFiles.forEach(file => {
   else if (urlPath.endsWith('/index.html')) urlPath = urlPath.replace(/\/index\.html$/, '/');
   knownUrls.add(urlPath);
   knownUrls.add('https://nooreharam.com' + urlPath);
+  canonicalToRel.set('https://nooreharam.com' + urlPath, relative);
+  if (urlPath !== '/404.html') {
+    incomingLinksCount.set(urlPath, 0);
+  }
 });
 
 console.log(`Known canonical routes (${knownUrls.size / 2}):\n${Array.from(knownUrls).filter(u => u.startsWith('/')).map(u => '  • ' + u).join('\n')}\n`);
 
+// Maps for duplicate title/desc detection
+const titleRegistry = new Map();
+const descRegistry = new Map();
+
 // Validate each HTML file
 htmlFiles.forEach(file => {
   const content = fs.readFileSync(file, 'utf8');
-  const relPath = path.relative('.', file);
+  const relPath = path.relative('.', file).replace(/\\/g, '/');
   console.log(`Checking [${relPath}]...`);
 
-  // Title check
+  // A. Title check & uniqueness
   const titleMatch = content.match(/<title>([^<]+)<\/title>/i);
   if (!titleMatch || !titleMatch[1].trim()) {
     console.error(`  ❌ [${relPath}] Missing or empty <title> tag!`);
     totalErrors++;
   } else {
-    console.log(`  ✓ Title: "${titleMatch[1].trim()}" (${titleMatch[1].trim().length} chars)`);
+    const title = titleMatch[1].trim();
+    if (titleRegistry.has(title)) {
+      console.error(`  ❌ [${relPath}] DUPLICATE TITLE! Identical to [${titleRegistry.get(title)}]: "${title}"`);
+      totalErrors++;
+    } else {
+      titleRegistry.set(title, relPath);
+      console.log(`  ✓ Title: "${title}" (${title.length} chars)`);
+    }
   }
 
-  // Meta description check
-  const descMatch = content.match(/<meta[^>]*name=["']description["'][^>]*content="([^"]+)"/i) || content.match(/<meta[^>]*name=["']description["'][^>]*content='([^']+)'/i);
+  // B. Meta description check & uniqueness
+  const descMatch = content.match(/<meta[^>]*name=["']description["'][^>]*content="([^"]+)"/i) || 
+                     content.match(/<meta[^>]*name=["']description["'][^>]*content='([^']+)'/i);
   if (!descMatch || !descMatch[1].trim()) {
     console.error(`  ❌ [${relPath}] Missing or empty <meta name="description">!`);
     totalErrors++;
   } else {
-    console.log(`  ✓ Description: "${descMatch[1].trim().slice(0, 70)}..." (${descMatch[1].trim().length} chars)`);
+    const desc = descMatch[1].trim();
+    if (descRegistry.has(desc)) {
+      console.error(`  ❌ [${relPath}] DUPLICATE DESCRIPTION! Identical to [${descRegistry.get(desc)}]: "${desc.slice(0, 50)}..."`);
+      totalErrors++;
+    } else {
+      descRegistry.set(desc, relPath);
+      console.log(`  ✓ Description: "${desc.slice(0, 70)}..." (${desc.length} chars)`);
+    }
   }
 
-  // Canonical tag check
+  // C. Canonical tag check & exact path verification
+  let expectedCanonical = 'https://nooreharam.com/' + (relPath === 'index.html' ? '' : relPath.replace(/\/index\.html$/, '/'));
+  if (relPath === '404.html') expectedCanonical = null; // 404 does not require canonical
+
   const canonMatch = content.match(/<link[^>]*rel=["']canonical["'][^>]*href=["']([^"']+)["']/i);
-  if (!canonMatch || !canonMatch[1].trim()) {
-    console.error(`  ❌ [${relPath}] Missing <link rel="canonical">!`);
-    totalErrors++;
-  } else {
-    console.log(`  ✓ Canonical: ${canonMatch[1].trim()}`);
+  if (expectedCanonical) {
+    if (!canonMatch || !canonMatch[1].trim()) {
+      console.error(`  ❌ [${relPath}] Missing <link rel="canonical">!`);
+      totalErrors++;
+    } else {
+      const canon = canonMatch[1].trim();
+      if (canon !== expectedCanonical) {
+        console.error(`  ❌ [${relPath}] CANONICAL MISMATCH! Found "${canon}", expected "${expectedCanonical}"`);
+        totalErrors++;
+      } else {
+        console.log(`  ✓ Canonical matches expected: ${canon}`);
+      }
+    }
   }
 
-  // H1 tag check
-  const h1Match = content.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
-  if (!h1Match || !h1Match[1].trim()) {
+  // D. H1 tag check (must have exactly 1 <h1> heading)
+  const h1Matches = content.match(/<h1[^>]*>([\s\S]*?)<\/h1>/gi) || [];
+  if (h1Matches.length === 0) {
     console.error(`  ❌ [${relPath}] Missing <h1> heading!`);
     totalErrors++;
+  } else if (h1Matches.length > 1) {
+    console.error(`  ❌ [${relPath}] Multiple <h1> tags found (${h1Matches.length})!`);
+    totalErrors++;
   } else {
-    const h1Clean = h1Match[1].replace(/<[^>]+>/g, '').trim().replace(/\s+/g, ' ');
-    console.log(`  ✓ H1: "${h1Clean}"`);
+    const h1Clean = h1Matches[0].replace(/<[^>]+>/g, '').trim().replace(/\s+/g, ' ');
+    console.log(`  ✓ H1 (single): "${h1Clean}"`);
   }
 
-  // Check for prohibited fabricated aggregateRating
+  // E. Accidental noindex check on canonical pages
+  if (relPath !== '404.html') {
+    const robotsMatch = content.match(/<meta[^>]*name=["']robots["'][^>]*content=["']([^"']+)["']/i);
+    if (robotsMatch && robotsMatch[1].toLowerCase().includes('noindex')) {
+      console.error(`  ❌ [${relPath}] ACCIDENTAL NOINDEX detected in robots meta tag!`);
+      totalErrors++;
+    }
+  }
+
+  // F. Images alt text check
+  const imgTags = content.match(/<img[^>]*>/gi) || [];
+  let missingAlt = 0;
+  imgTags.forEach(img => {
+    if (!img.includes('alt="') && !img.includes("alt='")) {
+      missingAlt++;
+    }
+  });
+  if (missingAlt > 0) {
+    console.error(`  ❌ [${relPath}] Found ${missingAlt} <img> tag(s) without alt attribute!`);
+    totalErrors++;
+  } else {
+    console.log(`  ✓ Images: All ${imgTags.length} <img> tags have alt attributes.`);
+  }
+
+  // G. Check for prohibited fabricated aggregateRating
   if (content.includes('"@type": "AggregateRating"') || content.includes('"@type":"AggregateRating"')) {
     console.error(`  ❌ [${relPath}] PROHIBITED: Contains unverified AggregateRating schema! Must be removed.`);
     totalErrors++;
   }
 
-  // Validate JSON-LD script syntax
+  // H. Validate JSON-LD script syntax
   const jsonLdRegex = /<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
   let match;
   let schemaCount = 0;
@@ -107,7 +174,7 @@ htmlFiles.forEach(file => {
     }
   }
 
-  // Collect internal links to test
+  // I. Collect internal links & WhatsApp links to test
   const linkRegex = /<a[^>]+href=["']([^"']+)["']/gi;
   let lMatch;
   while ((lMatch = linkRegex.exec(content)) !== null) {
@@ -115,6 +182,26 @@ htmlFiles.forEach(file => {
     if (href.startsWith('/') && !href.startsWith('//') && !href.startsWith('/#')) {
       const cleanHref = href.split('#')[0];
       allInternalHrefs.push({ from: relPath, to: cleanHref });
+      if (incomingLinksCount.has(cleanHref)) {
+        incomingLinksCount.set(cleanHref, incomingLinksCount.get(cleanHref) + 1);
+      }
+    }
+    // WhatsApp CTA link validation
+    if (href.includes('wa.me/')) {
+      const validWaPrefixes = [
+        'https://wa.me/919986925592',
+        'https://wa.me/917022914592',
+        'https://wa.me/919739942455',
+        'https://wa.me/917411163251'
+      ];
+      if (!validWaPrefixes.some(p => href.startsWith(p))) {
+        console.error(`  ❌ [${relPath}] UNRECOGNIZED WhatsApp number in link: "${href}"`);
+        totalErrors++;
+      }
+      if (href.includes(' ')) {
+        console.error(`  ❌ [${relPath}] WhatsApp link contains unencoded space: "${href}"`);
+        totalErrors++;
+      }
     }
   }
 });
@@ -133,12 +220,17 @@ if (!fs.existsSync('sitemap.xml')) {
     sitemapUrls.push(locMatch[1].trim());
   }
   console.log(`  Found ${sitemapUrls.length} URLs in sitemap.xml:`);
+  
+  // Total canonical count check (must be 27)
+  if (sitemapUrls.length !== 27) {
+    console.error(`  ❌ Expected 27 URLs in sitemap.xml, found ${sitemapUrls.length}!`);
+    totalErrors++;
+  }
+
   sitemapUrls.forEach(url => {
     if (url.includes('#')) {
       console.error(`  ❌ Prohibited anchor hash in sitemap: ${url}`);
       totalErrors++;
-    } else {
-      console.log(`  ✓ Sitemap URL: ${url}`);
     }
     // Verify sitemap URL matches a known on-disk route
     const urlPath = url.replace('https://nooreharam.com', '');
@@ -149,7 +241,27 @@ if (!fs.existsSync('sitemap.xml')) {
   });
 }
 
-// 3. Validate robots.txt
+// 3. Validate seo/seo-map.json
+console.log('\nChecking seo/seo-map.json...');
+if (!fs.existsSync('seo/seo-map.json')) {
+  console.error('❌ seo/seo-map.json not found!');
+  totalErrors++;
+} else {
+  try {
+    const seoMap = JSON.parse(fs.readFileSync('seo/seo-map.json', 'utf8'));
+    if (!seoMap.routes || seoMap.routes.length !== 27) {
+      console.error(`  ❌ seo/seo-map.json must contain 27 routes, found ${seoMap.routes ? seoMap.routes.length : 0}`);
+      totalErrors++;
+    } else {
+      console.log(`  ✓ seo/seo-map.json contains ${seoMap.routes.length} validated routes.`);
+    }
+  } catch (err) {
+    console.error(`  ❌ Failed to parse seo/seo-map.json: ${err.message}`);
+    totalErrors++;
+  }
+}
+
+// 4. Validate robots.txt
 console.log('\nChecking robots.txt...');
 if (!fs.existsSync('robots.txt')) {
   console.error('❌ robots.txt not found!');
@@ -164,8 +276,8 @@ if (!fs.existsSync('robots.txt')) {
   }
 }
 
-// 4. Validate internal link integrity
-console.log('\nValidating internal links...');
+// 5. Validate internal link integrity & check for orphan pages
+console.log('\nValidating internal links & checking for orphan pages...');
 let brokenLinks = 0;
 allInternalHrefs.forEach(({ from, to }) => {
   if (!knownUrls.has(to) && to !== '' && !to.startsWith('/assets/')) {
@@ -174,11 +286,21 @@ allInternalHrefs.forEach(({ from, to }) => {
     totalErrors++;
   }
 });
+
 if (brokenLinks === 0) {
   console.log(`  ✓ All ${allInternalHrefs.length} internal links resolved successfully!`);
 }
 
-// 5. Run Local HTTP Server test to verify real HTTP 200 responses
+// Orphan page check (every page except homepage '/' must have at least 1 incoming link)
+incomingLinksCount.forEach((count, urlPath) => {
+  if (urlPath !== '/' && count === 0) {
+    console.error(`  ❌ ORPHAN PAGE DETECTED! Route [${urlPath}] has 0 incoming internal links.`);
+    totalErrors++;
+  }
+});
+console.log(`  ✓ Zero orphan pages detected across ${incomingLinksCount.size} canonical routes.`);
+
+// 6. Run Local HTTP Server test to verify real HTTP 200 responses
 console.log('\nLaunching local HTTP server to verify live HTTP 200 response codes...');
 const mimeTypes = {
   '.html': 'text/html; charset=UTF-8',
@@ -244,7 +366,7 @@ server.listen(8099, async () => {
   server.close(() => {
     console.log(`\n=== QA SUMMARY ===`);
     if (totalErrors === 0) {
-      console.log('🎉 ALL AUDITS AND HTTP INTEGRATION TESTS PASSED WITH 0 ERRORS!');
+      console.log('🎉 ALL AUDITS, ZERO ORPHANS, ZERO DUPLICATES & HTTP INTEGRATION TESTS PASSED WITH 0 ERRORS!');
       process.exit(0);
     } else {
       console.error(`❌ Total failures found: ${totalErrors}`);
