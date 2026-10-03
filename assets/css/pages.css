@@ -1,0 +1,430 @@
+/* ==========================================================================
+   NOOR-E-HARAM Subpages & Content Clusters Styling (pages.css)
+   Emerald Green & Gold Luxury Islamic Aesthetics
+   ========================================================================== */
+
+/* Subpage Hero */
+.subpage-hero {
+  position: relative;
+  background: radial-gradient(circle at 50% 20%, #0a3d2e 0%, #06281e 50%, #041c14 100%);
+  color: var(--text-on-dark);
+  padding: 120px 0 50px;
+  overflow: hidden;
+}
+.subpage-hero .hero-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: 
+    radial-gradient(circle at 15% 75%, rgba(201, 162, 75, 0.12) 0%, transparent 45%), 
+    radial-gradient(circle at 85% 25%, rgba(20, 92, 68, 0.35) 0%, transparent 55%);
+}
+.subpage-hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+}
+.subpage-arabic {
+  font-family: 'Amiri', serif;
+  font-size: 1.15rem;
+  color: var(--gold-premium);
+  margin-bottom: 12px;
+  display: block;
+}
+.subpage-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(32px, 5vw, 54px);
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--text-on-dark);
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+.subpage-title .highlight {
+  color: var(--gold-premium);
+  font-style: italic;
+}
+.subpage-desc {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  max-width: 780px;
+}
+
+/* Breadcrumbs */
+.breadcrumb-wrapper {
+  margin-bottom: 16px;
+}
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  list-style: none;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 0;
+  margin: 0;
+}
+.breadcrumbs li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.breadcrumbs li:not(:last-child)::after {
+  content: "›";
+  color: var(--gold-accent);
+  font-size: 1rem;
+}
+.breadcrumbs a {
+  color: var(--gold-premium);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.breadcrumbs a:hover {
+  color: var(--white);
+  text-decoration: underline;
+}
+.breadcrumbs [aria-current="page"] {
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 500;
+}
+
+/* Content Layout */
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 40px;
+  align-items: start;
+  padding: 50px 0 80px;
+}
+@media (max-width: 991px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+.article-main {
+  color: var(--text-dark);
+}
+.article-lead {
+  font-size: 1.15rem;
+  line-height: 1.75;
+  color: var(--text-mid);
+  margin-bottom: 28px;
+  font-weight: 400;
+}
+
+/* Headings */
+.article-h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(24px, 3.5vw, 34px);
+  color: var(--emerald);
+  margin: 40px 0 16px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border-gold-soft);
+  position: relative;
+}
+.article-h2::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background: var(--gold);
+}
+.article-h3 {
+  font-size: 1.25rem;
+  color: var(--charcoal);
+  margin: 24px 0 12px;
+  font-weight: 600;
+}
+
+/* Callout Box */
+.info-box {
+  background: var(--cream);
+  border-left: 4px solid var(--gold);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  margin: 28px 0;
+}
+.info-box-title {
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--emerald);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.info-box p {
+  margin: 0;
+  color: var(--text-mid);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Feature Checkmark List */
+.checklist {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+.checklist li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 12px;
+  color: var(--text-mid);
+  line-height: 1.6;
+}
+.checklist li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--gold-dark);
+  font-weight: bold;
+}
+
+/* Data Table */
+.data-table-wrap {
+  overflow-x: auto;
+  margin: 24px 0;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.95rem;
+}
+.data-table th {
+  background: var(--emerald);
+  color: var(--white);
+  padding: 14px 18px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+.data-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-dark);
+}
+.data-table tr:last-child td {
+  border-bottom: none;
+}
+.data-table tr:nth-child(even) {
+  background: var(--cream);
+}
+.data-table .price-cell {
+  font-weight: 700;
+  color: var(--emerald-mid);
+}
+
+/* Package Card */
+.tier-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow);
+  margin-bottom: 24px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.tier-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-luxury);
+  border-color: var(--border-gold);
+}
+.tier-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.tier-name {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.5rem;
+  color: var(--emerald);
+  font-weight: 600;
+}
+.tier-price {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--gold-dark);
+}
+.tier-badge {
+  display: inline-block;
+  background: var(--emerald-pale);
+  color: var(--emerald-mid);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 12px;
+}
+
+/* FAQ Accordion in Pages */
+.faq-box {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  margin-bottom: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.faq-box summary {
+  padding: 18px 22px;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--emerald);
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.05rem;
+}
+.faq-box summary::-webkit-details-marker {
+  display: none;
+}
+.faq-box summary::after {
+  content: "+";
+  font-size: 1.4rem;
+  color: var(--gold);
+  transition: transform 0.2s ease;
+}
+.faq-box[open] summary::after {
+  transform: rotate(45deg);
+}
+.faq-box[open] summary {
+  border-bottom: 1px solid var(--border-gold-soft);
+  background: var(--cream);
+}
+.faq-content {
+  padding: 18px 22px;
+  color: var(--text-mid);
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+/* Sidebar Conversion Widget */
+.sidebar-sticky {
+  position: sticky;
+  top: 90px;
+}
+.sidebar-card {
+  background: var(--white);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  box-shadow: var(--shadow-luxury);
+  margin-bottom: 24px;
+}
+.sidebar-card.gold-theme {
+  background: linear-gradient(145deg, #0b3d2e 0%, #06281e 100%);
+  color: var(--white);
+  border: 1px solid var(--border-gold-bright);
+}
+.sidebar-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+  color: var(--emerald);
+}
+.sidebar-card.gold-theme .sidebar-title {
+  color: var(--gold-premium);
+}
+.sidebar-text {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--text-mid);
+  margin-bottom: 20px;
+}
+.sidebar-card.gold-theme .sidebar-text {
+  color: rgba(255, 255, 255, 0.85);
+}
+.sidebar-feature {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.88rem;
+  margin-bottom: 10px;
+}
+
+/* CTAs */
+.btn-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 13px 20px;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  margin-bottom: 10px;
+  transition: all 0.2s ease;
+}
+.btn-wa-full {
+  background: #25D366;
+  color: var(--white);
+}
+.btn-wa-full:hover {
+  background: #1eb857;
+  color: var(--white);
+}
+.btn-call-full {
+  background: var(--gold);
+  color: var(--emerald-dark);
+}
+.btn-call-full:hover {
+  background: var(--gold-light);
+}
+
+/* Navigation Grid */
+.nav-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  margin: 30px 0;
+}
+.nav-card {
+  display: block;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow);
+}
+.nav-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+}
+.nav-card h4 {
+  font-size: 1.15rem;
+  color: var(--emerald);
+  margin-bottom: 8px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+.nav-card p {
+  font-size: 0.88rem;
+  color: var(--text-mid);
+  margin: 0;
+  line-height: 1.5;
+}
+.nav-card-arrow {
+  color: var(--gold);
+  font-weight: bold;
+  margin-top: 10px;
+  display: block;
+  font-size: 0.85rem;
+}
