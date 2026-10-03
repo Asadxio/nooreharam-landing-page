@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const http = require('http');
 
 console.log('=== STARTING AUTOMATED QA & SEO VALIDATION ===\n');
 
@@ -36,7 +37,7 @@ htmlFiles.forEach(file => {
   knownUrls.add('https://nooreharam.com' + urlPath);
 });
 
-console.log(`Known canonical routes:\n${Array.from(knownUrls).filter(u => u.startsWith('/')).map(u => '  • ' + u).join('\n')}\n`);
+console.log(`Known canonical routes (${knownUrls.size / 2}):\n${Array.from(knownUrls).filter(u => u.startsWith('/')).map(u => '  • ' + u).join('\n')}\n`);
 
 // Validate each HTML file
 htmlFiles.forEach(file => {
@@ -106,13 +107,14 @@ htmlFiles.forEach(file => {
     }
   }
 
-  // Collect internal links
+  // Collect internal links to test
   const linkRegex = /<a[^>]+href=["']([^"']+)["']/gi;
   let lMatch;
   while ((lMatch = linkRegex.exec(content)) !== null) {
     const href = lMatch[1].trim();
-    if (href.startsWith('/') && !href.startsWith('//')) {
-      allInternalHrefs.push({ from: relPath, to: href });
+    if (href.startsWith('/') && !href.startsWith('//') && !href.startsWith('/#')) {
+      const cleanHref = href.split('#')[0];
+      allInternalHrefs.push({ from: relPath, to: cleanHref });
     }
   }
 });
@@ -138,6 +140,12 @@ if (!fs.existsSync('sitemap.xml')) {
     } else {
       console.log(`  ✓ Sitemap URL: ${url}`);
     }
+    // Verify sitemap URL matches a known on-disk route
+    const urlPath = url.replace('https://nooreharam.com', '');
+    if (!knownUrls.has(urlPath)) {
+      console.error(`  ❌ URL in sitemap does not exist on disk: ${url}`);
+      totalErrors++;
+    }
   });
 }
 
@@ -148,19 +156,99 @@ if (!fs.existsSync('robots.txt')) {
   totalErrors++;
 } else {
   const robots = fs.readFileSync('robots.txt', 'utf8');
-  if (!robots.includes('Sitemap:')) {
-    console.error('  ❌ robots.txt missing Sitemap directive!');
+  if (!robots.includes('Sitemap: https://nooreharam.com/sitemap.xml')) {
+    console.error('  ❌ robots.txt missing canonical Sitemap directive!');
     totalErrors++;
   } else {
     console.log('  ✓ robots.txt contains valid Sitemap reference.');
   }
 }
 
-console.log(`\n=== QA SUMMARY ===`);
-if (totalErrors === 0) {
-  console.log('🎉 ALL AUDITS PASSED WITH 0 ERRORS!');
-  process.exit(0);
-} else {
-  console.error(`❌ Total failures found: ${totalErrors}`);
-  process.exit(1);
+// 4. Validate internal link integrity
+console.log('\nValidating internal links...');
+let brokenLinks = 0;
+allInternalHrefs.forEach(({ from, to }) => {
+  if (!knownUrls.has(to) && to !== '' && !to.startsWith('/assets/')) {
+    console.error(`  ❌ Broken link from [${from}] to [${to}]`);
+    brokenLinks++;
+    totalErrors++;
+  }
+});
+if (brokenLinks === 0) {
+  console.log(`  ✓ All ${allInternalHrefs.length} internal links resolved successfully!`);
 }
+
+// 5. Run Local HTTP Server test to verify real HTTP 200 responses
+console.log('\nLaunching local HTTP server to verify live HTTP 200 response codes...');
+const mimeTypes = {
+  '.html': 'text/html; charset=UTF-8',
+  '.css': 'text/css',
+  '.js': 'text/javascript',
+  '.xml': 'application/xml',
+  '.json': 'application/json',
+  '.png': 'image/png',
+  '.jpg': 'image/jpeg',
+  '.webp': 'image/webp'
+};
+
+const server = http.createServer((req, res) => {
+  let reqPath = req.url.split('?')[0];
+  if (reqPath.endsWith('/')) reqPath += 'index.html';
+  let filePath = path.join('.', reqPath);
+
+  if (fs.existsSync(filePath) && fs.statSync(filePath).isDirectory()) {
+    filePath = path.join(filePath, 'index.html');
+  }
+
+  if (fs.existsSync(filePath) && !fs.statSync(filePath).isDirectory()) {
+    const ext = path.extname(filePath);
+    res.writeHead(200, { 'Content-Type': mimeTypes[ext] || 'application/octet-stream' });
+    fs.createReadStream(filePath).pipe(res);
+  } else {
+    res.writeHead(404, { 'Content-Type': 'text/html' });
+    if (fs.existsSync('404.html')) {
+      fs.createReadStream('404.html').pipe(res);
+    } else {
+      res.end('Not Found');
+    }
+  }
+});
+
+server.listen(8099, async () => {
+  const routesToTest = Array.from(knownUrls).filter(u => u.startsWith('/') && !u.endsWith('.html'));
+  routesToTest.push('/404.html');
+
+  console.log(`  Testing ${routesToTest.length} routes via HTTP GET...`);
+
+  let completed = 0;
+  for (const route of routesToTest) {
+    await new Promise((resolve) => {
+      http.get(`http://localhost:8099${route}`, (res) => {
+        if (route === '/404.html' ? res.statusCode !== 200 : res.statusCode !== 200) {
+          console.error(`  ❌ HTTP ${res.statusCode} on route ${route}`);
+          totalErrors++;
+        } else {
+          console.log(`  ✓ HTTP ${res.statusCode} OK: ${route}`);
+        }
+        res.resume();
+        completed++;
+        resolve();
+      }).on('error', (err) => {
+        console.error(`  ❌ Connection error on ${route}: ${err.message}`);
+        totalErrors++;
+        resolve();
+      });
+    });
+  }
+
+  server.close(() => {
+    console.log(`\n=== QA SUMMARY ===`);
+    if (totalErrors === 0) {
+      console.log('🎉 ALL AUDITS AND HTTP INTEGRATION TESTS PASSED WITH 0 ERRORS!');
+      process.exit(0);
+    } else {
+      console.error(`❌ Total failures found: ${totalErrors}`);
+      process.exit(1);
+    }
+  });
+});

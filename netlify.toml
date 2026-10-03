@@ -17,6 +17,11 @@
     Cache-Control = "public, max-age=3600, must-revalidate"
 
 [[headers]]
+  for = "/**/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+[[headers]]
   for = "/assets/css/*.css"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
@@ -30,3 +35,9 @@
   for = "/assets/images/**/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+# 404 Fallback
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
