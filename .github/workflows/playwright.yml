@@ -25,4 +25,6 @@ jobs:
         npx playwright install --with-deps chromium
 
     - name: Run Production Quality Tests
-      run: node tests/ci_test.js
+      run: |
+        node tests/validate_all.js
+        node tests/ci_test.js
