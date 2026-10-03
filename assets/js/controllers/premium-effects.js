@@ -160,22 +160,10 @@ function initTypewriter() {
   type();
 }
 
-/* ── 10. COUNTDOWN TIMER ────────────────────────────────────────────────── */
+/* ── 10. AUTHENTIC DEPARTURE SCHEDULE (No fake urgency/rolling timers) ── */
 function initCountdown() {
-  const dEl = document.getElementById('nhCdDays'), hEl = document.getElementById('nhCdHrs');
-  const mEl = document.getElementById('nhCdMin'), sEl = document.getElementById('nhCdSec');
-  if (!dEl) return;
-  const target = new Date(); target.setDate(target.getDate() + 45); target.setHours(9, 0, 0, 0);
-  function update() {
-    if (document.hidden) return; // Skip update if tab hidden
-    const diff = target - Date.now();
-    if (diff <= 0) return;
-    const d = Math.floor(diff/86400000), h = Math.floor((diff%86400000)/3600000);
-    const m = Math.floor((diff%3600000)/60000), s = Math.floor((diff%60000)/1000);
-    dEl.textContent = String(d).padStart(2,'0'); hEl.textContent = String(h).padStart(2,'0');
-    mEl.textContent = String(m).padStart(2,'0'); sEl.textContent = String(s).padStart(2,'0');
-  }
-  update(); setInterval(update, 1000);
+  // Deceptive rolling countdown timer removed in Phase 5 for Google Merchant / E-E-A-T compliance.
+  // Replaced with verified static departure schedule badge.
 }
 
 /* ── 11. CONFETTI (only on click, not continuous) ───────────────────────── */

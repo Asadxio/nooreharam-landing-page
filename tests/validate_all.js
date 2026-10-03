@@ -174,11 +174,33 @@ htmlFiles.forEach(file => {
     }
   }
 
-  // I. Collect internal links & WhatsApp links to test
+  // J. Placeholder text check (no lorem ipsum, TODOs, etc.)
+  const placeholderRegex = /\b(lorem\s+ipsum|dolor\s+sit\s+amet|TODO|FIXME|TBD)\b/i;
+  const placeholderMatch = content.match(placeholderRegex);
+  if (placeholderMatch) {
+    console.error(`  ❌ [${relPath}] PLACEHOLDER TEXT DETECTED: "${placeholderMatch[0]}"`);
+    totalErrors++;
+  } else {
+    console.log(`  ✓ No placeholder text detected.`);
+  }
+
+  // K. Google Analytics GA4 tag check (G-4SZRN40VQ2)
+  if (!content.includes('G-4SZRN40VQ2')) {
+    console.error(`  ❌ [${relPath}] Missing GA4 measurement tag (G-4SZRN40VQ2)!`);
+    totalErrors++;
+  } else {
+    console.log(`  ✓ GA4 tag present (G-4SZRN40VQ2)`);
+  }
+
+  // L. Collect internal links & WhatsApp links to test
   const linkRegex = /<a[^>]+href=["']([^"']+)["']/gi;
   let lMatch;
   while ((lMatch = linkRegex.exec(content)) !== null) {
     const href = lMatch[1].trim();
+    if (href.startsWith('http://nooreharam.com') || href.startsWith('http://www.nooreharam.com')) {
+      console.error(`  ❌ [${relPath}] INSECURE HTTP internal link: "${href}"`);
+      totalErrors++;
+    }
     if (href.startsWith('/') && !href.startsWith('//') && !href.startsWith('/#')) {
       const cleanHref = href.split('#')[0];
       allInternalHrefs.push({ from: relPath, to: cleanHref });
@@ -255,6 +277,31 @@ if (!fs.existsSync('seo/seo-map.json')) {
     } else {
       console.log(`  ✓ seo/seo-map.json contains ${seoMap.routes.length} validated routes.`);
     }
+
+    // Phase 5 schema & metadata completeness verification
+    seoMap.routes.forEach(r => {
+      if (!r.title || !r.title.trim()) {
+        console.error(`  ❌ seo/seo-map.json route [${r.url}] missing title!`);
+        totalErrors++;
+      }
+      if (!r.factualReviewDate) {
+        console.error(`  ❌ seo/seo-map.json route [${r.url}] missing factualReviewDate!`);
+        totalErrors++;
+      }
+      if (!r.canonical || !r.canonical.startsWith('https://nooreharam.com/')) {
+        console.error(`  ❌ seo/seo-map.json route [${r.url}] invalid canonical: "${r.canonical}"`);
+        totalErrors++;
+      }
+      if (!r.primaryIntent || !r.primaryIntent.trim()) {
+        console.error(`  ❌ seo/seo-map.json route [${r.url}] missing primaryIntent!`);
+        totalErrors++;
+      }
+      if (!Array.isArray(r.targetQueryCluster) || r.targetQueryCluster.length === 0) {
+        console.error(`  ❌ seo/seo-map.json route [${r.url}] missing targetQueryCluster!`);
+        totalErrors++;
+      }
+    });
+    console.log(`  ✓ All 27 routes in seo/seo-map.json verified for Title, Canonical, Factual Review Date & Query Clusters.`);
   } catch (err) {
     console.error(`  ❌ Failed to parse seo/seo-map.json: ${err.message}`);
     totalErrors++;

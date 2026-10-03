@@ -28,25 +28,21 @@
 }
 @keyframes nhBlink { 0%,100% { opacity:1; } 50% { opacity:0; } }
 
-/* ── COUNTDOWN TIMER ── */
-.nh-countdown {
-  display: inline-flex; flex-direction: column; gap: 10px;
-  background: rgba(255,255,255,0.07); backdrop-filter: blur(8px);
-  border: 1px solid rgba(212,172,13,0.25); border-radius: var(--radius-lg);
-  padding: 14px 20px; margin: 18px 0 22px; width: fit-content;
+/* ── AUTHENTIC DEPARTURE SCHEDULE BADGE ── */
+.nh-schedule-badge {
+  display: inline-flex; flex-direction: column; gap: 6px;
+  background: rgba(255,255,255,0.08); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(212,172,13,0.35); border-radius: var(--radius-lg);
+  padding: 12px 18px; margin: 18px 0 22px; max-width: 540px; text-align: left;
 }
-.nh-countdown-label { font-size: var(--text-xs); letter-spacing: 2px; text-transform: uppercase; color: rgba(212,172,13,0.9); }
-.nh-countdown-blocks { display: flex; align-items: center; gap: 4px; }
-.nh-cd-block {
-  display: flex; flex-direction: column; align-items: center; gap: 2px;
-  background: rgba(212,172,13,0.12); border-radius: var(--radius-sm); padding: 8px 12px; min-width: 52px;
+.nh-schedule-header {
+  display: flex; align-items: center; gap: 8px; font-size: var(--text-xs);
+  letter-spacing: 1.5px; text-transform: uppercase; color: #d4ac0d; font-weight: 600;
 }
-.nh-cd-block span {
-  font-family: 'Cormorant Garamond', serif; font-size: var(--text-2xl); font-weight: 600;
-  color: #d4ac0d; line-height: 1;
+.nh-schedule-header svg { color: #d4ac0d; flex-shrink: 0; }
+.nh-schedule-detail {
+  font-size: var(--text-sm); color: rgba(255,255,255,0.92); margin: 0; line-height: 1.45;
 }
-.nh-cd-block small { font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,.6); }
-.nh-cd-sep { font-size: var(--text-xl); color: rgba(212,172,13,.5); font-weight: 300; margin-bottom: 10px; }
 
 /* ── HERO TITLE HIGHLIGHT ── */
 .hero-title .highlight { color: #d4ac0d; font-style: italic; }

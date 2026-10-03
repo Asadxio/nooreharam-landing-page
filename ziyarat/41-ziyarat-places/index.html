@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4SZRN40VQ2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-4SZRN40VQ2');
+  </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>41 Ziyarat Places in Makkah &amp; Madinah: Complete Historical Catalog | NOOR-E-HARAM</title>
@@ -356,5 +366,32 @@
       <p>&copy; 2026 NOOR-E-HARAM Tours &amp; Travels. All rights reserved. | <a href="/offline.html">Offline Policy</a></p>
     </div>
   </footer>
+  <!-- Google Analytics Event & Conversion Telemetry -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp.com"]').forEach(function(el) {
+        el.addEventListener('click', function() {
+          if (typeof gtag === 'function') {
+            gtag('event', 'whatsapp_click', {
+              event_category: 'Conversion',
+              event_label: el.getAttribute('href'),
+              page_location: window.location.href
+            });
+          }
+        });
+      });
+      document.querySelectorAll('a[href^="tel:"]').forEach(function(el) {
+        el.addEventListener('click', function() {
+          if (typeof gtag === 'function') {
+            gtag('event', 'phone_call', {
+              event_category: 'Conversion',
+              event_label: el.getAttribute('href'),
+              page_location: window.location.href
+            });
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>

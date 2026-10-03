@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4SZRN40VQ2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-4SZRN40VQ2');
+  </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>North Karnataka Umrah &amp; Hajj Services: Hubli, Dharwad, Haveri, Hangal &amp; Hospet | NOOR-E-HARAM</title>
@@ -77,6 +87,9 @@
           { "@type": "City", "name": "Haveri" },
           { "@type": "City", "name": "Hangal" },
           { "@type": "City", "name": "Savnur" },
+          { "@type": "City", "name": "Gadag" },
+          { "@type": "City", "name": "Sirsi" },
+          { "@type": "City", "name": "Ranebennur" },
           { "@type": "City", "name": "Harihar" },
           { "@type": "City", "name": "Hospet" }
         ]
@@ -270,6 +283,21 @@
                   <td>Bangalore route feeder coordination, itinerary counseling, luggage kit delivery.</td>
                 </tr>
                 <tr>
+                  <td><strong>Gadag &amp; Betageri</strong></td>
+                  <td>Authorized Desk &bull; Feeder Hub</td>
+                  <td>Pre-departure documentation, medical fitness certification assistance, direct Hubli shuttle.</td>
+                </tr>
+                <tr>
+                  <td><strong>Sirsi &amp; Uttara Kannada</strong></td>
+                  <td>Regional Support Coordinator</td>
+                  <td>Hill-district pilgrim briefing, passport collection, direct Hubli orientation transport.</td>
+                </tr>
+                <tr>
+                  <td><strong>Ranebennur</strong></td>
+                  <td>Town Coordination Representative</td>
+                  <td>Doorstep document pickup, group pilgrim registration, Bangalore-bound feeder boarding.</td>
+                </tr>
+                <tr>
                   <td><strong>Hospet (Vijayanagara)</strong></td>
                   <td>Authorized Booking Desk</td>
                   <td>Family and group bookings, pre-departure orientation, WhatsApp document intake.</td>
@@ -395,5 +423,32 @@
       <p>&copy; 2026 NOOR-E-HARAM Tours &amp; Travels. All rights reserved. | <a href="/offline.html">Offline Policy</a></p>
     </div>
   </footer>
+  <!-- Google Analytics Event & Conversion Telemetry -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp.com"]').forEach(function(el) {
+        el.addEventListener('click', function() {
+          if (typeof gtag === 'function') {
+            gtag('event', 'whatsapp_click', {
+              event_category: 'Conversion',
+              event_label: el.getAttribute('href'),
+              page_location: window.location.href
+            });
+          }
+        });
+      });
+      document.querySelectorAll('a[href^="tel:"]').forEach(function(el) {
+        el.addEventListener('click', function() {
+          if (typeof gtag === 'function') {
+            gtag('event', 'phone_call', {
+              event_category: 'Conversion',
+              event_label: el.getAttribute('href'),
+              page_location: window.location.href
+            });
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>

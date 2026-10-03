@@ -1,0 +1,11 @@
+{
+  "name": "nooreharam-landing-page",
+  "version": "5.0.0",
+  "description": "NOOR-E-HARAM - Official Hajj, Umrah & Ziyarat Platform",
+  "scripts": {
+    "test": "node tests/validate_all.js"
+  },
+  "author": "NOOR-E-HARAM",
+  "license": "UNLICENSED",
+  "private": true
+}
