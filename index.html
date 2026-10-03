@@ -320,13 +320,45 @@
       </a>
       <nav class="nav" id="mainNav" aria-label="Primary Navigation">
         <a href="#about" data-i18n="nav.about">About</a>
-        <a href="#packages" data-i18n="nav.packages">Packages</a>
-        <a href="#ziyarat" data-i18n="nav.ziyarat">Ziyarat</a>
-        <a href="#scholar" data-i18n="nav.scholar">Scholar</a>
+        <div class="nav-item">
+          <a href="/umrah/">Umrah</a>
+          <div class="nav-dropdown">
+            <a href="/umrah/" class="nav-dd-item">Umrah Packages Hub</a>
+            <a href="/umrah/umrah-packages-mumbai/" class="nav-dd-item">Mumbai Departure (BOM)</a>
+            <a href="/umrah/umrah-packages-bangalore/" class="nav-dd-item">Bangalore Departure (BLR)</a>
+            <a href="/umrah/umrah-packages-hubli/" class="nav-dd-item">Hubli &amp; Karnataka</a>
+            <a href="/umrah/umrah-packages-india/" class="nav-dd-item">All-India Packages</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="/hajj/">Hajj</a>
+          <div class="nav-dropdown">
+            <a href="/hajj/" class="nav-dd-item">Hajj Hub</a>
+            <a href="/hajj/hajj-2027/" class="nav-dd-item">Hajj 2027 Package</a>
+          </div>
+        </div>
+        <a href="/visa/">Visa</a>
+        <div class="nav-item">
+          <a href="/ziyarat/">Ziyarat</a>
+          <div class="nav-dropdown">
+            <a href="/ziyarat/" class="nav-dd-item">41 Holy Sites</a>
+            <a href="/ziyarat/makkah-ziyarat/" class="nav-dd-item">Makkah Ziyarat</a>
+            <a href="/ziyarat/madinah-ziyarat/" class="nav-dd-item">Madinah Ziyarat</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="/guides/">Guides</a>
+          <div class="nav-dropdown">
+            <a href="/guides/umrah-guide/" class="nav-dd-item">Step-by-Step Umrah</a>
+            <a href="/guides/umrah-cost-india/" class="nav-dd-item">Umrah Cost Breakdown</a>
+            <a href="/visa/umrah-visa-india/" class="nav-dd-item">Visa for Indians</a>
+          </div>
+        </div>
         <div class="nav-item">
           <a href="#branches" data-i18n="nav.branches">Branches</a>
           <div class="nav-dropdown">
             <a href="#branches" class="nav-dd-item">Branches Across India</a>
+            <a href="/packages/" class="nav-dd-item">Packages Catalog</a>
             <a href="#privacy-policy" class="nav-dd-item">Privacy Policy</a>
             <a href="#terms-conditions" class="nav-dd-item">Terms &amp; Conditions</a>
             <a href="#refund-policy" class="nav-dd-item">Refund Policy</a>
@@ -376,15 +408,16 @@
     </button>
   </div>
   <nav aria-label="Mobile Drawer Navigation">
+    <a href="/umrah/" onclick="closeDrawer()">Umrah Packages Hub</a>
+    <a href="/umrah/umrah-packages-mumbai/" onclick="closeDrawer()">Mumbai Umrah (BOM)</a>
+    <a href="/umrah/umrah-packages-bangalore/" onclick="closeDrawer()">Bangalore Umrah (BLR)</a>
+    <a href="/umrah/umrah-packages-hubli/" onclick="closeDrawer()">Hubli &amp; Karnataka Umrah</a>
+    <a href="/hajj/" onclick="closeDrawer()">Hajj 2027 Hub</a>
+    <a href="/visa/" onclick="closeDrawer()">Saudi Visa Services</a>
+    <a href="/ziyarat/" onclick="closeDrawer()">Ziyarat Guide (41 Sites)</a>
+    <a href="/guides/" onclick="closeDrawer()">Pilgrim Knowledge Guides</a>
+    <a href="/packages/" onclick="closeDrawer()">Packages Comparison</a>
     <a href="#about" onclick="closeDrawer()">About Us</a>
-    <a href="#packages" onclick="closeDrawer()">Packages</a>
-    <a href="#international" onclick="closeDrawer()">International Tours</a>
-    <a href="#ziyarat" onclick="closeDrawer()">Ziyarat Guide</a>
-    <a href="#scholar" onclick="closeDrawer()">Scholar Corner</a>
-    <a href="#preparation" onclick="closeDrawer()">Before Departure</a>
-    <a href="#ramadan" onclick="closeDrawer()">Ramadan Umrah</a>
-    <a href="#women" onclick="closeDrawer()">Sisters Support</a>
-    <a href="#team" onclick="closeDrawer()">Our Team</a>
     <a href="#branches" onclick="closeDrawer()">Branches Across India</a>
     <a href="#faq" onclick="closeDrawer()">Frequently Asked Questions</a>
     <a href="#contact" onclick="closeDrawer()">Contact &amp; Consult</a>
@@ -1763,26 +1796,27 @@
         </div>
       </div>
       <nav class="footer-col" aria-label="Footer Quick Links">
-        <h3 class="footer-heading">Quick Links</h3>
+        <h3 class="footer-heading">Pilgrimage Portals</h3>
         <ul class="footer-links">
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#packages">Our Packages</a></li>
-          <li><a href="#ziyarat">Ziyarat Guide</a></li>
-          <li><a href="#scholar">Scholar Corner</a></li>
-          <li><a href="#preparation">Before Departure</a></li>
-          <li><a href="#faq">FAQ</a></li>
+          <li><a href="/umrah/">Umrah Packages Hub</a></li>
+          <li><a href="/umrah/umrah-packages-mumbai/">Mumbai Umrah (BOM)</a></li>
+          <li><a href="/umrah/umrah-packages-bangalore/">Bangalore Umrah (BLR)</a></li>
+          <li><a href="/umrah/umrah-packages-hubli/">Hubli &amp; Karnataka Umrah</a></li>
+          <li><a href="/hajj/">Hajj 2027 Comprehensive</a></li>
+          <li><a href="/visa/">Saudi Umrah Visa Guide</a></li>
+          <li><a href="/ziyarat/">41 Historical Ziyarat Sites</a></li>
         </ul>
       </nav>
       <nav class="footer-col" aria-label="Footer Packages">
-        <h3 class="footer-heading">Packages</h3>
+        <h3 class="footer-heading">Guides &amp; Packages</h3>
         <ul class="footer-links">
-          <li><a href="#packages">Hajj 2027</a></li>
-          <li><a href="#packages">Group Umrah (Hubli)</a></li>
-          <li><a href="#packages">Couple Umrah</a></li>
-          <li><a href="#packages">Family Umrah</a></li>
-          <li><a href="#packages">Group Umrah (Mumbai)</a></li>
-          <li><a href="#ramadan">Ramadan Umrah</a></li>
-          <li><a href="#international">International Tours</a></li>
+          <li><a href="/packages/">All Packages Catalog</a></li>
+          <li><a href="/guides/umrah-guide/">Step-by-Step Umrah Guide</a></li>
+          <li><a href="/guides/umrah-cost-india/">Umrah Cost Breakdown</a></li>
+          <li><a href="/visa/umrah-visa-india/">Visa for Indian Citizens</a></li>
+          <li><a href="/ziyarat/makkah-ziyarat/">Makkah Ziyarat Guide</a></li>
+          <li><a href="/ziyarat/madinah-ziyarat/">Madinah Ziyarat Guide</a></li>
+          <li><a href="#branches">Branches Across India</a></li>
         </ul>
       </nav>
       <div class="footer-col">
