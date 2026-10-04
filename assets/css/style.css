@@ -1,0 +1,11 @@
+/* ==========================================================================
+   NOOR-E-HARAM Master Stylesheet (style.css)
+   Consolidates core design tokens, layout, components, utilities, and responsiveness.
+   ========================================================================== */
+
+@import url("./core.css");
+@import url("./layout.css");
+@import url("./components.css");
+@import url("./utilities.css");
+@import url("./responsive.css");
+@import url("./pages.css");

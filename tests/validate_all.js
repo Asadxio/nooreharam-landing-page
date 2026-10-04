@@ -155,6 +155,23 @@ htmlFiles.forEach(file => {
     totalErrors++;
   }
 
+  // CSS Stylesheet Links Integrity Check
+  const cssMatches = content.matchAll(/<link[^>]+rel=["']stylesheet["'][^>]*>|<link[^>]+href=["'][^"']+["'][^>]+rel=["']stylesheet["'][^>]*>/gi);
+  for (const m of cssMatches) {
+    const hrefMatch = m[0].match(/href=["']([^"']+)["']/i);
+    if (hrefMatch) {
+      const href = hrefMatch[1];
+      if (!href.startsWith('http://') && !href.startsWith('https://')) {
+        const cleanHref = href.split('?')[0].split('#')[0];
+        const localPath = cleanHref.startsWith('/') ? path.join('.', cleanHref.slice(1)) : path.join(path.dirname(file), cleanHref);
+        if (!fs.existsSync(localPath)) {
+          console.error(`  ❌ [${relPath}] BROKEN CSS LINK: href="${href}" -> File not found at "${localPath}"`);
+          totalErrors++;
+        }
+      }
+    }
+  }
+
   // H. Validate JSON-LD script syntax
   const jsonLdRegex = /<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
   let match;

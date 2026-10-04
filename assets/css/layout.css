@@ -20,6 +20,12 @@
   gap: 16px;
 }
 
+.ticker-left, .ticker-right {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
 /* Currency Badge & States */
 .currency-badge {
   display: inline-flex;
@@ -470,6 +476,11 @@
   gap: 48px;
   padding-bottom: 56px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-brand-col {
+  display: flex;
+  flex-direction: column;
 }
 
 .footer-logo-img {

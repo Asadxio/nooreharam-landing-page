@@ -20,6 +20,9 @@
   --charcoal: #0b1523;
   --charcoal-soft: #1e293b;
   --white: #ffffff;
+  --bg-card: #ffffff;
+  --bg-light: #f8fafc;
+  --bg-surface: #f8fafc;
 
   /* ── SEMANTIC TEXT COLORS (Controlled ~8-12 tokens) ── */
   --text-primary: #06281e;
