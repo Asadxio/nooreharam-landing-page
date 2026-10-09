@@ -63,6 +63,8 @@
   margin-bottom: 40px; 
   line-height: 1.7; 
   font-weight: 300;
+  min-height: 5.2rem;
+  contain: layout;
 }
 .hero-tagline { 
   font-size: var(--text-xs); 

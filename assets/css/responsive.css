@@ -51,6 +51,9 @@
   .section-title { font-size: var(--text-2xl); }
   
   /* Top utility bar */
+  .top-ticker-bar {
+    min-height: 42px;
+  }
   .top-ticker-bar .container {
     flex-wrap: wrap;
     justify-content: center;
@@ -103,7 +106,7 @@
   
   .hero-arabic-opener { font-size: var(--text-xl); }
   .hero-title { font-size: var(--text-3xl); }
-  .hero-subtitle { font-size: var(--text-md); }
+  .hero-subtitle { font-size: var(--text-md); min-height: 5.6rem; }
   
   .stats-grid { grid-template-columns: 1fr 1fr; }
   .stat-number { font-size: var(--text-3xl); }

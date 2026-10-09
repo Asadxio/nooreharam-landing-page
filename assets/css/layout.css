@@ -11,6 +11,8 @@
   position: relative;
   z-index: 1001;
   border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  min-height: 37px;
+  contain: layout;
 }
 
 .top-ticker-bar .container {
@@ -24,6 +26,9 @@
   display: inline-flex;
   align-items: center;
   gap: 12px;
+}
+.ticker-left {
+  min-width: 210px;
 }
 
 /* Currency Badge & States */
@@ -122,6 +127,15 @@
   border-bottom: 1px solid rgba(212, 175, 55, 0.16);
 }
 
+/* Universal Subpage Header Stability: Prevents 37px phantom offset on all subpages */
+.header:not(.hero-mode),
+.page-subpage .header,
+header[style*="position:relative"] {
+  position: relative !important;
+  top: 0 !important;
+  background: #06281e !important;
+}
+
 .header.scrolled {
   top: 0;
   background: rgba(6, 40, 30, 0.98);
@@ -147,6 +161,7 @@
 .header-logo-img {
   height: 52px;
   width: auto;
+  aspect-ratio: 180 / 52;
   max-width: 220px;
   display: block;
   object-fit: contain;
