@@ -5,7 +5,7 @@
     "domain": "https://nooreharam.com",
     "version": "5.0.0",
     "lastUpdated": "2026-10-20",
-    "totalCanonicalUrls": 32
+    "totalCanonicalUrls": 34
   },
   "routes": [
     {
@@ -833,6 +833,54 @@
       "internalLinkChildren": [
         "/tools/",
         "/guides/umrah-packing-list/"
+      ]
+    },
+    {
+      "url": "/nri-umrah-for-parents/",
+      "canonical": "https://nooreharam.com/nri-umrah-for-parents/",
+      "title": "Book Umrah for Parents in India | NRI VIP Pilgrimage Care | NOOR-E-HARAM",
+      "pageType": "service",
+      "contentCluster": "Umrah",
+      "status": "active",
+      "lastReviewed": "2026-10-20",
+      "factualReviewDate": "2026-10-20",
+      "regulatoryReviewDate": null,
+      "primaryIntent": "NRI VIP pilgrimage portal for sponsoring elderly parents residing in India",
+      "targetQueryCluster": [
+        "book Umrah for parents India",
+        "NRI Umrah packages",
+        "send parents to Umrah from Dubai",
+        "elderly Umrah wheelchair service"
+      ],
+      "internalLinkParent": "/umrah/",
+      "internalLinkChildren": [
+        "/tools/",
+        "/guides/umrah-for-elderly/",
+        "/trust/"
+      ]
+    },
+    {
+      "url": "/tools/currency-budget-planner/",
+      "canonical": "https://nooreharam.com/tools/currency-budget-planner/",
+      "title": "Saudi Riyal (SAR) to INR Converter &amp; Umrah Expense Planner 2026–2027 | NOOR-E-HARAM",
+      "pageType": "tool",
+      "contentCluster": "Tools",
+      "status": "active",
+      "lastReviewed": "2026-10-20",
+      "factualReviewDate": "2026-10-20",
+      "regulatoryReviewDate": null,
+      "primaryIntent": "Saudi Riyal to INR live currency converter and realistic 15-day Umrah pocket expense estimator",
+      "targetQueryCluster": [
+        "SAR to INR converter",
+        "Umrah expense planner",
+        "how much money to carry for Umrah",
+        "Saudi Riyal calculator"
+      ],
+      "internalLinkParent": "/tools/",
+      "internalLinkChildren": [
+        "/tools/",
+        "/guides/umrah-cost-india/",
+        "/packages/"
       ]
     }
   ]
