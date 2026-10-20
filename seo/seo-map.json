@@ -4,8 +4,8 @@
     "site": "NOOR-E-HARAM",
     "domain": "https://nooreharam.com",
     "version": "5.0.0",
-    "lastUpdated": "2026-10-04",
-    "totalCanonicalUrls": 27
+    "lastUpdated": "2026-10-20",
+    "totalCanonicalUrls": 32
   },
   "routes": [
     {
@@ -716,6 +716,123 @@
         "/cities/north-karnataka/",
         "/umrah/",
         "/hajj/"
+      ]
+    },
+    {
+      "url": "/tools/",
+      "canonical": "https://nooreharam.com/tools/",
+      "title": "Free Umrah &amp; Hajj Pilgrim Tools | Dua Maker, Tawaf Counter, Packing Checklist | NOOR-E-HARAM",
+      "pageType": "hub",
+      "contentCluster": "Tools",
+      "status": "active",
+      "lastReviewed": "2026-10-20",
+      "factualReviewDate": "2026-10-20",
+      "regulatoryReviewDate": null,
+      "primaryIntent": "Central utility directory for free Umrah & Hajj digital tools",
+      "targetQueryCluster": [
+        "Umrah tools",
+        "Hajj tools free",
+        "Umrah utilities online",
+        "Noor E Haram tools"
+      ],
+      "internalLinkParent": "/",
+      "internalLinkChildren": [
+        "/tools/dua-list-maker/",
+        "/tools/card-maker/",
+        "/tools/tawaf-counter/",
+        "/tools/packing-checklist/"
+      ]
+    },
+    {
+      "url": "/tools/dua-list-maker/",
+      "canonical": "https://nooreharam.com/tools/dua-list-maker/",
+      "title": "Personalized Umrah Du'a List Maker | Free Printable Pilgrim Dua Book | NOOR-E-HARAM",
+      "pageType": "tool",
+      "contentCluster": "Tools",
+      "status": "active",
+      "lastReviewed": "2026-10-20",
+      "factualReviewDate": "2026-10-20",
+      "regulatoryReviewDate": null,
+      "primaryIntent": "Personalized Umrah dua book maker and printable prayer list",
+      "targetQueryCluster": [
+        "Umrah dua list maker",
+        "Umrah dua book",
+        "Kaaba prayers list",
+        "Dua list for family Umrah"
+      ],
+      "internalLinkParent": "/tools/",
+      "internalLinkChildren": [
+        "/tools/",
+        "/guides/umrah-guide/"
+      ]
+    },
+    {
+      "url": "/tools/card-maker/",
+      "canonical": "https://nooreharam.com/tools/card-maker/",
+      "title": "Umrah Mubarak &amp; Du'a Request Card Maker | Free WhatsApp Status Generator | NOOR-E-HARAM",
+      "pageType": "tool",
+      "contentCluster": "Tools",
+      "status": "active",
+      "lastReviewed": "2026-10-20",
+      "factualReviewDate": "2026-10-20",
+      "regulatoryReviewDate": null,
+      "primaryIntent": "WhatsApp status and greeting card maker for departing and returning Umrah pilgrims",
+      "targetQueryCluster": [
+        "Umrah Mubarak card maker",
+        "Umrah WhatsApp status image",
+        "Dua request card Umrah",
+        "Umrah Mubarak generator"
+      ],
+      "internalLinkParent": "/tools/",
+      "internalLinkChildren": [
+        "/tools/",
+        "/guides/umrah-guide/"
+      ]
+    },
+    {
+      "url": "/tools/tawaf-counter/",
+      "canonical": "https://nooreharam.com/tools/tawaf-counter/",
+      "title": "Tawaf &amp; Sa'i Digital Counter | Offline Umrah &amp; Hajj Companion | NOOR-E-HARAM",
+      "pageType": "tool",
+      "contentCluster": "Tools",
+      "status": "active",
+      "lastReviewed": "2026-10-20",
+      "factualReviewDate": "2026-10-20",
+      "regulatoryReviewDate": null,
+      "primaryIntent": "Offline digital counter for 7 circuits of Tawaf and Sa'i with vibration and Sunnah Du'as",
+      "targetQueryCluster": [
+        "Tawaf counter online",
+        "digital Tawaf counter",
+        "Sai counter app",
+        "offline Tawaf tracker"
+      ],
+      "internalLinkParent": "/tools/",
+      "internalLinkChildren": [
+        "/tools/",
+        "/guides/umrah-guide/"
+      ]
+    },
+    {
+      "url": "/tools/packing-checklist/",
+      "canonical": "https://nooreharam.com/tools/packing-checklist/",
+      "title": "Umrah Packing Checklist &amp; Luggage Weight Estimator 2026–2027 | NOOR-E-HARAM",
+      "pageType": "tool",
+      "contentCluster": "Tools",
+      "status": "active",
+      "lastReviewed": "2026-10-20",
+      "factualReviewDate": "2026-10-20",
+      "regulatoryReviewDate": null,
+      "primaryIntent": "Interactive Umrah packing checklist with luggage weight calculation for airline limits",
+      "targetQueryCluster": [
+        "Umrah packing list",
+        "Umrah luggage estimator",
+        "what to pack for Umrah",
+        "Umrah checklist 2026 2027"
+      ],
+      "internalLinkParent": "/tools/",
+      "internalLinkChildren": [
+        "/tools/",
+        "/guides/umrah-packing-list/"
       ]
     }
   ]
