@@ -261,8 +261,8 @@ if (!fs.existsSync('sitemap.xml')) {
   console.log(`  Found ${sitemapUrls.length} URLs in sitemap.xml:`);
   
   // Total canonical count check (must be 27)
-  if (sitemapUrls.length !== 36) {
-    console.error(`  ❌ Expected 36 URLs in sitemap.xml, found ${sitemapUrls.length}!`);
+  if (sitemapUrls.length !== 37) {
+    console.error(`  ❌ Expected 37 URLs in sitemap.xml, found ${sitemapUrls.length}!`);
     totalErrors++;
   }
 
@@ -288,8 +288,8 @@ if (!fs.existsSync('seo/seo-map.json')) {
 } else {
   try {
     const seoMap = JSON.parse(fs.readFileSync('seo/seo-map.json', 'utf8'));
-    if (!seoMap.routes || seoMap.routes.length !== 36) {
-      console.error(`  ❌ seo/seo-map.json must contain 36 routes, found ${seoMap.routes ? seoMap.routes.length : 0}`);
+    if (!seoMap.routes || seoMap.routes.length !== 37) {
+      console.error(`  ❌ seo/seo-map.json must contain 37 routes, found ${seoMap.routes ? seoMap.routes.length : 0}`);
       totalErrors++;
     } else {
       console.log(`  ✓ seo/seo-map.json contains ${seoMap.routes.length} validated routes.`);

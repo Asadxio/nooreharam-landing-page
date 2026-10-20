@@ -1,0 +1,28 @@
+{
+  "last_synced": "2026-10-20T17:33:32.637Z",
+  "total_active_departures": 51,
+  "cities": [
+    "Delhi",
+    "Bengaluru",
+    "Mumbai",
+    "Ahmedabad",
+    "Lucknow"
+  ],
+  "airlines": [
+    "Indigo",
+    "SaudiAirline",
+    "Akasa",
+    "OmanAir",
+    "AirIndia"
+  ],
+  "tiers": [
+    "Budget",
+    "Bronze",
+    "Silver",
+    "Gold"
+  ],
+  "price_range": {
+    "min": 79786,
+    "max": 159786
+  }
+}

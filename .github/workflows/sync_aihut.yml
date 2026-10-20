@@ -1,0 +1,37 @@
+name: Sync AIHUT Live Departures & Packages
+
+on:
+  schedule:
+    # Runs twice every day at 06:00 UTC (11:30 AM IST) and 18:00 UTC (11:30 PM IST)
+    - cron: '0 6,18 * * *'
+  workflow_dispatch: # Allows manual 1-click trigger from GitHub Actions tab
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run AIHUT Synchronizer
+        env:
+          AIHUT_EMAIL: ${{ secrets.AIHUT_EMAIL || 'nooreharamindia@gmail.com' }}
+          AIHUT_PASSWORD: ${{ secrets.AIHUT_PASSWORD || '9739942455' }}
+        run: node scripts/sync_aihut_offers.js
+
+      - name: Commit and push changes if updated
+        run: |
+          git config --local user.email "bot@nooreharam.com"
+          git config --local user.name "Noor-E-Haram Sync Bot"
+          git add data/
+          if git diff --staged --quiet; then
+            echo "No changes in AIHUT departures or pricing."
+          else
+            git commit -m "chore(sync): update live group departures and pricing from AIHUT"
+            git push origin master
+          fi

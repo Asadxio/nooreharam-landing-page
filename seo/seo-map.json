@@ -3,9 +3,9 @@
   "meta": {
     "site": "NOOR-E-HARAM",
     "domain": "https://nooreharam.com",
-    "version": "5.0.0",
+    "version": "5.1.0",
     "lastUpdated": "2026-10-20",
-    "totalCanonicalUrls": 36
+    "totalCanonicalUrls": 37
   },
   "routes": [
     {
@@ -926,6 +926,32 @@
       "internalLinkChildren": [
         "/tools/",
         "/guides/umrah-guide/"
+      ]
+    },
+    {
+      "url": "/departures/",
+      "canonical": "https://nooreharam.com/departures/",
+      "title": "Verified Live Umrah Departures &amp; Package Rates 2026–2027 | NOOR-E-HARAM",
+      "pageType": "hub",
+      "contentCluster": "Packages",
+      "status": "active",
+      "lastReviewed": "2026-10-20",
+      "factualReviewDate": "2026-10-20",
+      "regulatoryReviewDate": null,
+      "primaryIntent": "Live confirmed fixed group departures catalog from Mumbai, Bengaluru, Delhi, Ahmedabad, Lucknow with real airline PNRs and transparent tier pricing",
+      "targetQueryCluster": [
+        "Umrah live flight departures",
+        "Mumbai Umrah flight departure dates",
+        "Bangalore Umrah flight schedule",
+        "Umrah group departures 2026 2027",
+        "verified Umrah PNR seats"
+      ],
+      "internalLinkParent": "/packages/",
+      "internalLinkChildren": [
+        "/packages/",
+        "/umrah/",
+        "/umrah/umrah-packages-mumbai/",
+        "/umrah/umrah-packages-bangalore/"
       ]
     }
   ]
