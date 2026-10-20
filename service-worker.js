@@ -4,7 +4,7 @@
  * and Cache-First for static assets (CSS, JS, images, logos).
  */
 
-const CACHE_NAME = 'nh-cache-v15';
+const CACHE_NAME = 'nh-cache-v16';
 const OFFLINE_URL = './offline.html';
 
 const ASSETS_TO_CACHE = [
@@ -33,6 +33,10 @@ const ASSETS_TO_CACHE = [
   './tools/currency-budget-planner/index.html',
   './nri-umrah-for-parents/',
   './nri-umrah-for-parents/index.html',
+  './guides/umrah-masail-faq/',
+  './guides/umrah-masail-faq/index.html',
+  './tools/certificate-generator/',
+  './tools/certificate-generator/index.html',
   './assets/js/main.js',
   './assets/js/config/translations.js',
   './assets/js/config/branches.data.js',

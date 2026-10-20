@@ -5,7 +5,7 @@
     "domain": "https://nooreharam.com",
     "version": "5.0.0",
     "lastUpdated": "2026-10-20",
-    "totalCanonicalUrls": 34
+    "totalCanonicalUrls": 36
   },
   "routes": [
     {
@@ -881,6 +881,51 @@
         "/tools/",
         "/guides/umrah-cost-india/",
         "/packages/"
+      ]
+    },
+    {
+      "url": "/guides/umrah-masail-faq/",
+      "canonical": "https://nooreharam.com/guides/umrah-masail-faq/",
+      "title": "Umrah Masail &amp; Fiqh Guide | Ask an Aalim Search Engine | NOOR-E-HARAM",
+      "pageType": "article",
+      "contentCluster": "Guides",
+      "status": "active",
+      "lastReviewed": "2026-10-20",
+      "factualReviewDate": "2026-10-20",
+      "regulatoryReviewDate": null,
+      "primaryIntent": "Searchable Islamic jurisprudence knowledge base for Umrah rulings and doubts",
+      "targetQueryCluster": [
+        "Umrah masail",
+        "Ask an Aalim Umrah",
+        "Umrah fiqh guide",
+        "Ihram prohibitions"
+      ],
+      "internalLinkParent": "/guides/",
+      "internalLinkChildren": [
+        "/guides/umrah-guide/",
+        "/tools/"
+      ]
+    },
+    {
+      "url": "/tools/certificate-generator/",
+      "canonical": "https://nooreharam.com/tools/certificate-generator/",
+      "title": "Umrah Mubarak Certificate Generator | Kids &amp; First-Time Pilgrims | NOOR-E-HARAM",
+      "pageType": "tool",
+      "contentCluster": "Tools",
+      "status": "active",
+      "lastReviewed": "2026-10-20",
+      "factualReviewDate": "2026-10-20",
+      "regulatoryReviewDate": null,
+      "primaryIntent": "Digital Umrah Mubarak completion certificate generator for kids and first-time pilgrims",
+      "targetQueryCluster": [
+        "Umrah certificate maker",
+        "Umrah Mubarak certificate kids",
+        "first time Umrah certificate"
+      ],
+      "internalLinkParent": "/tools/",
+      "internalLinkChildren": [
+        "/tools/",
+        "/guides/umrah-guide/"
       ]
     }
   ]
