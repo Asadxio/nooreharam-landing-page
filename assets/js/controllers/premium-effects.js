@@ -146,7 +146,7 @@ function initTypewriter() {
     'Professional Hajj, Umrah & Ziyarat services with clear pricing, expert guidance and dedicated support across India.',
     'Clear pricing. Expert guidance. 10+ Years of trust.',
     'Your sacred journey — planned with love and care.',
-    'Serving pilgrims since 2016 — Alhamdulillah.'
+    'Serving pilgrims with sacred trust and honesty — Alhamdulillah.'
   ];
   let pi = 0, ci = 0, deleting = false;
   function type() {

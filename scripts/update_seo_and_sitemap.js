@@ -14,7 +14,7 @@ const newRoutes = [
     lastReviewed: '2026-11-24',
     factualReviewDate: '2026-11-24',
     regulatoryReviewDate: null,
-    primaryIntent: 'Company founding story since 2016, leadership under Dr. Khwaja Ibrahim A Darga, values, and ethical pilgrim mission',
+    primaryIntent: 'Company founding story, leadership, operating values, and ethical pilgrim mission',
     targetQueryCluster: [
       'about Noor E Haram',
       'Noor E Haram Hubli director',
