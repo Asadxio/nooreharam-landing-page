@@ -1,81 +1,104 @@
 /**
- * Generates /departures/index.html from data/live-departures.json and data/live-hotels.json
+ * Generates /departures/index.html from data/departures.json
+ * Implements Section 1.1 specs:
+ * - Active upcoming departures shown by default (startDate >= 2026-11-24)
+ * - Departed batches clearly tagged or filtered
+ * - "Few seats left" only if totalSeats - bookedSeats <= 10
+ * - Correct brand name Saudia
+ * - LAST UPDATED: 24 November 2026 stamp
  */
 const fs = require('fs');
 const path = require('path');
 
-const departures = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'live-departures.json'), 'utf8'));
-const hotels = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'live-hotels.json'), 'utf8'));
-const meta = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'sync-meta.json'), 'utf8'));
+const departuresFile = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'departures.json'), 'utf8'));
+const departures = departuresFile.departures;
+const today = '2026-11-24';
 
-// Format currency in Indian comma format
 function formatINR(num) {
   return '₹' + Number(num).toLocaleString('en-IN');
 }
 
-// Generate the departure cards HTML
 function generateCard(d) {
-  const percentFilled = Math.round(((d.total_seats - d.available_seats) / d.total_seats) * 100);
-  const urgencyColor = d.available_seats <= 3 ? '#b91c1c' : (d.available_seats <= 10 ? '#d97706' : '#15803d');
-  const monthKey = d.departure_date.slice(0, 7);
+  const isPast = d.startDate < today;
+  const seatsLeft = d.availableSeats;
+  const percentFilled = Math.round((d.bookedSeats / d.totalSeats) * 100);
+
+  let urgencyTag = '';
+  let urgencyColor = '#15803d';
+
+  if (isPast) {
+    urgencyTag = 'Departed / Closed';
+    urgencyColor = '#64748b';
+  } else if (seatsLeft === 0) {
+    urgencyTag = 'Batch Full (Waitlist)';
+    urgencyColor = '#dc2626';
+  } else if (seatsLeft <= 10) {
+    urgencyTag = `Few Seats Left (${seatsLeft} Remaining)`;
+    urgencyColor = seatsLeft <= 3 ? '#b91c1c' : '#d97706';
+  } else {
+    urgencyTag = `${seatsLeft} Seats Available`;
+    urgencyColor = '#15803d';
+  }
 
   const budgetPrice = formatINR(d.pricing.budget);
   const bronzePrice = formatINR(d.pricing.bronze);
   const silverPrice = formatINR(d.pricing.silver);
   const goldPrice = formatINR(d.pricing.gold);
 
-  const waBudgetMsg = encodeURIComponent(`Assalamu Alaikum Noor-E-Haram! I want to book Umrah departure from ${d.departure_city} on ${d.departure_date_formatted} (${d.airline}) - Budget Tier (${budgetPrice}). PNR: ${d.pnr_code}. Please confirm availability.`);
+  const monthKey = d.startDate.slice(0, 7);
+  const waMsg = encodeURIComponent(`Assalamu Alaikum Noor-E-Haram! I want to inquire about Umrah departure from ${d.city} on ${d.startDateFormatted} (${d.airline}) - Budget Tier (${budgetPrice}). PNR: ${d.pnr}. Please confirm seat availability.`);
 
   return `
-      <article class="departure-card" 
-               data-city="${d.departure_city.toLowerCase()}" 
+      <article class="departure-card ${isPast ? 'departure-card--past' : ''}" 
+               data-city="${d.city.toLowerCase()}" 
                data-month="${monthKey}" 
                data-airline="${d.airline.toLowerCase()}" 
-               data-pnr="${d.pnr_code.toLowerCase()}"
+               data-pnr="${d.pnr.toLowerCase()}"
+               data-status="${isPast ? 'departed' : (seatsLeft === 0 ? 'full' : (seatsLeft <= 10 ? 'few-seats-left' : 'available'))}"
                data-budget="${d.pricing.budget}"
                data-bronze="${d.pricing.bronze}"
                data-silver="${d.pricing.silver}"
                data-gold="${d.pricing.gold}">
         <div class="dep-card-header">
           <div class="dep-pill-group">
-            <span class="dep-city-tag">${d.departure_city} (${d.departure_code})</span>
+            <span class="dep-city-tag">${d.city} (${d.cityCode})</span>
             <span class="dep-airline-tag">${d.airline}</span>
-            <span class="dep-type-tag">${d.flight_type}</span>
+            <span class="dep-type-tag">${d.flightType}</span>
           </div>
           <span class="dep-urgency-tag" style="background:${urgencyColor}15; color:${urgencyColor}; border-color:${urgencyColor}40;">
-            ${d.urgency_badge}
+            ${urgencyTag}
           </span>
         </div>
 
         <div class="dep-body">
           <div class="dep-flight-route">
             <div class="flight-leg">
-              <div class="flight-city-label">${d.departure_code}</div>
-              <div class="flight-date">${d.departure_date_formatted}</div>
-              <div class="flight-time">${d.departure_time || 'Direct'}</div>
+              <div class="flight-city-label">${d.cityCode}</div>
+              <div class="flight-date">${d.startDateFormatted}</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
-              <span class="flight-duration">${d.duration_days} Days Tour</span>
+              <span class="flight-duration">${d.durationDays} Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">${d.departure_flight_number ? d.airline + ' ' + d.departure_flight_number : d.departure_sector}</span>
+              <span class="flight-no">${d.flight}</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
-              <div class="flight-date">${d.return_date_formatted}</div>
-              <div class="flight-time">${d.saudi_arrival_time || 'Arrival'}</div>
+              <div class="flight-date">${d.endDateFormatted}</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
           <div class="dep-meta-bar">
-            <span>🧳 <strong>Baggage:</strong> ${d.baggage_policy}</span>
-            <span>🎫 <strong>PNR:</strong> ${d.pnr_code}</span>
+            <span>🧳 <strong>Baggage:</strong> ${d.baggage}</span>
+            <span>🎫 <strong>PNR:</strong> ${d.pnr}</span>
           </div>
 
           <div class="dep-seat-bar-wrap">
             <div class="dep-seat-labels">
-              <span><strong>${d.available_seats} Seats Left</strong> of ${d.total_seats}</span>
+              <span><strong>${isPast ? 'Flight Completed' : (seatsLeft + ' Seats Left')}</strong> of ${d.totalSeats}</span>
               <span style="color:${urgencyColor};"><strong>${percentFilled}% Booked</strong></span>
             </div>
             <div class="dep-progress-bg">
@@ -111,12 +134,18 @@ function generateCard(d) {
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=${waBudgetMsg}" 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            ${isPast ? `
+              <button class="btn btn-secondary dep-book-btn" disabled style="background:#cbd5e1;color:#64748b;cursor:not-allowed;">
+                <span>Flight Departed</span>
+              </button>
+            ` : `
+              <a href="https://wa.me/919986925592?text=${waMsg}" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-primary dep-book-btn">
+                <span>💬 Book Seat via WhatsApp</span>
+              </a>
+            `}
           </div>
         </div>
       </article>`;
@@ -130,7 +159,7 @@ const fullHtml = `<!DOCTYPE html>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Verified Live Umrah Departures &amp; Package Rates 2026–2027 | NOOR-E-HARAM</title>
-  <meta name="description" content="Browse 51+ live verified Umrah group departures from Mumbai, Bengaluru, Delhi, Ahmedabad &amp; Lucknow. Confirmed airline PNRs, real-time seats, and transparent packages from ₹79,786.">
+  <meta name="description" content="Browse verified Umrah group departures from Mumbai, Bengaluru, Delhi, Ahmedabad &amp; Lucknow. Confirmed airline PNRs, live seats, and transparent packages from ₹79,786.">
   <link rel="canonical" href="https://nooreharam.com/departures/">
 
   <!-- Open Graph -->
@@ -166,7 +195,7 @@ const fullHtml = `<!DOCTYPE html>
     }
     .dep-filter-section {
       background: #f8fafc;
-      padding: 30px 0 20px;
+      padding: 24px 0 16px;
       border-bottom: 1px solid #e2e8f0;
       position: sticky;
       top: 70px;
@@ -178,14 +207,14 @@ const fullHtml = `<!DOCTYPE html>
       flex-wrap: wrap;
       gap: 8px;
       justify-content: center;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
     }
     .filter-btn {
       background: #fff;
       border: 1px solid #cbd5e1;
-      padding: 8px 16px;
+      padding: 7px 15px;
       border-radius: 9999px;
-      font-size: 0.88rem;
+      font-size: 0.85rem;
       font-weight: 600;
       color: #334155;
       cursor: pointer;
@@ -245,6 +274,10 @@ const fullHtml = `<!DOCTYPE html>
       transform: translateY(-4px);
       box-shadow: 0 12px 28px rgba(6,40,30,0.12);
       border-color: #C59B27;
+    }
+    .departure-card--past {
+      opacity: 0.6;
+      filter: grayscale(0.2);
     }
     .dep-card-header {
       background: #f8fafc;
@@ -468,6 +501,18 @@ const fullHtml = `<!DOCTYPE html>
       grid-column: 1 / -1;
       display: none;
     }
+    .last-updated-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-size: 0.78rem;
+      color: #cbd5e1;
+      margin-top: 14px;
+    }
   </style>
 
   <!-- Structured Data -->
@@ -480,7 +525,7 @@ const fullHtml = `<!DOCTYPE html>
         "@id": "https://nooreharam.com/departures/#webpage",
         "url": "https://nooreharam.com/departures/",
         "name": "Verified Live Umrah Departures & Package Rates 2026–2027",
-        "description": "51+ live verified Umrah group departures from Mumbai, Bengaluru, Delhi, Ahmedabad & Lucknow with real-time seats and pricing.",
+        "description": "Verified Umrah group departures from Mumbai, Bengaluru, Delhi, Ahmedabad & Lucknow with real-time seats and pricing.",
         "breadcrumb": {
           "@id": "https://nooreharam.com/departures/#breadcrumb"
         }
@@ -508,6 +553,7 @@ const fullHtml = `<!DOCTYPE html>
         "@id": "https://nooreharam.com/#organization",
         "name": "NOOR-E-HARAM Tours & Travels",
         "url": "https://nooreharam.com/",
+        "email": "info@nooreharam.com",
         "telephone": "+919986925592",
         "priceRange": "₹79,786 - ₹1,59,786"
       }
@@ -551,8 +597,8 @@ const fullHtml = `<!DOCTYPE html>
         <span class="eyebrow eyebrow-gold">Direct Partner Fixed Departures • 100% Guaranteed PNR</span>
         <h1 class="hero-title" style="color:#fff;margin-top:12px;">Live Umrah Group Departures &amp; Package Rates</h1>
         <p class="hero-subtitle" style="color:#cbd5e1;max-width:760px;margin:16px auto 0;">
-          Browse 51+ live verified flight departures from Mumbai, Bengaluru, Delhi, Ahmedabad, and Lucknow. 
-          Real airline PNRs, verified remaining seats, and transparent all-inclusive packages from <strong>₹79,786</strong>.
+          Browse verified flight departures from Mumbai, Bengaluru, Delhi, Ahmedabad, and Lucknow. 
+          Real airline PNRs, live verified seats, and transparent all-inclusive packages from <strong>₹79,786</strong>.
         </p>
 
         <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:24px;">
@@ -569,30 +615,40 @@ const fullHtml = `<!DOCTYPE html>
             ⚡ Instant WhatsApp Confirmation
           </span>
         </div>
+
+        <div class="last-updated-badge">
+          <span>🕒</span>
+          <span>LAST UPDATED: 24 November 2026 (Winter 2026–27 Schedule Active)</span>
+        </div>
       </div>
     </section>
 
     <!-- Filter Control Bar -->
     <section class="dep-filter-section" id="filter-controls">
       <div class="container">
-        <!-- City Pills -->
-        <div class="filter-pills-row" id="city-pills">
-          <button type="button" class="filter-btn active" data-filter-city="all">All Departure Cities (51)</button>
-          <button type="button" class="filter-btn" data-filter-city="mumbai">Mumbai (22)</button>
-          <button type="button" class="filter-btn" data-filter-city="delhi">Delhi (22)</button>
-          <button type="button" class="filter-btn" data-filter-city="bengaluru">Bengaluru (1)</button>
-          <button type="button" class="filter-btn" data-filter-city="ahmedabad">Ahmedabad (3)</button>
-          <button type="button" class="filter-btn" data-filter-city="lucknow">Lucknow (3)</button>
+        <!-- Status Filter: Upcoming vs All -->
+        <div class="filter-pills-row" style="margin-bottom:8px;">
+          <button type="button" class="filter-btn active" data-filter-status="active" style="border-color:#166534;color:#166534;">🟢 Active Upcoming Batches</button>
+          <button type="button" class="filter-btn" data-filter-status="all">All Batches (Include Past)</button>
         </div>
 
-        <!-- Month Pills -->
+        <!-- City Pills -->
+        <div class="filter-pills-row" id="city-pills">
+          <button type="button" class="filter-btn active" data-filter-city="all">All Departure Cities</button>
+          <button type="button" class="filter-btn" data-filter-city="mumbai">Mumbai</button>
+          <button type="button" class="filter-btn" data-filter-city="delhi">Delhi</button>
+          <button type="button" class="filter-btn" data-filter-city="bengaluru">Bengaluru</button>
+          <button type="button" class="filter-btn" data-filter-city="ahmedabad">Ahmedabad</button>
+          <button type="button" class="filter-btn" data-filter-city="lucknow">Lucknow</button>
+        </div>
+
+        <!-- Month Pills (Dynamic Nov 2026 to Feb 2027) -->
         <div class="filter-pills-row" id="month-pills">
           <button type="button" class="filter-btn active" data-filter-month="all">All Months</button>
-          <button type="button" class="filter-btn" data-filter-month="2026-10">October 2026 (4)</button>
-          <button type="button" class="filter-btn" data-filter-month="2026-11">November 2026 (9)</button>
-          <button type="button" class="filter-btn" data-filter-month="2026-12">December 2026 (18)</button>
-          <button type="button" class="filter-btn" data-filter-month="2027-01">January 2027 (17)</button>
-          <button type="button" class="filter-btn" data-filter-month="2027-02">February 2027 (3)</button>
+          <button type="button" class="filter-btn" data-filter-month="2026-11">November 2026</button>
+          <button type="button" class="filter-btn" data-filter-month="2026-12">December 2026</button>
+          <button type="button" class="filter-btn" data-filter-month="2027-01">January 2027</button>
+          <button type="button" class="filter-btn" data-filter-month="2027-02">February 2027</button>
         </div>
 
         <!-- Search Bar -->
@@ -600,7 +656,7 @@ const fullHtml = `<!DOCTYPE html>
           <input type="text" 
                  id="departure-search" 
                  class="form-control" 
-                 placeholder="🔍 Search airline (IndiGo, Saudi), PNR code, or date..." 
+                 placeholder="🔍 Search airline (IndiGo, Saudia), PNR code, or date..." 
                  style="width:100%;padding:10px 18px;border-radius:9999px;border:1px solid #cbd5e1;font-size:0.92rem;">
         </div>
 
@@ -623,7 +679,7 @@ const fullHtml = `<!DOCTYPE html>
 
           <div class="no-results" id="no-results">
             <h3>No departures match your filter</h3>
-            <p style="color:#64748b;margin-top:8px;">Try clearing filters or search to see all 51 available departure dates.</p>
+            <p style="color:#64748b;margin-top:8px;">Try clearing filters or search to see all available departure dates.</p>
             <button type="button" class="btn btn-outline" id="reset-filters" style="margin-top:16px;">Reset All Filters</button>
           </div>
         </div>
@@ -642,7 +698,7 @@ const fullHtml = `<!DOCTYPE html>
           <div style="background:#f8fafc;padding:24px;border-radius:12px;border:1px solid #e2e8f0;">
             <h3 style="font-size:1.1rem;color:#06281e;margin-bottom:12px;">✈️ Flights &amp; Transport</h3>
             <ul style="padding-left:18px;color:#475569;font-size:0.9rem;line-height:1.6;">
-              <li>Return confirmed direct/group flights on Saudi Airlines, IndiGo, Air India.</li>
+              <li>Return confirmed direct/group flights on Saudia, IndiGo, Air India.</li>
               <li>Complete air-conditioned luxury coach transfers (Jeddah–Makkah–Madinah–Airport).</li>
               <li>Free 5-Litre Zamzam water can per pilgrim included.</li>
             </ul>
@@ -662,8 +718,8 @@ const fullHtml = `<!DOCTYPE html>
             <h3 style="font-size:1.1rem;color:#06281e;margin-bottom:12px;">🍽️ Food &amp; Spiritual Guidance</h3>
             <ul style="padding-left:18px;color:#475569;font-size:0.9rem;line-height:1.6;">
               <li>Fresh Indian buffet catering: Breakfast, Lunch, and Dinner served daily.</li>
-              <li>Guided comprehensive tour of 41 blessed Ziyarat landmarks with scholar narration.</li>
-              <li>Dedicated Islamic scholar escort throughout the 15-day pilgrimage.</li>
+              <li>Guided comprehensive tour of blessed historical landmarks with scholar narration.</li>
+              <li>Dedicated Islamic scholar escort throughout the pilgrimage.</li>
             </ul>
           </div>
         </div>
@@ -704,6 +760,7 @@ const fullHtml = `<!DOCTYPE html>
         <h4 style="color:#fff;font-size:0.95rem;margin-bottom:10px;">Head Office</h4>
         <p style="color:#94a3b8;font-size:0.85rem;line-height:1.6;">
           Darga Complex, Hubli, Karnataka, India<br>
+          Email: <a href="mailto:info@nooreharam.com" style="color:#E2C77F;">info@nooreharam.com</a><br>
           WhatsApp: <a href="https://wa.me/919986925592" style="color:#E2C77F;">+91 99869 25592</a>
         </p>
       </div>
@@ -713,12 +770,14 @@ const fullHtml = `<!DOCTYPE html>
   <!-- Interactive JavaScript Engine -->
   <script>
     (function() {
+      var currentStatus = 'active'; // 'active' (upcoming only) or 'all'
       var currentCity = 'all';
       var currentMonth = 'all';
       var currentTier = 'budget';
       var searchQuery = '';
 
       var cards = document.querySelectorAll('.departure-card');
+      var statusPills = document.querySelectorAll('[data-filter-status]');
       var cityPills = document.querySelectorAll('[data-filter-city]');
       var monthPills = document.querySelectorAll('[data-filter-month]');
       var tierToggleBtns = document.querySelectorAll('[data-select-tier]');
@@ -735,7 +794,7 @@ const fullHtml = `<!DOCTYPE html>
         var formattedPrice = '₹' + Number(price).toLocaleString('en-IN');
 
         var bookBtn = card.querySelector('.dep-book-btn');
-        if (bookBtn) {
+        if (bookBtn && !card.classList.contains('departure-card--past')) {
           var msg = 'Assalamu Alaikum Noor-E-Haram! I want to book Umrah departure from ' + city + ' on ' + date + ' (' + airline + ') - ' + tier.toUpperCase() + ' Tier (' + formattedPrice + '). PNR: ' + pnr + '. Please confirm availability.';
           bookBtn.href = 'https://wa.me/919986925592?text=' + encodeURIComponent(msg);
         }
@@ -745,17 +804,19 @@ const fullHtml = `<!DOCTYPE html>
         var visibleCount = 0;
 
         cards.forEach(function(card) {
+          var isPast = card.classList.contains('departure-card--past');
           var city = card.getAttribute('data-city');
           var month = card.getAttribute('data-month');
           var airline = card.getAttribute('data-airline');
           var pnr = card.getAttribute('data-pnr');
           var textContent = (city + ' ' + airline + ' ' + pnr + ' ' + card.innerText).toLowerCase();
 
+          var matchStatus = (currentStatus === 'all') || (!isPast);
           var matchCity = (currentCity === 'all') || (city.indexOf(currentCity) !== -1);
           var matchMonth = (currentMonth === 'all') || (month === currentMonth);
           var matchSearch = (!searchQuery) || (textContent.indexOf(searchQuery) !== -1);
 
-          if (matchCity && matchMonth && matchSearch) {
+          if (matchStatus && matchCity && matchMonth && matchSearch) {
             card.style.display = 'flex';
             visibleCount++;
           } else {
@@ -769,6 +830,16 @@ const fullHtml = `<!DOCTYPE html>
           noResults.style.display = 'none';
         }
       }
+
+      // Status filter events
+      statusPills.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          statusPills.forEach(function(b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          currentStatus = btn.getAttribute('data-filter-status');
+          filterCards();
+        });
+      });
 
       // City filter events
       cityPills.forEach(function(btn) {
@@ -832,14 +903,19 @@ const fullHtml = `<!DOCTYPE html>
 
       // Reset
       resetBtn.addEventListener('click', function() {
+        currentStatus = 'active';
         currentCity = 'all';
         currentMonth = 'all';
         searchQuery = '';
         searchInput.value = '';
+        statusPills.forEach(function(b, idx) { b.classList.toggle('active', idx === 0); });
         cityPills.forEach(function(b, idx) { b.classList.toggle('active', idx === 0); });
         monthPills.forEach(function(b, idx) { b.classList.toggle('active', idx === 0); });
         filterCards();
       });
+
+      // Initial filter execution to hide departed flights by default
+      filterCards();
     })();
   </script>
 </body>
@@ -849,4 +925,4 @@ const outPath = path.join(__dirname, '..', 'departures', 'index.html');
 fs.mkdirSync(path.dirname(outPath), { recursive: true });
 fs.writeFileSync(outPath, fullHtml, 'utf8');
 
-console.log('✅ Successfully generated /departures/index.html with ' + departures.length + ' live departures!');
+console.log('✅ Successfully updated /departures/index.html with Section 1.1 specs!');

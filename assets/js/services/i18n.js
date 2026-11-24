@@ -754,7 +754,7 @@ function updateSchema(t) {
     "image": "https://www.nooreharam.com/og-image.jpg",
     "url": "https://www.nooreharam.com",
     "telephone": "+91-9986925592",
-    "email": "nooreharamindia@gmail.com",
+    "email": "info@nooreharam.com",
     "priceRange": "₹48,000 - ₹6,99,786",
     "address": {
       "@type": "PostalAddress",

@@ -329,7 +329,7 @@ Please share live seat availability, hotel options, and the official booking quo
     const waBtn = document.getElementById('waSendBtn');
     const emailBtn = document.getElementById('emailSendBtn');
     if (waBtn) waBtn.href = 'https://wa.me/919986925592?text=' + encodeURIComponent(text);
-    if (emailBtn) emailBtn.href = 'mailto:nooreharamindia@gmail.com?subject=' + encodeURIComponent('Package Inquiry - Noor-E-Haram') + '&body=' + encodeURIComponent(text);
+    if (emailBtn) emailBtn.href = 'mailto:info@nooreharam.com?subject=' + encodeURIComponent('Package Inquiry - Noor-E-Haram') + '&body=' + encodeURIComponent(text);
   }
 
   ['inq-name','inq-phone','inq-email','inq-package','inq-message'].forEach(id => {

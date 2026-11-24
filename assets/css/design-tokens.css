@@ -1,0 +1,96 @@
+/**
+ * NOOR-E-HARAM Design Tokens System (Section 8)
+ * Standardized design tokens for colors, typography scale, spacing, radii, shadows, and touch target accessibility.
+ */
+
+:root {
+  /* ── 1. COLOR TOKENS ── */
+  --nh-color-primary: #06281e;          /* Deep Spiritual Emerald */
+  --nh-color-primary-light: #0f6e56;    /* Vibrant Emerald */
+  --nh-color-primary-dark: #041c14;     /* Deep Shadow Emerald */
+  --nh-color-primary-pale: #eef6f2;     /* Mint Ice Tint */
+
+  --nh-color-gold: #C59B27;             /* Rich Heritage Gold */
+  --nh-color-gold-light: #E2C77F;       /* Bright Shimmer Gold */
+  --nh-color-gold-dark: #855f08;        /* Accessible High-Contrast Gold (WCAG AA) */
+  --nh-color-gold-pale: #fdfaf0;        /* Subtle Gold Wash */
+
+  --nh-color-surface-bg: #f8fafc;
+  --nh-color-surface-card: #ffffff;
+  --nh-color-surface-pearl: #fdfcf9;
+  --nh-color-surface-cream: #f7f5ed;
+
+  --nh-color-text-main: #06281e;
+  --nh-color-text-body: #334155;
+  --nh-color-text-muted: #64748b;
+  --nh-color-text-light: #94a3b8;
+  --nh-color-text-inverse: #ffffff;
+
+  --nh-color-border-subtle: #e2e8f0;
+  --nh-color-border-gold: rgba(197, 155, 39, 0.35);
+
+  --nh-color-status-success: #166534;
+  --nh-color-status-warning: #d97706;
+  --nh-color-status-danger: #b91c1c;
+
+  /* ── 2. TYPOGRAPHY TOKENS ── */
+  --nh-font-serif: 'Cormorant Garamond', Georgia, serif;
+  --nh-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --nh-font-arabic: 'Amiri', 'Traditional Arabic', serif;
+
+  --nh-text-xs: 0.75rem;     /* 12px */
+  --nh-text-sm: 0.875rem;    /* 14px */
+  --nh-text-base: 1rem;      /* 16px */
+  --nh-text-lg: 1.125rem;    /* 18px */
+  --nh-text-xl: 1.25rem;     /* 20px */
+  --nh-text-2xl: 1.5rem;     /* 24px */
+  --nh-text-3xl: 1.875rem;   /* 30px */
+  --nh-text-4xl: 2.25rem;    /* 36px */
+  --nh-text-5xl: 3rem;       /* 48px */
+
+  /* ── 3. SPACING TOKENS ── */
+  --nh-space-1: 0.25rem;   /* 4px */
+  --nh-space-2: 0.5rem;    /* 8px */
+  --nh-space-3: 0.75rem;   /* 12px */
+  --nh-space-4: 1rem;      /* 16px */
+  --nh-space-5: 1.25rem;   /* 20px */
+  --nh-space-6: 1.5rem;    /* 24px */
+  --nh-space-8: 2rem;      /* 32px */
+  --nh-space-10: 2.5rem;   /* 40px */
+  --nh-space-12: 3rem;     /* 48px */
+  --nh-space-16: 4rem;     /* 64px */
+  --nh-space-20: 5rem;     /* 80px */
+
+  /* ── 4. CORNER RADII ── */
+  --nh-radius-sm: 6px;
+  --nh-radius-md: 10px;
+  --nh-radius-lg: 16px;
+  --nh-radius-xl: 24px;
+  --nh-radius-full: 9999px;
+
+  /* ── 5. ELEVATION SHADOWS ── */
+  --nh-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --nh-shadow-md: 0 4px 14px rgba(6, 40, 30, 0.08);
+  --nh-shadow-lg: 0 10px 28px rgba(6, 40, 30, 0.12);
+  --nh-shadow-luxury: 0 20px 48px -10px rgba(4, 28, 20, 0.18);
+
+  /* ── 6. ACCESSIBILITY & TOUCH TARGET ── */
+  --nh-touch-min: 44px; /* Minimum WCAG touch target height and width */
+}
+
+/* Enforce touch target accessibility */
+.btn, .mobile-bar-btn, .filter-btn, .lang-btn, .nav-link, a.btn-tool {
+  min-height: var(--nh-touch-min);
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Mobile Bottom Bar Overlap Protection */
+@media (max-width: 640px) {
+  .floating-reviews-badge {
+    bottom: 74px !important;
+    left: 12px !important;
+    padding: 6px 12px !important;
+    font-size: 0.76rem !important;
+  }
+}

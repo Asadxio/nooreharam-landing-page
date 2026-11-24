@@ -5,15 +5,15 @@
  */
 
 const STORAGE_KEY = 'nh_currency_sar_inr_v1';
-const CACHE_TTL_MS = 60 * 60 * 1000; // 1 hour
-const FETCH_TIMEOUT_MS = 8000; // 8 seconds timeout
+const CACHE_TTL_MS = 6 * 60 * 60 * 1000; // 6 hours cache per audit spec // 1 hour
+const FETCH_TIMEOUT_MS = 3000; // 3 seconds tight timeout // 8 seconds timeout
 
 // Certified public exchange rate endpoints for SAR -> INR
 const PRIMARY_API = 'https://open.er-api.com/v6/latest/SAR';
 const FALLBACK_API_1 = 'https://latest.currency-api.pages.dev/v1/currencies/sar.json';
 const FALLBACK_API_2 = 'https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/sar.json';
 
-const BENCHMARK_RATE = 25.33;
+const BENCHMARK_RATE = 22.85; // Official Forex Benchmark Rate Nov 2026
 
 let currentRateData = null;
 

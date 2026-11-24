@@ -3,9 +3,9 @@
   "meta": {
     "site": "NOOR-E-HARAM",
     "domain": "https://nooreharam.com",
-    "version": "5.1.0",
-    "lastUpdated": "2026-10-20",
-    "totalCanonicalUrls": 37
+    "version": "6.0.0",
+    "lastUpdated": "2026-11-24",
+    "totalCanonicalUrls": 45
   },
   "routes": [
     {
@@ -952,6 +952,181 @@
         "/umrah/",
         "/umrah/umrah-packages-mumbai/",
         "/umrah/umrah-packages-bangalore/"
+      ]
+    },
+    {
+      "url": "/about/",
+      "canonical": "https://nooreharam.com/about/",
+      "title": "About NOOR-E-HARAM | Ethical Hajj &amp; Umrah Operators India",
+      "pageType": "about",
+      "contentCluster": "Trust",
+      "status": "active",
+      "lastReviewed": "2026-11-24",
+      "factualReviewDate": "2026-11-24",
+      "regulatoryReviewDate": null,
+      "primaryIntent": "Company founding story since 2016, leadership under Dr. Khwaja Ibrahim A Darga, values, and ethical pilgrim mission",
+      "targetQueryCluster": [
+        "about Noor E Haram",
+        "Noor E Haram Hubli director",
+        "Noor E Haram history",
+        "ethical Umrah operator India"
+      ],
+      "internalLinkParent": "/",
+      "internalLinkChildren": [
+        "/trust/",
+        "/packages/",
+        "/branches/"
+      ]
+    },
+    {
+      "url": "/branches/",
+      "canonical": "https://nooreharam.com/branches/",
+      "title": "Branch Offices &amp; Locations Across India | NOOR-E-HARAM",
+      "pageType": "hub",
+      "contentCluster": "Local",
+      "status": "active",
+      "lastReviewed": "2026-11-24",
+      "factualReviewDate": "2026-11-24",
+      "regulatoryReviewDate": null,
+      "primaryIntent": "Physical branch addresses, office hours, phone numbers, and Google Maps directions for Hubli and Karnataka regional desks",
+      "targetQueryCluster": [
+        "Noor E Haram office address",
+        "Noor E Haram Hubli branch",
+        "Noor E Haram Karnataka offices"
+      ],
+      "internalLinkParent": "/",
+      "internalLinkChildren": [
+        "/contact/",
+        "/cities/north-karnataka/"
+      ]
+    },
+    {
+      "url": "/contact/",
+      "canonical": "https://nooreharam.com/contact/",
+      "title": "Contact NOOR-E-HARAM | 24/7 Pilgrim Support &amp; Bookings",
+      "pageType": "contact",
+      "contentCluster": "Core",
+      "status": "active",
+      "lastReviewed": "2026-11-24",
+      "factualReviewDate": "2026-11-24",
+      "regulatoryReviewDate": null,
+      "primaryIntent": "Direct communication channels, verified helpline +91 99869 25592, official email info@nooreharam.com, and quick inquiry form",
+      "targetQueryCluster": [
+        "Noor E Haram phone number",
+        "Noor E Haram contact",
+        "Noor E Haram WhatsApp helpline"
+      ],
+      "internalLinkParent": "/",
+      "internalLinkChildren": [
+        "/branches/",
+        "/faq/"
+      ]
+    },
+    {
+      "url": "/faq/",
+      "canonical": "https://nooreharam.com/faq/",
+      "title": "Frequently Asked Questions (FAQ) | NOOR-E-HARAM",
+      "pageType": "faq",
+      "contentCluster": "Guides",
+      "status": "active",
+      "lastReviewed": "2026-11-24",
+      "factualReviewDate": "2026-11-24",
+      "regulatoryReviewDate": null,
+      "primaryIntent": "Comprehensive pilgrim Q&A covering booking steps, visa rules, flight policies, hotel walking distances, and wheelchair assistance",
+      "targetQueryCluster": [
+        "Umrah FAQ India",
+        "Umrah questions answers",
+        "Umrah rules for women FAQ"
+      ],
+      "internalLinkParent": "/",
+      "internalLinkChildren": [
+        "/guides/",
+        "/guides/umrah-guide/",
+        "/guides/umrah-masail-faq/"
+      ]
+    },
+    {
+      "url": "/privacy-policy/",
+      "canonical": "https://nooreharam.com/privacy-policy/",
+      "title": "Privacy Policy | NOOR-E-HARAM",
+      "pageType": "legal",
+      "contentCluster": "Legal",
+      "status": "active",
+      "lastReviewed": "2026-11-24",
+      "factualReviewDate": "2026-11-24",
+      "regulatoryReviewDate": null,
+      "primaryIntent": "Data protection practices aligned with India DPDP Act 2023, data categories, Saudi authority sharing, and grievance officer contact",
+      "targetQueryCluster": [
+        "Noor E Haram privacy policy",
+        "pilgrim data privacy"
+      ],
+      "internalLinkParent": "/",
+      "internalLinkChildren": [
+        "/terms-and-conditions/",
+        "/trust/"
+      ]
+    },
+    {
+      "url": "/terms-and-conditions/",
+      "canonical": "https://nooreharam.com/terms-and-conditions/",
+      "title": "Terms and Conditions | NOOR-E-HARAM",
+      "pageType": "legal",
+      "contentCluster": "Legal",
+      "status": "active",
+      "lastReviewed": "2026-11-24",
+      "factualReviewDate": "2026-11-24",
+      "regulatoryReviewDate": null,
+      "primaryIntent": "Pilgrim contractual terms, fixed quote policy, flight schedule rules, and Saudi hospitality guidelines",
+      "targetQueryCluster": [
+        "Noor E Haram terms and conditions",
+        "Umrah tour booking agreement"
+      ],
+      "internalLinkParent": "/",
+      "internalLinkChildren": [
+        "/payment-policy/",
+        "/refund-and-cancellation-policy/"
+      ]
+    },
+    {
+      "url": "/refund-and-cancellation-policy/",
+      "canonical": "https://nooreharam.com/refund-and-cancellation-policy/",
+      "title": "Refund and Cancellation Policy | NOOR-E-HARAM",
+      "pageType": "legal",
+      "contentCluster": "Legal",
+      "status": "active",
+      "lastReviewed": "2026-11-24",
+      "factualReviewDate": "2026-11-24",
+      "regulatoryReviewDate": null,
+      "primaryIntent": "Clear deduction slabs based on days before departure, non-refundable components, and refund processing timelines",
+      "targetQueryCluster": [
+        "Umrah refund policy",
+        "Hajj package cancellation charges India"
+      ],
+      "internalLinkParent": "/",
+      "internalLinkChildren": [
+        "/payment-policy/",
+        "/trust/"
+      ]
+    },
+    {
+      "url": "/payment-policy/",
+      "canonical": "https://nooreharam.com/payment-policy/",
+      "title": "Payment Policy | NOOR-E-HARAM",
+      "pageType": "legal",
+      "contentCluster": "Legal",
+      "status": "active",
+      "lastReviewed": "2026-11-24",
+      "factualReviewDate": "2026-11-24",
+      "regulatoryReviewDate": null,
+      "primaryIntent": "Two-stage payment milestones (50% booking / 50% 7-10 days prior), official company bank details, scam prevention, and receipt guarantee",
+      "targetQueryCluster": [
+        "Noor E Haram bank account details",
+        "Umrah payment schedule"
+      ],
+      "internalLinkParent": "/",
+      "internalLinkChildren": [
+        "/refund-and-cancellation-policy/",
+        "/trust/"
       ]
     }
   ]

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Verified Live Umrah Departures &amp; Package Rates 2026–2027 | NOOR-E-HARAM</title>
-  <meta name="description" content="Browse 51+ live verified Umrah group departures from Mumbai, Bengaluru, Delhi, Ahmedabad &amp; Lucknow. Confirmed airline PNRs, real-time seats, and transparent packages from ₹79,786.">
+  <meta name="description" content="Browse verified Umrah group departures from Mumbai, Bengaluru, Delhi, Ahmedabad &amp; Lucknow. Confirmed airline PNRs, live seats, and transparent packages from ₹79,786.">
   <link rel="canonical" href="https://nooreharam.com/departures/">
 
   <!-- Open Graph -->
@@ -40,7 +40,7 @@
     }
     .dep-filter-section {
       background: #f8fafc;
-      padding: 30px 0 20px;
+      padding: 24px 0 16px;
       border-bottom: 1px solid #e2e8f0;
       position: sticky;
       top: 70px;
@@ -52,14 +52,14 @@
       flex-wrap: wrap;
       gap: 8px;
       justify-content: center;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
     }
     .filter-btn {
       background: #fff;
       border: 1px solid #cbd5e1;
-      padding: 8px 16px;
+      padding: 7px 15px;
       border-radius: 9999px;
-      font-size: 0.88rem;
+      font-size: 0.85rem;
       font-weight: 600;
       color: #334155;
       cursor: pointer;
@@ -119,6 +119,10 @@
       transform: translateY(-4px);
       box-shadow: 0 12px 28px rgba(6,40,30,0.12);
       border-color: #C59B27;
+    }
+    .departure-card--past {
+      opacity: 0.6;
+      filter: grayscale(0.2);
     }
     .dep-card-header {
       background: #f8fafc;
@@ -342,6 +346,18 @@
       grid-column: 1 / -1;
       display: none;
     }
+    .last-updated-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-size: 0.78rem;
+      color: #cbd5e1;
+      margin-top: 14px;
+    }
   </style>
 
   <!-- Structured Data -->
@@ -354,7 +370,7 @@
         "@id": "https://nooreharam.com/departures/#webpage",
         "url": "https://nooreharam.com/departures/",
         "name": "Verified Live Umrah Departures & Package Rates 2026–2027",
-        "description": "51+ live verified Umrah group departures from Mumbai, Bengaluru, Delhi, Ahmedabad & Lucknow with real-time seats and pricing.",
+        "description": "Verified Umrah group departures from Mumbai, Bengaluru, Delhi, Ahmedabad & Lucknow with real-time seats and pricing.",
         "breadcrumb": {
           "@id": "https://nooreharam.com/departures/#breadcrumb"
         }
@@ -382,6 +398,7 @@
         "@id": "https://nooreharam.com/#organization",
         "name": "NOOR-E-HARAM Tours & Travels",
         "url": "https://nooreharam.com/",
+        "email": "info@nooreharam.com",
         "telephone": "+919986925592",
         "priceRange": "₹79,786 - ₹1,59,786"
       }
@@ -425,8 +442,8 @@
         <span class="eyebrow eyebrow-gold">Direct Partner Fixed Departures • 100% Guaranteed PNR</span>
         <h1 class="hero-title" style="color:#fff;margin-top:12px;">Live Umrah Group Departures &amp; Package Rates</h1>
         <p class="hero-subtitle" style="color:#cbd5e1;max-width:760px;margin:16px auto 0;">
-          Browse 51+ live verified flight departures from Mumbai, Bengaluru, Delhi, Ahmedabad, and Lucknow. 
-          Real airline PNRs, verified remaining seats, and transparent all-inclusive packages from <strong>₹79,786</strong>.
+          Browse verified flight departures from Mumbai, Bengaluru, Delhi, Ahmedabad, and Lucknow. 
+          Real airline PNRs, live verified seats, and transparent all-inclusive packages from <strong>₹79,786</strong>.
         </p>
 
         <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:24px;">
@@ -443,30 +460,40 @@
             ⚡ Instant WhatsApp Confirmation
           </span>
         </div>
+
+        <div class="last-updated-badge">
+          <span>🕒</span>
+          <span>LAST UPDATED: 24 November 2026 (Winter 2026–27 Schedule Active)</span>
+        </div>
       </div>
     </section>
 
     <!-- Filter Control Bar -->
     <section class="dep-filter-section" id="filter-controls">
       <div class="container">
-        <!-- City Pills -->
-        <div class="filter-pills-row" id="city-pills">
-          <button type="button" class="filter-btn active" data-filter-city="all">All Departure Cities (51)</button>
-          <button type="button" class="filter-btn" data-filter-city="mumbai">Mumbai (22)</button>
-          <button type="button" class="filter-btn" data-filter-city="delhi">Delhi (22)</button>
-          <button type="button" class="filter-btn" data-filter-city="bengaluru">Bengaluru (1)</button>
-          <button type="button" class="filter-btn" data-filter-city="ahmedabad">Ahmedabad (3)</button>
-          <button type="button" class="filter-btn" data-filter-city="lucknow">Lucknow (3)</button>
+        <!-- Status Filter: Upcoming vs All -->
+        <div class="filter-pills-row" style="margin-bottom:8px;">
+          <button type="button" class="filter-btn active" data-filter-status="active" style="border-color:#166534;color:#166534;">🟢 Active Upcoming Batches</button>
+          <button type="button" class="filter-btn" data-filter-status="all">All Batches (Include Past)</button>
         </div>
 
-        <!-- Month Pills -->
+        <!-- City Pills -->
+        <div class="filter-pills-row" id="city-pills">
+          <button type="button" class="filter-btn active" data-filter-city="all">All Departure Cities</button>
+          <button type="button" class="filter-btn" data-filter-city="mumbai">Mumbai</button>
+          <button type="button" class="filter-btn" data-filter-city="delhi">Delhi</button>
+          <button type="button" class="filter-btn" data-filter-city="bengaluru">Bengaluru</button>
+          <button type="button" class="filter-btn" data-filter-city="ahmedabad">Ahmedabad</button>
+          <button type="button" class="filter-btn" data-filter-city="lucknow">Lucknow</button>
+        </div>
+
+        <!-- Month Pills (Dynamic Nov 2026 to Feb 2027) -->
         <div class="filter-pills-row" id="month-pills">
           <button type="button" class="filter-btn active" data-filter-month="all">All Months</button>
-          <button type="button" class="filter-btn" data-filter-month="2026-10">October 2026 (4)</button>
-          <button type="button" class="filter-btn" data-filter-month="2026-11">November 2026 (9)</button>
-          <button type="button" class="filter-btn" data-filter-month="2026-12">December 2026 (18)</button>
-          <button type="button" class="filter-btn" data-filter-month="2027-01">January 2027 (17)</button>
-          <button type="button" class="filter-btn" data-filter-month="2027-02">February 2027 (3)</button>
+          <button type="button" class="filter-btn" data-filter-month="2026-11">November 2026</button>
+          <button type="button" class="filter-btn" data-filter-month="2026-12">December 2026</button>
+          <button type="button" class="filter-btn" data-filter-month="2027-01">January 2027</button>
+          <button type="button" class="filter-btn" data-filter-month="2027-02">February 2027</button>
         </div>
 
         <!-- Search Bar -->
@@ -474,7 +501,7 @@
           <input type="text" 
                  id="departure-search" 
                  class="form-control" 
-                 placeholder="🔍 Search airline (IndiGo, Saudi), PNR code, or date..." 
+                 placeholder="🔍 Search airline (IndiGo, Saudia), PNR code, or date..." 
                  style="width:100%;padding:10px 18px;border-radius:9999px;border:1px solid #cbd5e1;font-size:0.92rem;">
         </div>
 
@@ -494,11 +521,12 @@
       <div class="container">
         <div class="dep-grid" id="departures-container">
           
-      <article class="departure-card" 
+      <article class="departure-card departure-card--past" 
                data-city="delhi" 
                data-month="2026-10" 
                data-airline="indigo" 
                data-pnr="oe1877"
+               data-status="departed"
                data-budget="82786"
                data-bronze="92786"
                data-silver="102786"
@@ -509,8 +537,8 @@
             <span class="dep-airline-tag">Indigo</span>
             <span class="dep-type-tag">Direct Flight</span>
           </div>
-          <span class="dep-urgency-tag" style="background:#b91c1c15; color:#b91c1c; border-color:#b91c1c40;">
-            Only 2 Seats Left!
+          <span class="dep-urgency-tag" style="background:#64748b15; color:#64748b; border-color:#64748b40;">
+            Departed / Closed
           </span>
         </div>
 
@@ -519,19 +547,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">DEL</div>
               <div class="flight-date">22 Oct (Thu)</div>
-              <div class="flight-time">10:10 PM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">16 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">Indigo 63</span>
+              <span class="flight-no">Indigo (63)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">06 Nov (Fri)</div>
-              <div class="flight-time">01:30 AM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -542,11 +570,11 @@
 
           <div class="dep-seat-bar-wrap">
             <div class="dep-seat-labels">
-              <span><strong>2 Seats Left</strong> of 40</span>
-              <span style="color:#b91c1c;"><strong>95% Booked</strong></span>
+              <span><strong>Flight Completed</strong> of 40</span>
+              <span style="color:#64748b;"><strong>95% Booked</strong></span>
             </div>
             <div class="dep-progress-bg">
-              <div class="dep-progress-fill" style="width: 95%; background: #b91c1c;"></div>
+              <div class="dep-progress-fill" style="width: 95%; background: #64748b;"></div>
             </div>
           </div>
 
@@ -578,21 +606,21 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Delhi%20on%2022%20Oct%20(Thu)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B982%2C786).%20PNR%3A%20OE1877.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <button class="btn btn-secondary dep-book-btn" disabled style="background:#cbd5e1;color:#64748b;cursor:not-allowed;">
+                <span>Flight Departed</span>
+              </button>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card departure-card--past" 
                data-city="bengaluru" 
                data-month="2026-10" 
                data-airline="indigo" 
                data-pnr="ghd2mm"
+               data-status="departed"
                data-budget="79786"
                data-bronze="89786"
                data-silver="99786"
@@ -603,8 +631,8 @@
             <span class="dep-airline-tag">Indigo</span>
             <span class="dep-type-tag">Direct Flight</span>
           </div>
-          <span class="dep-urgency-tag" style="background:#15803d15; color:#15803d; border-color:#15803d40;">
-            18 Seats Available
+          <span class="dep-urgency-tag" style="background:#64748b15; color:#64748b; border-color:#64748b40;">
+            Departed / Closed
           </span>
         </div>
 
@@ -613,19 +641,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">BLR</div>
               <div class="flight-date">24 Oct (Sat)</div>
-              <div class="flight-time">01:35 AM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">16 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">Indigo 6e-77</span>
+              <span class="flight-no">Indigo (6e-77)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">08 Nov (Sun)</div>
-              <div class="flight-time">04:50 AM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -636,11 +664,11 @@
 
           <div class="dep-seat-bar-wrap">
             <div class="dep-seat-labels">
-              <span><strong>18 Seats Left</strong> of 36</span>
-              <span style="color:#15803d;"><strong>50% Booked</strong></span>
+              <span><strong>Flight Completed</strong> of 36</span>
+              <span style="color:#64748b;"><strong>50% Booked</strong></span>
             </div>
             <div class="dep-progress-bg">
-              <div class="dep-progress-fill" style="width: 50%; background: #15803d;"></div>
+              <div class="dep-progress-fill" style="width: 50%; background: #64748b;"></div>
             </div>
           </div>
 
@@ -672,21 +700,21 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Bengaluru%20on%2024%20Oct%20(Sat)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B979%2C786).%20PNR%3A%20GHD2MM.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <button class="btn btn-secondary dep-book-btn" disabled style="background:#cbd5e1;color:#64748b;cursor:not-allowed;">
+                <span>Flight Departed</span>
+              </button>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card departure-card--past" 
                data-city="delhi" 
                data-month="2026-10" 
                data-airline="indigo" 
                data-pnr="tdtaya"
+               data-status="departed"
                data-budget="82786"
                data-bronze="92786"
                data-silver="102786"
@@ -697,8 +725,8 @@
             <span class="dep-airline-tag">Indigo</span>
             <span class="dep-type-tag">Direct Flight</span>
           </div>
-          <span class="dep-urgency-tag" style="background:#b91c1c15; color:#b91c1c; border-color:#b91c1c40;">
-            Only 1 Seats Left!
+          <span class="dep-urgency-tag" style="background:#64748b15; color:#64748b; border-color:#64748b40;">
+            Departed / Closed
           </span>
         </div>
 
@@ -707,19 +735,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">DEL</div>
               <div class="flight-date">26 Oct (Mon)</div>
-              <div class="flight-time">09:40 PM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">16 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">Indigo 63</span>
+              <span class="flight-no">Indigo (63)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">10 Nov (Tue)</div>
-              <div class="flight-time">01:40 AM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -730,11 +758,11 @@
 
           <div class="dep-seat-bar-wrap">
             <div class="dep-seat-labels">
-              <span><strong>1 Seats Left</strong> of 40</span>
-              <span style="color:#b91c1c;"><strong>98% Booked</strong></span>
+              <span><strong>Flight Completed</strong> of 40</span>
+              <span style="color:#64748b;"><strong>98% Booked</strong></span>
             </div>
             <div class="dep-progress-bg">
-              <div class="dep-progress-fill" style="width: 98%; background: #b91c1c;"></div>
+              <div class="dep-progress-fill" style="width: 98%; background: #64748b;"></div>
             </div>
           </div>
 
@@ -766,21 +794,21 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Delhi%20on%2026%20Oct%20(Mon)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B982%2C786).%20PNR%3A%20TDTAYA.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <button class="btn btn-secondary dep-book-btn" disabled style="background:#cbd5e1;color:#64748b;cursor:not-allowed;">
+                <span>Flight Departed</span>
+              </button>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card departure-card--past" 
                data-city="delhi" 
                data-month="2026-10" 
-               data-airline="saudiairline" 
+               data-airline="saudia" 
                data-pnr="8lakdr"
+               data-status="departed"
                data-budget="89786"
                data-bronze="99786"
                data-silver="109786"
@@ -788,11 +816,11 @@
         <div class="dep-card-header">
           <div class="dep-pill-group">
             <span class="dep-city-tag">Delhi (DEL)</span>
-            <span class="dep-airline-tag">SaudiAirline</span>
+            <span class="dep-airline-tag">Saudia</span>
             <span class="dep-type-tag">Direct Flight</span>
           </div>
-          <span class="dep-urgency-tag" style="background:#b91c1c15; color:#b91c1c; border-color:#b91c1c40;">
-            Only 3 Seats Left!
+          <span class="dep-urgency-tag" style="background:#64748b15; color:#64748b; border-color:#64748b40;">
+            Departed / Closed
           </span>
         </div>
 
@@ -801,19 +829,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">DEL</div>
               <div class="flight-date">30 Oct (Fri)</div>
-              <div class="flight-time">11:25 AM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">17 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">SaudiAirline SV-757</span>
+              <span class="flight-no">Saudia (SV-757)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">15 Nov (Sun)</div>
-              <div class="flight-time">03:00 PM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -824,11 +852,11 @@
 
           <div class="dep-seat-bar-wrap">
             <div class="dep-seat-labels">
-              <span><strong>3 Seats Left</strong> of 40</span>
-              <span style="color:#b91c1c;"><strong>93% Booked</strong></span>
+              <span><strong>Flight Completed</strong> of 40</span>
+              <span style="color:#64748b;"><strong>93% Booked</strong></span>
             </div>
             <div class="dep-progress-bg">
-              <div class="dep-progress-fill" style="width: 93%; background: #b91c1c;"></div>
+              <div class="dep-progress-fill" style="width: 93%; background: #64748b;"></div>
             </div>
           </div>
 
@@ -860,21 +888,21 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Delhi%20on%2030%20Oct%20(Fri)%20(SaudiAirline)%20-%20Budget%20Tier%20(%E2%82%B989%2C786).%20PNR%3A%208LAKDR.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <button class="btn btn-secondary dep-book-btn" disabled style="background:#cbd5e1;color:#64748b;cursor:not-allowed;">
+                <span>Flight Departed</span>
+              </button>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card departure-card--past" 
                data-city="delhi" 
                data-month="2026-11" 
                data-airline="indigo" 
                data-pnr="blodua"
+               data-status="departed"
                data-budget="82786"
                data-bronze="92786"
                data-silver="102786"
@@ -885,8 +913,8 @@
             <span class="dep-airline-tag">Indigo</span>
             <span class="dep-type-tag">Direct Flight</span>
           </div>
-          <span class="dep-urgency-tag" style="background:#b91c1c15; color:#b91c1c; border-color:#b91c1c40;">
-            Only 2 Seats Left!
+          <span class="dep-urgency-tag" style="background:#64748b15; color:#64748b; border-color:#64748b40;">
+            Departed / Closed
           </span>
         </div>
 
@@ -895,19 +923,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">DEL</div>
               <div class="flight-date">08 Nov (Sun)</div>
-              <div class="flight-time">09:40 PM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">16 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">Indigo 63</span>
+              <span class="flight-no">Indigo (63)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">23 Nov (Mon)</div>
-              <div class="flight-time">01:40 AM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -918,11 +946,11 @@
 
           <div class="dep-seat-bar-wrap">
             <div class="dep-seat-labels">
-              <span><strong>2 Seats Left</strong> of 40</span>
-              <span style="color:#b91c1c;"><strong>95% Booked</strong></span>
+              <span><strong>Flight Completed</strong> of 40</span>
+              <span style="color:#64748b;"><strong>95% Booked</strong></span>
             </div>
             <div class="dep-progress-bg">
-              <div class="dep-progress-fill" style="width: 95%; background: #b91c1c;"></div>
+              <div class="dep-progress-fill" style="width: 95%; background: #64748b;"></div>
             </div>
           </div>
 
@@ -954,21 +982,21 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Delhi%20on%2008%20Nov%20(Sun)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B982%2C786).%20PNR%3A%20BLODUA.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <button class="btn btn-secondary dep-book-btn" disabled style="background:#cbd5e1;color:#64748b;cursor:not-allowed;">
+                <span>Flight Departed</span>
+              </button>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card departure-card--past" 
                data-city="mumbai" 
                data-month="2026-11" 
-               data-airline="saudiairline" 
+               data-airline="saudia" 
                data-pnr="9d3bfd"
+               data-status="departed"
                data-budget="81786"
                data-bronze="91786"
                data-silver="101786"
@@ -976,11 +1004,11 @@
         <div class="dep-card-header">
           <div class="dep-pill-group">
             <span class="dep-city-tag">Mumbai (BOM)</span>
-            <span class="dep-airline-tag">SaudiAirline</span>
+            <span class="dep-airline-tag">Saudia</span>
             <span class="dep-type-tag">Direct Flight</span>
           </div>
-          <span class="dep-urgency-tag" style="background:#15803d15; color:#15803d; border-color:#15803d40;">
-            36 Seats Available
+          <span class="dep-urgency-tag" style="background:#64748b15; color:#64748b; border-color:#64748b40;">
+            Departed / Closed
           </span>
         </div>
 
@@ -989,19 +1017,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">BOM</div>
               <div class="flight-date">19 Nov (Thu)</div>
-              <div class="flight-time">09:50 AM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">16 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">SaudiAirline SV-771</span>
+              <span class="flight-no">Saudia (SV-771)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">04 Dec (Fri)</div>
-              <div class="flight-time">01:05 PM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -1012,11 +1040,11 @@
 
           <div class="dep-seat-bar-wrap">
             <div class="dep-seat-labels">
-              <span><strong>36 Seats Left</strong> of 40</span>
-              <span style="color:#15803d;"><strong>10% Booked</strong></span>
+              <span><strong>Flight Completed</strong> of 40</span>
+              <span style="color:#64748b;"><strong>10% Booked</strong></span>
             </div>
             <div class="dep-progress-bg">
-              <div class="dep-progress-fill" style="width: 10%; background: #15803d;"></div>
+              <div class="dep-progress-fill" style="width: 10%; background: #64748b;"></div>
             </div>
           </div>
 
@@ -1048,21 +1076,21 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Mumbai%20on%2019%20Nov%20(Thu)%20(SaudiAirline)%20-%20Budget%20Tier%20(%E2%82%B981%2C786).%20PNR%3A%209D3BFD.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <button class="btn btn-secondary dep-book-btn" disabled style="background:#cbd5e1;color:#64748b;cursor:not-allowed;">
+                <span>Flight Departed</span>
+              </button>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card departure-card--past" 
                data-city="ahmedabad" 
                data-month="2026-11" 
                data-airline="akasa" 
                data-pnr="ifyaya"
+               data-status="departed"
                data-budget="85786"
                data-bronze="98786"
                data-silver="108786"
@@ -1073,8 +1101,8 @@
             <span class="dep-airline-tag">Akasa</span>
             <span class="dep-type-tag">Direct Flight</span>
           </div>
-          <span class="dep-urgency-tag" style="background:#b91c1c15; color:#b91c1c; border-color:#b91c1c40;">
-            Only 2 Seats Left!
+          <span class="dep-urgency-tag" style="background:#64748b15; color:#64748b; border-color:#64748b40;">
+            Departed / Closed
           </span>
         </div>
 
@@ -1083,19 +1111,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">AMD</div>
               <div class="flight-date">21 Nov (Sat)</div>
-              <div class="flight-time">05:00 PM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">19 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">Akasa QP-563</span>
+              <span class="flight-no">Akasa (QP-563)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">09 Dec (Wed)</div>
-              <div class="flight-time">07:50 PM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -1106,11 +1134,11 @@
 
           <div class="dep-seat-bar-wrap">
             <div class="dep-seat-labels">
-              <span><strong>2 Seats Left</strong> of 10</span>
-              <span style="color:#b91c1c;"><strong>80% Booked</strong></span>
+              <span><strong>Flight Completed</strong> of 10</span>
+              <span style="color:#64748b;"><strong>80% Booked</strong></span>
             </div>
             <div class="dep-progress-bg">
-              <div class="dep-progress-fill" style="width: 80%; background: #b91c1c;"></div>
+              <div class="dep-progress-fill" style="width: 80%; background: #64748b;"></div>
             </div>
           </div>
 
@@ -1142,21 +1170,21 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Ahmedabad%20on%2021%20Nov%20(Sat)%20(Akasa)%20-%20Budget%20Tier%20(%E2%82%B985%2C786).%20PNR%3A%20IFYAYA.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <button class="btn btn-secondary dep-book-btn" disabled style="background:#cbd5e1;color:#64748b;cursor:not-allowed;">
+                <span>Flight Departed</span>
+              </button>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card departure-card--past" 
                data-city="delhi" 
                data-month="2026-11" 
-               data-airline="saudiairline" 
+               data-airline="saudia" 
                data-pnr="85qbof"
+               data-status="departed"
                data-budget="89786"
                data-bronze="99786"
                data-silver="109786"
@@ -1164,11 +1192,11 @@
         <div class="dep-card-header">
           <div class="dep-pill-group">
             <span class="dep-city-tag">Delhi (DEL)</span>
-            <span class="dep-airline-tag">SaudiAirline</span>
+            <span class="dep-airline-tag">Saudia</span>
             <span class="dep-type-tag">Direct Flight</span>
           </div>
-          <span class="dep-urgency-tag" style="background:#15803d15; color:#15803d; border-color:#15803d40;">
-            38 Seats Available
+          <span class="dep-urgency-tag" style="background:#64748b15; color:#64748b; border-color:#64748b40;">
+            Departed / Closed
           </span>
         </div>
 
@@ -1177,19 +1205,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">DEL</div>
               <div class="flight-date">21 Nov (Sat)</div>
-              <div class="flight-time">08:05 PM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">16 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">SaudiAirline SV-759</span>
+              <span class="flight-no">Saudia (SV-759)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">06 Dec (Sun)</div>
-              <div class="flight-time">11:40 PM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -1200,11 +1228,11 @@
 
           <div class="dep-seat-bar-wrap">
             <div class="dep-seat-labels">
-              <span><strong>38 Seats Left</strong> of 40</span>
-              <span style="color:#15803d;"><strong>5% Booked</strong></span>
+              <span><strong>Flight Completed</strong> of 40</span>
+              <span style="color:#64748b;"><strong>5% Booked</strong></span>
             </div>
             <div class="dep-progress-bg">
-              <div class="dep-progress-fill" style="width: 5%; background: #15803d;"></div>
+              <div class="dep-progress-fill" style="width: 5%; background: #64748b;"></div>
             </div>
           </div>
 
@@ -1236,21 +1264,21 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Delhi%20on%2021%20Nov%20(Sat)%20(SaudiAirline)%20-%20Budget%20Tier%20(%E2%82%B989%2C786).%20PNR%3A%2085QBOF.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <button class="btn btn-secondary dep-book-btn" disabled style="background:#cbd5e1;color:#64748b;cursor:not-allowed;">
+                <span>Flight Departed</span>
+              </button>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card departure-card--past" 
                data-city="delhi" 
                data-month="2026-11" 
                data-airline="indigo" 
                data-pnr="uyufha"
+               data-status="departed"
                data-budget="82786"
                data-bronze="92786"
                data-silver="102786"
@@ -1261,8 +1289,8 @@
             <span class="dep-airline-tag">Indigo</span>
             <span class="dep-type-tag">Direct Flight</span>
           </div>
-          <span class="dep-urgency-tag" style="background:#d9770615; color:#d97706; border-color:#d9770640;">
-            Filling Fast (7 Seats)
+          <span class="dep-urgency-tag" style="background:#64748b15; color:#64748b; border-color:#64748b40;">
+            Departed / Closed
           </span>
         </div>
 
@@ -1271,19 +1299,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">DEL</div>
               <div class="flight-date">23 Nov (Mon)</div>
-              <div class="flight-time">09:40 PM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">16 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">Indigo 63</span>
+              <span class="flight-no">Indigo (63)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">08 Dec (Tue)</div>
-              <div class="flight-time">01:40 AM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -1294,11 +1322,11 @@
 
           <div class="dep-seat-bar-wrap">
             <div class="dep-seat-labels">
-              <span><strong>7 Seats Left</strong> of 40</span>
-              <span style="color:#d97706;"><strong>83% Booked</strong></span>
+              <span><strong>Flight Completed</strong> of 40</span>
+              <span style="color:#64748b;"><strong>83% Booked</strong></span>
             </div>
             <div class="dep-progress-bg">
-              <div class="dep-progress-fill" style="width: 83%; background: #d97706;"></div>
+              <div class="dep-progress-fill" style="width: 83%; background: #64748b;"></div>
             </div>
           </div>
 
@@ -1330,21 +1358,21 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Delhi%20on%2023%20Nov%20(Mon)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B982%2C786).%20PNR%3A%20UYUFHA.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <button class="btn btn-secondary dep-book-btn" disabled style="background:#cbd5e1;color:#64748b;cursor:not-allowed;">
+                <span>Flight Departed</span>
+              </button>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card departure-card--past" 
                data-city="mumbai" 
                data-month="2026-11" 
                data-airline="indigo" 
                data-pnr="d4z722"
+               data-status="departed"
                data-budget="79786"
                data-bronze="89786"
                data-silver="99786"
@@ -1355,8 +1383,8 @@
             <span class="dep-airline-tag">Indigo</span>
             <span class="dep-type-tag">Direct Flight</span>
           </div>
-          <span class="dep-urgency-tag" style="background:#15803d15; color:#15803d; border-color:#15803d40;">
-            26 Seats Available
+          <span class="dep-urgency-tag" style="background:#64748b15; color:#64748b; border-color:#64748b40;">
+            Departed / Closed
           </span>
         </div>
 
@@ -1365,19 +1393,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">BOM</div>
               <div class="flight-date">23 Nov (Mon)</div>
-              <div class="flight-time">03:25 PM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">15 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">Indigo 61</span>
+              <span class="flight-no">Indigo (61)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">07 Dec (Mon)</div>
-              <div class="flight-time">06:40 PM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -1388,11 +1416,11 @@
 
           <div class="dep-seat-bar-wrap">
             <div class="dep-seat-labels">
-              <span><strong>26 Seats Left</strong> of 40</span>
-              <span style="color:#15803d;"><strong>35% Booked</strong></span>
+              <span><strong>Flight Completed</strong> of 40</span>
+              <span style="color:#64748b;"><strong>35% Booked</strong></span>
             </div>
             <div class="dep-progress-bg">
-              <div class="dep-progress-fill" style="width: 35%; background: #15803d;"></div>
+              <div class="dep-progress-fill" style="width: 35%; background: #64748b;"></div>
             </div>
           </div>
 
@@ -1424,21 +1452,21 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Mumbai%20on%2023%20Nov%20(Mon)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B979%2C786).%20PNR%3A%20D4Z722.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <button class="btn btn-secondary dep-book-btn" disabled style="background:#cbd5e1;color:#64748b;cursor:not-allowed;">
+                <span>Flight Departed</span>
+              </button>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card " 
                data-city="lucknow" 
                data-month="2026-11" 
                data-airline="omanair" 
                data-pnr="lkogrp2"
+               data-status="available"
                data-budget="97786"
                data-bronze="108786"
                data-silver="115786"
@@ -1459,19 +1487,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">LKO</div>
               <div class="flight-date">24 Nov (Tue)</div>
-              <div class="flight-time">08:50 AM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">16 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">OmanAir WY 266-675</span>
+              <span class="flight-no">OmanAir (WY 266-675)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">09 Dec (Wed)</div>
-              <div class="flight-time">05:10 PM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -1518,21 +1546,24 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Lucknow%20on%2024%20Nov%20(Tue)%20(OmanAir)%20-%20Budget%20Tier%20(%E2%82%B997%2C786).%20PNR%3A%20LKOGRP2.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20inquire%20about%20Umrah%20departure%20from%20Lucknow%20on%2024%20Nov%20(Tue)%20(OmanAir)%20-%20Budget%20Tier%20(%E2%82%B997%2C786).%20PNR%3A%20LKOGRP2.%20Please%20confirm%20seat%20availability." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-primary dep-book-btn">
+                <span>💬 Book Seat via WhatsApp</span>
+              </a>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card " 
                data-city="delhi" 
                data-month="2026-11" 
-               data-airline="saudiairline" 
+               data-airline="saudia" 
                data-pnr="bbfisi"
+               data-status="available"
                data-budget="89786"
                data-bronze="99786"
                data-silver="109786"
@@ -1540,7 +1571,7 @@
         <div class="dep-card-header">
           <div class="dep-pill-group">
             <span class="dep-city-tag">Delhi (DEL)</span>
-            <span class="dep-airline-tag">SaudiAirline</span>
+            <span class="dep-airline-tag">Saudia</span>
             <span class="dep-type-tag">Direct Flight</span>
           </div>
           <span class="dep-urgency-tag" style="background:#15803d15; color:#15803d; border-color:#15803d40;">
@@ -1553,19 +1584,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">DEL</div>
               <div class="flight-date">29 Nov (Sun)</div>
-              <div class="flight-time">08:05 PM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">16 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">SaudiAirline SV-759</span>
+              <span class="flight-no">Saudia (SV-759)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">14 Dec (Mon)</div>
-              <div class="flight-time">11:40 PM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -1612,21 +1643,24 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Delhi%20on%2029%20Nov%20(Sun)%20(SaudiAirline)%20-%20Budget%20Tier%20(%E2%82%B989%2C786).%20PNR%3A%20BBFISI.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20inquire%20about%20Umrah%20departure%20from%20Delhi%20on%2029%20Nov%20(Sun)%20(Saudia)%20-%20Budget%20Tier%20(%E2%82%B989%2C786).%20PNR%3A%20BBFISI.%20Please%20confirm%20seat%20availability." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-primary dep-book-btn">
+                <span>💬 Book Seat via WhatsApp</span>
+              </a>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card " 
                data-city="mumbai" 
                data-month="2026-11" 
                data-airline="airindia" 
                data-pnr="oofiai"
+               data-status="available"
                data-budget="79786"
                data-bronze="89786"
                data-silver="99786"
@@ -1647,19 +1681,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">BOM</div>
               <div class="flight-date">30 Nov (Mon)</div>
-              <div class="flight-time">06:00 PM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">15 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">AirIndia AI-2245</span>
+              <span class="flight-no">AirIndia (AI-2245)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">14 Dec (Mon)</div>
-              <div class="flight-time">09:40 PM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -1706,21 +1740,24 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Mumbai%20on%2030%20Nov%20(Mon)%20(AirIndia)%20-%20Budget%20Tier%20(%E2%82%B979%2C786).%20PNR%3A%20OOFIAI.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20inquire%20about%20Umrah%20departure%20from%20Mumbai%20on%2030%20Nov%20(Mon)%20(AirIndia)%20-%20Budget%20Tier%20(%E2%82%B979%2C786).%20PNR%3A%20OOFIAI.%20Please%20confirm%20seat%20availability." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-primary dep-book-btn">
+                <span>💬 Book Seat via WhatsApp</span>
+              </a>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card " 
                data-city="delhi" 
                data-month="2026-12" 
-               data-airline="saudiairline" 
+               data-airline="saudia" 
                data-pnr="85qp33"
+               data-status="few-seats-left"
                data-budget="89786"
                data-bronze="99786"
                data-silver="109786"
@@ -1728,11 +1765,11 @@
         <div class="dep-card-header">
           <div class="dep-pill-group">
             <span class="dep-city-tag">Delhi (DEL)</span>
-            <span class="dep-airline-tag">SaudiAirline</span>
+            <span class="dep-airline-tag">Saudia</span>
             <span class="dep-type-tag">Direct Flight</span>
           </div>
           <span class="dep-urgency-tag" style="background:#d9770615; color:#d97706; border-color:#d9770640;">
-            Filling Fast (6 Seats)
+            Few Seats Left (6 Remaining)
           </span>
         </div>
 
@@ -1741,19 +1778,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">DEL</div>
               <div class="flight-date">02 Dec (Wed)</div>
-              <div class="flight-time">11:25 AM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">17 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">SaudiAirline SV-757</span>
+              <span class="flight-no">Saudia (SV-757)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">18 Dec (Fri)</div>
-              <div class="flight-time">02:25 PM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -1800,21 +1837,24 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Delhi%20on%2002%20Dec%20(Wed)%20(SaudiAirline)%20-%20Budget%20Tier%20(%E2%82%B989%2C786).%20PNR%3A%2085QP33.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20inquire%20about%20Umrah%20departure%20from%20Delhi%20on%2002%20Dec%20(Wed)%20(Saudia)%20-%20Budget%20Tier%20(%E2%82%B989%2C786).%20PNR%3A%2085QP33.%20Please%20confirm%20seat%20availability." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-primary dep-book-btn">
+                <span>💬 Book Seat via WhatsApp</span>
+              </a>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card " 
                data-city="mumbai" 
                data-month="2026-12" 
                data-airline="indigo" 
                data-pnr="jgr4ee"
+               data-status="available"
                data-budget="79786"
                data-bronze="89786"
                data-silver="99786"
@@ -1835,19 +1875,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">BOM</div>
               <div class="flight-date">02 Dec (Wed)</div>
-              <div class="flight-time">03:25 PM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">15 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">Indigo 61</span>
+              <span class="flight-no">Indigo (61)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">16 Dec (Wed)</div>
-              <div class="flight-time">06:40 PM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -1894,21 +1934,24 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Mumbai%20on%2002%20Dec%20(Wed)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B979%2C786).%20PNR%3A%20JGR4EE.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20inquire%20about%20Umrah%20departure%20from%20Mumbai%20on%2002%20Dec%20(Wed)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B979%2C786).%20PNR%3A%20JGR4EE.%20Please%20confirm%20seat%20availability." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-primary dep-book-btn">
+                <span>💬 Book Seat via WhatsApp</span>
+              </a>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card " 
                data-city="mumbai" 
                data-month="2026-12" 
                data-airline="airindia" 
                data-pnr="yyfiai"
+               data-status="available"
                data-budget="79786"
                data-bronze="89786"
                data-silver="99786"
@@ -1929,19 +1972,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">BOM</div>
               <div class="flight-date">07 Dec (Mon)</div>
-              <div class="flight-time">06:00 PM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">15 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">AirIndia AI-2245</span>
+              <span class="flight-no">AirIndia (AI-2245)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">21 Dec (Mon)</div>
-              <div class="flight-time">09:40 PM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -1988,21 +2031,24 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Mumbai%20on%2007%20Dec%20(Mon)%20(AirIndia)%20-%20Budget%20Tier%20(%E2%82%B979%2C786).%20PNR%3A%20YYFIAI.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20inquire%20about%20Umrah%20departure%20from%20Mumbai%20on%2007%20Dec%20(Mon)%20(AirIndia)%20-%20Budget%20Tier%20(%E2%82%B979%2C786).%20PNR%3A%20YYFIAI.%20Please%20confirm%20seat%20availability." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-primary dep-book-btn">
+                <span>💬 Book Seat via WhatsApp</span>
+              </a>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card " 
                data-city="ahmedabad" 
                data-month="2026-12" 
                data-airline="akasa" 
                data-pnr="bdiaua"
+               data-status="available"
                data-budget="85786"
                data-bronze="98786"
                data-silver="108786"
@@ -2023,19 +2069,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">AMD</div>
               <div class="flight-date">07 Dec (Mon)</div>
-              <div class="flight-time">05:00 PM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">20 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">Akasa QP-563</span>
+              <span class="flight-no">Akasa (QP-563)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">26 Dec (Sat)</div>
-              <div class="flight-time">07:50 PM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -2082,21 +2128,24 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Ahmedabad%20on%2007%20Dec%20(Mon)%20(Akasa)%20-%20Budget%20Tier%20(%E2%82%B985%2C786).%20PNR%3A%20BDIAUA.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20inquire%20about%20Umrah%20departure%20from%20Ahmedabad%20on%2007%20Dec%20(Mon)%20(Akasa)%20-%20Budget%20Tier%20(%E2%82%B985%2C786).%20PNR%3A%20BDIAUA.%20Please%20confirm%20seat%20availability." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-primary dep-book-btn">
+                <span>💬 Book Seat via WhatsApp</span>
+              </a>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card " 
                data-city="delhi" 
                data-month="2026-12" 
                data-airline="indigo" 
                data-pnr="ffdyah"
+               data-status="available"
                data-budget="82786"
                data-bronze="92786"
                data-silver="102786"
@@ -2117,19 +2166,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">DEL</div>
               <div class="flight-date">07 Dec (Mon)</div>
-              <div class="flight-time">09:40 PM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">16 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">Indigo 63</span>
+              <span class="flight-no">Indigo (63)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">22 Dec (Tue)</div>
-              <div class="flight-time">01:40 AM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -2176,21 +2225,24 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Delhi%20on%2007%20Dec%20(Mon)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B982%2C786).%20PNR%3A%20FFDYAH.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20inquire%20about%20Umrah%20departure%20from%20Delhi%20on%2007%20Dec%20(Mon)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B982%2C786).%20PNR%3A%20FFDYAH.%20Please%20confirm%20seat%20availability." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-primary dep-book-btn">
+                <span>💬 Book Seat via WhatsApp</span>
+              </a>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card " 
                data-city="delhi" 
                data-month="2026-12" 
                data-airline="indigo" 
                data-pnr="hffjba"
+               data-status="available"
                data-budget="82786"
                data-bronze="92786"
                data-silver="102786"
@@ -2211,19 +2263,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">DEL</div>
               <div class="flight-date">09 Dec (Wed)</div>
-              <div class="flight-time">09:40 PM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">16 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">Indigo 63</span>
+              <span class="flight-no">Indigo (63)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">24 Dec (Thu)</div>
-              <div class="flight-time">01:40 AM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -2270,21 +2322,24 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Delhi%20on%2009%20Dec%20(Wed)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B982%2C786).%20PNR%3A%20HFFJBA.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20inquire%20about%20Umrah%20departure%20from%20Delhi%20on%2009%20Dec%20(Wed)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B982%2C786).%20PNR%3A%20HFFJBA.%20Please%20confirm%20seat%20availability." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-primary dep-book-btn">
+                <span>💬 Book Seat via WhatsApp</span>
+              </a>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card " 
                data-city="mumbai" 
                data-month="2026-12" 
                data-airline="indigo" 
                data-pnr="n6th77"
+               data-status="available"
                data-budget="83786"
                data-bronze="97786"
                data-silver="107786"
@@ -2305,19 +2360,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">BOM</div>
               <div class="flight-date">12 Dec (Sat)</div>
-              <div class="flight-time">03:25 PM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">15 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">Indigo 61</span>
+              <span class="flight-no">Indigo (61)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">26 Dec (Sat)</div>
-              <div class="flight-time">06:40 PM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -2364,21 +2419,24 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Mumbai%20on%2012%20Dec%20(Sat)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B983%2C786).%20PNR%3A%20N6TH77.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20inquire%20about%20Umrah%20departure%20from%20Mumbai%20on%2012%20Dec%20(Sat)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B983%2C786).%20PNR%3A%20N6TH77.%20Please%20confirm%20seat%20availability." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-primary dep-book-btn">
+                <span>💬 Book Seat via WhatsApp</span>
+              </a>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card " 
                data-city="mumbai" 
                data-month="2026-12" 
                data-airline="airindia" 
                data-pnr="iofuya"
+               data-status="few-seats-left"
                data-budget="83786"
                data-bronze="97786"
                data-silver="107786"
@@ -2390,7 +2448,7 @@
             <span class="dep-type-tag">Direct Flight</span>
           </div>
           <span class="dep-urgency-tag" style="background:#b91c1c15; color:#b91c1c; border-color:#b91c1c40;">
-            Only 2 Seats Left!
+            Few Seats Left (2 Remaining)
           </span>
         </div>
 
@@ -2399,19 +2457,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">BOM</div>
               <div class="flight-date">14 Dec (Mon)</div>
-              <div class="flight-time">06:00 PM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">15 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">AirIndia AI-2245</span>
+              <span class="flight-no">AirIndia (AI-2245)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">28 Dec (Mon)</div>
-              <div class="flight-time">09:40 PM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -2458,21 +2516,24 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Mumbai%20on%2014%20Dec%20(Mon)%20(AirIndia)%20-%20Budget%20Tier%20(%E2%82%B983%2C786).%20PNR%3A%20IOFUYA.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20inquire%20about%20Umrah%20departure%20from%20Mumbai%20on%2014%20Dec%20(Mon)%20(AirIndia)%20-%20Budget%20Tier%20(%E2%82%B983%2C786).%20PNR%3A%20IOFUYA.%20Please%20confirm%20seat%20availability." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-primary dep-book-btn">
+                <span>💬 Book Seat via WhatsApp</span>
+              </a>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card " 
                data-city="delhi" 
                data-month="2026-12" 
                data-airline="indigo" 
                data-pnr="lopdua"
+               data-status="available"
                data-budget="86786"
                data-bronze="99786"
                data-silver="111786"
@@ -2493,19 +2554,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">DEL</div>
               <div class="flight-date">14 Dec (Mon)</div>
-              <div class="flight-time">09:40 PM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">16 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">Indigo 63</span>
+              <span class="flight-no">Indigo (63)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">29 Dec (Tue)</div>
-              <div class="flight-time">01:40 AM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -2552,21 +2613,24 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Delhi%20on%2014%20Dec%20(Mon)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B986%2C786).%20PNR%3A%20LOPDUA.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20inquire%20about%20Umrah%20departure%20from%20Delhi%20on%2014%20Dec%20(Mon)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B986%2C786).%20PNR%3A%20LOPDUA.%20Please%20confirm%20seat%20availability." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-primary dep-book-btn">
+                <span>💬 Book Seat via WhatsApp</span>
+              </a>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card " 
                data-city="mumbai" 
                data-month="2026-12" 
                data-airline="airindia" 
                data-pnr="jbayaj"
+               data-status="available"
                data-budget="83786"
                data-bronze="97786"
                data-silver="107786"
@@ -2587,19 +2651,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">BOM</div>
               <div class="flight-date">16 Dec (Wed)</div>
-              <div class="flight-time">06:00 PM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">15 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">AirIndia AI-2245</span>
+              <span class="flight-no">AirIndia (AI-2245)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">30 Dec (Wed)</div>
-              <div class="flight-time">09:40 PM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -2646,21 +2710,24 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Mumbai%20on%2016%20Dec%20(Wed)%20(AirIndia)%20-%20Budget%20Tier%20(%E2%82%B983%2C786).%20PNR%3A%20JBAYAJ.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20inquire%20about%20Umrah%20departure%20from%20Mumbai%20on%2016%20Dec%20(Wed)%20(AirIndia)%20-%20Budget%20Tier%20(%E2%82%B983%2C786).%20PNR%3A%20JBAYAJ.%20Please%20confirm%20seat%20availability." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-primary dep-book-btn">
+                <span>💬 Book Seat via WhatsApp</span>
+              </a>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card " 
                data-city="delhi" 
                data-month="2026-12" 
                data-airline="indigo" 
                data-pnr="lopdaa"
+               data-status="available"
                data-budget="86786"
                data-bronze="99786"
                data-silver="111786"
@@ -2681,19 +2748,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">DEL</div>
               <div class="flight-date">16 Dec (Wed)</div>
-              <div class="flight-time">09:40 PM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">16 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">Indigo 63</span>
+              <span class="flight-no">Indigo (63)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">31 Dec (Thu)</div>
-              <div class="flight-time">01:40 AM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -2740,21 +2807,24 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Delhi%20on%2016%20Dec%20(Wed)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B986%2C786).%20PNR%3A%20LOPDAA.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20inquire%20about%20Umrah%20departure%20from%20Delhi%20on%2016%20Dec%20(Wed)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B986%2C786).%20PNR%3A%20LOPDAA.%20Please%20confirm%20seat%20availability." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-primary dep-book-btn">
+                <span>💬 Book Seat via WhatsApp</span>
+              </a>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card " 
                data-city="ahmedabad" 
                data-month="2026-12" 
                data-airline="akasa" 
                data-pnr="nofoau"
+               data-status="available"
                data-budget="90786"
                data-bronze="103786"
                data-silver="113786"
@@ -2775,19 +2845,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">AMD</div>
               <div class="flight-date">21 Dec (Mon)</div>
-              <div class="flight-time">05:00 PM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">20 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">Akasa QP-563</span>
+              <span class="flight-no">Akasa (QP-563)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">09 Jan (Sat)</div>
-              <div class="flight-time">07:50 PM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -2834,21 +2904,24 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Ahmedabad%20on%2021%20Dec%20(Mon)%20(Akasa)%20-%20Budget%20Tier%20(%E2%82%B990%2C786).%20PNR%3A%20NOFOAU.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20inquire%20about%20Umrah%20departure%20from%20Ahmedabad%20on%2021%20Dec%20(Mon)%20(Akasa)%20-%20Budget%20Tier%20(%E2%82%B990%2C786).%20PNR%3A%20NOFOAU.%20Please%20confirm%20seat%20availability." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-primary dep-book-btn">
+                <span>💬 Book Seat via WhatsApp</span>
+              </a>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card " 
                data-city="mumbai" 
                data-month="2026-12" 
                data-airline="akasa" 
                data-pnr="gvdtya"
+               data-status="available"
                data-budget="83786"
                data-bronze="97786"
                data-silver="107786"
@@ -2869,19 +2942,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">BOM</div>
               <div class="flight-date">21 Dec (Mon)</div>
-              <div class="flight-time">05:40 PM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">15 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">Akasa QP-552</span>
+              <span class="flight-no">Akasa (QP-552)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">04 Jan (Mon)</div>
-              <div class="flight-time">08:20 AM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -2928,21 +3001,24 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Mumbai%20on%2021%20Dec%20(Mon)%20(Akasa)%20-%20Budget%20Tier%20(%E2%82%B983%2C786).%20PNR%3A%20GVDTYA.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20inquire%20about%20Umrah%20departure%20from%20Mumbai%20on%2021%20Dec%20(Mon)%20(Akasa)%20-%20Budget%20Tier%20(%E2%82%B983%2C786).%20PNR%3A%20GVDTYA.%20Please%20confirm%20seat%20availability." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-primary dep-book-btn">
+                <span>💬 Book Seat via WhatsApp</span>
+              </a>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card " 
                data-city="mumbai" 
                data-month="2026-12" 
                data-airline="indigo" 
                data-pnr="yfyaya"
+               data-status="available"
                data-budget="83786"
                data-bronze="97786"
                data-silver="107786"
@@ -2963,19 +3039,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">BOM</div>
               <div class="flight-date">23 Dec (Wed)</div>
-              <div class="flight-time">11:55 PM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">15 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">Indigo 6e-91</span>
+              <span class="flight-no">Indigo (6e-91)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">06 Jan (Wed)</div>
-              <div class="flight-time">03:10 AM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -3022,21 +3098,24 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Mumbai%20on%2023%20Dec%20(Wed)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B983%2C786).%20PNR%3A%20YFYAYA.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20inquire%20about%20Umrah%20departure%20from%20Mumbai%20on%2023%20Dec%20(Wed)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B983%2C786).%20PNR%3A%20YFYAYA.%20Please%20confirm%20seat%20availability." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-primary dep-book-btn">
+                <span>💬 Book Seat via WhatsApp</span>
+              </a>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card " 
                data-city="delhi" 
                data-month="2026-12" 
                data-airline="indigo" 
                data-pnr="llfija"
+               data-status="available"
                data-budget="86786"
                data-bronze="99786"
                data-silver="111786"
@@ -3057,19 +3136,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">DEL</div>
               <div class="flight-date">23 Dec (Wed)</div>
-              <div class="flight-time">09:40 PM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">16 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">Indigo 63</span>
+              <span class="flight-no">Indigo (63)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">07 Jan (Thu)</div>
-              <div class="flight-time">01:40 AM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -3116,21 +3195,24 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Delhi%20on%2023%20Dec%20(Wed)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B986%2C786).%20PNR%3A%20LLFIJA.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20inquire%20about%20Umrah%20departure%20from%20Delhi%20on%2023%20Dec%20(Wed)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B986%2C786).%20PNR%3A%20LLFIJA.%20Please%20confirm%20seat%20availability." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-primary dep-book-btn">
+                <span>💬 Book Seat via WhatsApp</span>
+              </a>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card " 
                data-city="mumbai" 
                data-month="2026-12" 
                data-airline="akasa" 
                data-pnr="bgvdyu"
+               data-status="available"
                data-budget="83786"
                data-bronze="97786"
                data-silver="107786"
@@ -3151,19 +3233,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">BOM</div>
               <div class="flight-date">24 Dec (Thu)</div>
-              <div class="flight-time">05:40 PM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">15 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">Akasa QP-552</span>
+              <span class="flight-no">Akasa (QP-552)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">07 Jan (Thu)</div>
-              <div class="flight-time">08:20 AM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -3210,21 +3292,24 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Mumbai%20on%2024%20Dec%20(Thu)%20(Akasa)%20-%20Budget%20Tier%20(%E2%82%B983%2C786).%20PNR%3A%20BGVDYU.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20inquire%20about%20Umrah%20departure%20from%20Mumbai%20on%2024%20Dec%20(Thu)%20(Akasa)%20-%20Budget%20Tier%20(%E2%82%B983%2C786).%20PNR%3A%20BGVDYU.%20Please%20confirm%20seat%20availability." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-primary dep-book-btn">
+                <span>💬 Book Seat via WhatsApp</span>
+              </a>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card " 
                data-city="mumbai" 
                data-month="2026-12" 
                data-airline="airindia" 
                data-pnr="bfduaa"
+               data-status="available"
                data-budget="83786"
                data-bronze="97786"
                data-silver="107786"
@@ -3245,19 +3330,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">BOM</div>
               <div class="flight-date">28 Dec (Mon)</div>
-              <div class="flight-time">06:00 PM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">15 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">AirIndia AI-2245</span>
+              <span class="flight-no">AirIndia (AI-2245)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">11 Jan (Mon)</div>
-              <div class="flight-time">09:40 PM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -3304,21 +3389,24 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Mumbai%20on%2028%20Dec%20(Mon)%20(AirIndia)%20-%20Budget%20Tier%20(%E2%82%B983%2C786).%20PNR%3A%20BFDUAA.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20inquire%20about%20Umrah%20departure%20from%20Mumbai%20on%2028%20Dec%20(Mon)%20(AirIndia)%20-%20Budget%20Tier%20(%E2%82%B983%2C786).%20PNR%3A%20BFDUAA.%20Please%20confirm%20seat%20availability." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-primary dep-book-btn">
+                <span>💬 Book Seat via WhatsApp</span>
+              </a>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card " 
                data-city="delhi" 
                data-month="2026-12" 
                data-airline="indigo" 
                data-pnr="llfiof"
+               data-status="available"
                data-budget="86786"
                data-bronze="99786"
                data-silver="111786"
@@ -3339,19 +3427,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">DEL</div>
               <div class="flight-date">30 Dec (Wed)</div>
-              <div class="flight-time">09:40 PM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">16 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">Indigo 63</span>
+              <span class="flight-no">Indigo (63)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">14 Jan (Thu)</div>
-              <div class="flight-time">01:40 AM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -3398,21 +3486,24 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Delhi%20on%2030%20Dec%20(Wed)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B986%2C786).%20PNR%3A%20LLFIOF.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20inquire%20about%20Umrah%20departure%20from%20Delhi%20on%2030%20Dec%20(Wed)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B986%2C786).%20PNR%3A%20LLFIOF.%20Please%20confirm%20seat%20availability." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-primary dep-book-btn">
+                <span>💬 Book Seat via WhatsApp</span>
+              </a>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card " 
                data-city="delhi" 
                data-month="2027-01" 
                data-airline="indigo" 
                data-pnr="pmahas"
+               data-status="available"
                data-budget="86786"
                data-bronze="99786"
                data-silver="111786"
@@ -3433,19 +3524,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">DEL</div>
               <div class="flight-date">02 Jan (Sat)</div>
-              <div class="flight-time">09:40 PM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">16 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">Indigo 63</span>
+              <span class="flight-no">Indigo (63)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">17 Jan (Sun)</div>
-              <div class="flight-time">01:40 AM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -3492,21 +3583,24 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Delhi%20on%2002%20Jan%20(Sat)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B986%2C786).%20PNR%3A%20PMAHAS.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20inquire%20about%20Umrah%20departure%20from%20Delhi%20on%2002%20Jan%20(Sat)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B986%2C786).%20PNR%3A%20PMAHAS.%20Please%20confirm%20seat%20availability." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-primary dep-book-btn">
+                <span>💬 Book Seat via WhatsApp</span>
+              </a>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card " 
                data-city="mumbai" 
                data-month="2027-01" 
                data-airline="airindia" 
                data-pnr="ofuaua"
+               data-status="available"
                data-budget="83786"
                data-bronze="97786"
                data-silver="107786"
@@ -3527,19 +3621,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">BOM</div>
               <div class="flight-date">04 Jan (Mon)</div>
-              <div class="flight-time">06:00 PM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">15 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">AirIndia AI-2245</span>
+              <span class="flight-no">AirIndia (AI-2245)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">18 Jan (Mon)</div>
-              <div class="flight-time">09:40 PM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -3586,21 +3680,24 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Mumbai%20on%2004%20Jan%20(Mon)%20(AirIndia)%20-%20Budget%20Tier%20(%E2%82%B983%2C786).%20PNR%3A%20OFUAUA.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20inquire%20about%20Umrah%20departure%20from%20Mumbai%20on%2004%20Jan%20(Mon)%20(AirIndia)%20-%20Budget%20Tier%20(%E2%82%B983%2C786).%20PNR%3A%20OFUAUA.%20Please%20confirm%20seat%20availability." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-primary dep-book-btn">
+                <span>💬 Book Seat via WhatsApp</span>
+              </a>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card " 
                data-city="mumbai" 
                data-month="2027-01" 
                data-airline="indigo" 
                data-pnr="lfonaa"
+               data-status="available"
                data-budget="87786"
                data-bronze="101786"
                data-silver="115786"
@@ -3621,19 +3718,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">BOM</div>
               <div class="flight-date">04 Jan (Mon)</div>
-              <div class="flight-time">11:55 PM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">21 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">Indigo 6e-91</span>
+              <span class="flight-no">Indigo (6e-91)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">24 Jan (Sun)</div>
-              <div class="flight-time">03:10 AM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -3680,21 +3777,24 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Mumbai%20on%2004%20Jan%20(Mon)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B987%2C786).%20PNR%3A%20LFONAA.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20inquire%20about%20Umrah%20departure%20from%20Mumbai%20on%2004%20Jan%20(Mon)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B987%2C786).%20PNR%3A%20LFONAA.%20Please%20confirm%20seat%20availability." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-primary dep-book-btn">
+                <span>💬 Book Seat via WhatsApp</span>
+              </a>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card " 
                data-city="delhi" 
                data-month="2027-01" 
                data-airline="indigo" 
                data-pnr="hbiasc"
+               data-status="available"
                data-budget="86786"
                data-bronze="99786"
                data-silver="111786"
@@ -3715,19 +3815,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">DEL</div>
               <div class="flight-date">04 Jan (Mon)</div>
-              <div class="flight-time">09:40 PM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">16 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">Indigo 63</span>
+              <span class="flight-no">Indigo (63)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">19 Jan (Tue)</div>
-              <div class="flight-time">01:40 AM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -3774,21 +3874,24 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Delhi%20on%2004%20Jan%20(Mon)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B986%2C786).%20PNR%3A%20HBIASC.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20inquire%20about%20Umrah%20departure%20from%20Delhi%20on%2004%20Jan%20(Mon)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B986%2C786).%20PNR%3A%20HBIASC.%20Please%20confirm%20seat%20availability." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-primary dep-book-btn">
+                <span>💬 Book Seat via WhatsApp</span>
+              </a>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card " 
                data-city="mumbai" 
                data-month="2027-01" 
                data-airline="indigo" 
                data-pnr="bfydua"
+               data-status="available"
                data-budget="83786"
                data-bronze="97786"
                data-silver="107786"
@@ -3809,19 +3912,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">BOM</div>
               <div class="flight-date">06 Jan (Wed)</div>
-              <div class="flight-time">11:55 PM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">15 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">Indigo 6e-91</span>
+              <span class="flight-no">Indigo (6e-91)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">20 Jan (Wed)</div>
-              <div class="flight-time">03:10 AM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -3868,21 +3971,24 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Mumbai%20on%2006%20Jan%20(Wed)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B983%2C786).%20PNR%3A%20BFYDUA.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20inquire%20about%20Umrah%20departure%20from%20Mumbai%20on%2006%20Jan%20(Wed)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B983%2C786).%20PNR%3A%20BFYDUA.%20Please%20confirm%20seat%20availability." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-primary dep-book-btn">
+                <span>💬 Book Seat via WhatsApp</span>
+              </a>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card " 
                data-city="delhi" 
                data-month="2027-01" 
                data-airline="indigo" 
                data-pnr="nachas"
+               data-status="available"
                data-budget="86786"
                data-bronze="99786"
                data-silver="111786"
@@ -3903,19 +4009,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">DEL</div>
               <div class="flight-date">06 Jan (Wed)</div>
-              <div class="flight-time">09:40 PM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">16 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">Indigo 63</span>
+              <span class="flight-no">Indigo (63)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">21 Jan (Thu)</div>
-              <div class="flight-time">01:40 AM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -3962,21 +4068,24 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Delhi%20on%2006%20Jan%20(Wed)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B986%2C786).%20PNR%3A%20NACHAS.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20inquire%20about%20Umrah%20departure%20from%20Delhi%20on%2006%20Jan%20(Wed)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B986%2C786).%20PNR%3A%20NACHAS.%20Please%20confirm%20seat%20availability." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-primary dep-book-btn">
+                <span>💬 Book Seat via WhatsApp</span>
+              </a>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card " 
                data-city="mumbai" 
                data-month="2027-01" 
                data-airline="airindia" 
                data-pnr="bbfaaa"
+               data-status="available"
                data-budget="83786"
                data-bronze="97786"
                data-silver="107786"
@@ -3997,19 +4106,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">BOM</div>
               <div class="flight-date">11 Jan (Mon)</div>
-              <div class="flight-time">06:00 PM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">15 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">AirIndia AI-2245</span>
+              <span class="flight-no">AirIndia (AI-2245)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">25 Jan (Mon)</div>
-              <div class="flight-time">09:40 PM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -4056,21 +4165,24 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Mumbai%20on%2011%20Jan%20(Mon)%20(AirIndia)%20-%20Budget%20Tier%20(%E2%82%B983%2C786).%20PNR%3A%20BBFAAA.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20inquire%20about%20Umrah%20departure%20from%20Mumbai%20on%2011%20Jan%20(Mon)%20(AirIndia)%20-%20Budget%20Tier%20(%E2%82%B983%2C786).%20PNR%3A%20BBFAAA.%20Please%20confirm%20seat%20availability." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-primary dep-book-btn">
+                <span>💬 Book Seat via WhatsApp</span>
+              </a>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card " 
                data-city="lucknow" 
                data-month="2027-01" 
                data-airline="omanair" 
                data-pnr="lkogrp4"
+               data-status="available"
                data-budget="97786"
                data-bronze="108786"
                data-silver="115786"
@@ -4091,19 +4203,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">LKO</div>
               <div class="flight-date">11 Jan (Mon)</div>
-              <div class="flight-time">08:50 AM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">16 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">OmanAir WY 266-675</span>
+              <span class="flight-no">OmanAir (WY 266-675)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">26 Jan (Tue)</div>
-              <div class="flight-time">05:40 PM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -4150,21 +4262,24 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Lucknow%20on%2011%20Jan%20(Mon)%20(OmanAir)%20-%20Budget%20Tier%20(%E2%82%B997%2C786).%20PNR%3A%20LKOGRP4.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20inquire%20about%20Umrah%20departure%20from%20Lucknow%20on%2011%20Jan%20(Mon)%20(OmanAir)%20-%20Budget%20Tier%20(%E2%82%B997%2C786).%20PNR%3A%20LKOGRP4.%20Please%20confirm%20seat%20availability." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-primary dep-book-btn">
+                <span>💬 Book Seat via WhatsApp</span>
+              </a>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card " 
                data-city="delhi" 
                data-month="2027-01" 
                data-airline="indigo" 
                data-pnr="bkbzca"
+               data-status="available"
                data-budget="86786"
                data-bronze="99786"
                data-silver="111786"
@@ -4185,19 +4300,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">DEL</div>
               <div class="flight-date">12 Jan (Tue)</div>
-              <div class="flight-time">09:40 PM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">16 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">Indigo 63</span>
+              <span class="flight-no">Indigo (63)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">27 Jan (Wed)</div>
-              <div class="flight-time">01:40 AM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -4244,21 +4359,24 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Delhi%20on%2012%20Jan%20(Tue)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B986%2C786).%20PNR%3A%20BKBZCA.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20inquire%20about%20Umrah%20departure%20from%20Delhi%20on%2012%20Jan%20(Tue)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B986%2C786).%20PNR%3A%20BKBZCA.%20Please%20confirm%20seat%20availability." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-primary dep-book-btn">
+                <span>💬 Book Seat via WhatsApp</span>
+              </a>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card " 
                data-city="mumbai" 
                data-month="2027-01" 
                data-airline="indigo" 
                data-pnr="nfusia"
+               data-status="available"
                data-budget="83786"
                data-bronze="97786"
                data-silver="107786"
@@ -4279,19 +4397,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">BOM</div>
               <div class="flight-date">13 Jan (Wed)</div>
-              <div class="flight-time">11:55 PM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">15 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">Indigo 6e-91</span>
+              <span class="flight-no">Indigo (6e-91)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">27 Jan (Wed)</div>
-              <div class="flight-time">03:10 AM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -4338,21 +4456,24 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Mumbai%20on%2013%20Jan%20(Wed)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B983%2C786).%20PNR%3A%20NFUSIA.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20inquire%20about%20Umrah%20departure%20from%20Mumbai%20on%2013%20Jan%20(Wed)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B983%2C786).%20PNR%3A%20NFUSIA.%20Please%20confirm%20seat%20availability." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-primary dep-book-btn">
+                <span>💬 Book Seat via WhatsApp</span>
+              </a>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card " 
                data-city="mumbai" 
                data-month="2027-01" 
                data-airline="airindia" 
                data-pnr="quroaa"
+               data-status="available"
                data-budget="83786"
                data-bronze="97786"
                data-silver="107786"
@@ -4373,19 +4494,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">BOM</div>
               <div class="flight-date">18 Jan (Mon)</div>
-              <div class="flight-time">06:00 PM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">15 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">AirIndia AI-2245</span>
+              <span class="flight-no">AirIndia (AI-2245)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">01 Feb (Mon)</div>
-              <div class="flight-time">09:40 PM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -4432,21 +4553,24 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Mumbai%20on%2018%20Jan%20(Mon)%20(AirIndia)%20-%20Budget%20Tier%20(%E2%82%B983%2C786).%20PNR%3A%20QUROAA.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20inquire%20about%20Umrah%20departure%20from%20Mumbai%20on%2018%20Jan%20(Mon)%20(AirIndia)%20-%20Budget%20Tier%20(%E2%82%B983%2C786).%20PNR%3A%20QUROAA.%20Please%20confirm%20seat%20availability." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-primary dep-book-btn">
+                <span>💬 Book Seat via WhatsApp</span>
+              </a>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card " 
                data-city="lucknow" 
                data-month="2027-01" 
                data-airline="omanair" 
                data-pnr="lkogrp5"
+               data-status="available"
                data-budget="97786"
                data-bronze="108786"
                data-silver="115786"
@@ -4467,19 +4591,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">LKO</div>
               <div class="flight-date">18 Jan (Mon)</div>
-              <div class="flight-time">08:50 AM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">16 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">OmanAir WY 266-675</span>
+              <span class="flight-no">OmanAir (WY 266-675)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">02 Feb (Tue)</div>
-              <div class="flight-time">05:10 PM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -4526,21 +4650,24 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Lucknow%20on%2018%20Jan%20(Mon)%20(OmanAir)%20-%20Budget%20Tier%20(%E2%82%B997%2C786).%20PNR%3A%20LKOGRP5.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20inquire%20about%20Umrah%20departure%20from%20Lucknow%20on%2018%20Jan%20(Mon)%20(OmanAir)%20-%20Budget%20Tier%20(%E2%82%B997%2C786).%20PNR%3A%20LKOGRP5.%20Please%20confirm%20seat%20availability." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-primary dep-book-btn">
+                <span>💬 Book Seat via WhatsApp</span>
+              </a>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card " 
                data-city="delhi" 
                data-month="2027-01" 
                data-airline="indigo" 
                data-pnr="nascbs"
+               data-status="available"
                data-budget="86786"
                data-bronze="99786"
                data-silver="111786"
@@ -4561,19 +4688,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">DEL</div>
               <div class="flight-date">18 Jan (Mon)</div>
-              <div class="flight-time">09:40 PM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">16 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">Indigo 63</span>
+              <span class="flight-no">Indigo (63)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">02 Feb (Tue)</div>
-              <div class="flight-time">01:40 AM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -4620,21 +4747,24 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Delhi%20on%2018%20Jan%20(Mon)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B986%2C786).%20PNR%3A%20NASCBS.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20inquire%20about%20Umrah%20departure%20from%20Delhi%20on%2018%20Jan%20(Mon)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B986%2C786).%20PNR%3A%20NASCBS.%20Please%20confirm%20seat%20availability." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-primary dep-book-btn">
+                <span>💬 Book Seat via WhatsApp</span>
+              </a>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card " 
                data-city="delhi" 
                data-month="2027-01" 
                data-airline="indigo" 
                data-pnr="jf9hak"
+               data-status="available"
                data-budget="86786"
                data-bronze="99786"
                data-silver="111786"
@@ -4655,19 +4785,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">DEL</div>
               <div class="flight-date">25 Jan (Mon)</div>
-              <div class="flight-time">09:40 PM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">16 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">Indigo 63</span>
+              <span class="flight-no">Indigo (63)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">09 Feb (Tue)</div>
-              <div class="flight-time">01:40 AM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -4714,21 +4844,24 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Delhi%20on%2025%20Jan%20(Mon)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B986%2C786).%20PNR%3A%20JF9HAK.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20inquire%20about%20Umrah%20departure%20from%20Delhi%20on%2025%20Jan%20(Mon)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B986%2C786).%20PNR%3A%20JF9HAK.%20Please%20confirm%20seat%20availability." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-primary dep-book-btn">
+                <span>💬 Book Seat via WhatsApp</span>
+              </a>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card " 
                data-city="mumbai" 
                data-month="2027-01" 
                data-airline="indigo" 
                data-pnr="jfduau"
+               data-status="available"
                data-budget="85786"
                data-bronze="99786"
                data-silver="112786"
@@ -4749,19 +4882,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">BOM</div>
               <div class="flight-date">27 Jan (Wed)</div>
-              <div class="flight-time">11:55 PM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">15 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">Indigo 6e-91</span>
+              <span class="flight-no">Indigo (6e-91)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">10 Feb (Wed)</div>
-              <div class="flight-time">03:10 AM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -4808,21 +4941,24 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Mumbai%20on%2027%20Jan%20(Wed)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B985%2C786).%20PNR%3A%20JFDUAU.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20inquire%20about%20Umrah%20departure%20from%20Mumbai%20on%2027%20Jan%20(Wed)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B985%2C786).%20PNR%3A%20JFDUAU.%20Please%20confirm%20seat%20availability." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-primary dep-book-btn">
+                <span>💬 Book Seat via WhatsApp</span>
+              </a>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card " 
                data-city="mumbai" 
                data-month="2027-01" 
                data-airline="indigo" 
                data-pnr="lofush"
+               data-status="available"
                data-budget="93786"
                data-bronze="113786"
                data-silver="130786"
@@ -4843,19 +4979,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">BOM</div>
               <div class="flight-date">30 Jan (Sat)</div>
-              <div class="flight-time">11:55 PM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">21 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">Indigo 6e-91</span>
+              <span class="flight-no">Indigo (6e-91)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">19 Feb (Fri)</div>
-              <div class="flight-time">03:10 AM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -4902,21 +5038,24 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Mumbai%20on%2030%20Jan%20(Sat)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B993%2C786).%20PNR%3A%20LOFUSH.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20inquire%20about%20Umrah%20departure%20from%20Mumbai%20on%2030%20Jan%20(Sat)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B993%2C786).%20PNR%3A%20LOFUSH.%20Please%20confirm%20seat%20availability." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-primary dep-book-btn">
+                <span>💬 Book Seat via WhatsApp</span>
+              </a>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card " 
                data-city="delhi" 
                data-month="2027-01" 
                data-airline="indigo" 
                data-pnr="pshaak"
+               data-status="available"
                data-budget="95786"
                data-bronze="115786"
                data-silver="132786"
@@ -4937,19 +5076,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">DEL</div>
               <div class="flight-date">31 Jan (Sun)</div>
-              <div class="flight-time">09:40 PM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">22 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">Indigo 63</span>
+              <span class="flight-no">Indigo (63)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">21 Feb (Sun)</div>
-              <div class="flight-time">01:40 AM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -4996,21 +5135,24 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Delhi%20on%2031%20Jan%20(Sun)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B995%2C786).%20PNR%3A%20PSHAAK.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20inquire%20about%20Umrah%20departure%20from%20Delhi%20on%2031%20Jan%20(Sun)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B995%2C786).%20PNR%3A%20PSHAAK.%20Please%20confirm%20seat%20availability." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-primary dep-book-btn">
+                <span>💬 Book Seat via WhatsApp</span>
+              </a>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card " 
                data-city="mumbai" 
                data-month="2027-02" 
                data-airline="airindia" 
                data-pnr="sharam"
+               data-status="available"
                data-budget="85786"
                data-bronze="99786"
                data-silver="112786"
@@ -5031,19 +5173,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">BOM</div>
               <div class="flight-date">01 Feb (Mon)</div>
-              <div class="flight-time">06:00 PM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">15 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">AirIndia AI-2245</span>
+              <span class="flight-no">AirIndia (AI-2245)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">15 Feb (Mon)</div>
-              <div class="flight-time">09:40 PM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -5090,21 +5232,24 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Mumbai%20on%2001%20Feb%20(Mon)%20(AirIndia)%20-%20Budget%20Tier%20(%E2%82%B985%2C786).%20PNR%3A%20SHARAM.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20inquire%20about%20Umrah%20departure%20from%20Mumbai%20on%2001%20Feb%20(Mon)%20(AirIndia)%20-%20Budget%20Tier%20(%E2%82%B985%2C786).%20PNR%3A%20SHARAM.%20Please%20confirm%20seat%20availability." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-primary dep-book-btn">
+                <span>💬 Book Seat via WhatsApp</span>
+              </a>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card " 
                data-city="mumbai" 
                data-month="2027-02" 
                data-airline="indigo" 
                data-pnr="ppfiaa"
+               data-status="available"
                data-budget="93786"
                data-bronze="113786"
                data-silver="130786"
@@ -5125,19 +5270,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">BOM</div>
               <div class="flight-date">01 Feb (Mon)</div>
-              <div class="flight-time">11:55 PM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">21 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">Indigo 6e-91</span>
+              <span class="flight-no">Indigo (6e-91)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">21 Feb (Sun)</div>
-              <div class="flight-time">03:10 AM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -5184,21 +5329,24 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Mumbai%20on%2001%20Feb%20(Mon)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B993%2C786).%20PNR%3A%20PPFIAA.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20inquire%20about%20Umrah%20departure%20from%20Mumbai%20on%2001%20Feb%20(Mon)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B993%2C786).%20PNR%3A%20PPFIAA.%20Please%20confirm%20seat%20availability." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-primary dep-book-btn">
+                <span>💬 Book Seat via WhatsApp</span>
+              </a>
+            
           </div>
         </div>
       </article>
 
-      <article class="departure-card" 
+      <article class="departure-card " 
                data-city="delhi" 
                data-month="2027-02" 
                data-airline="indigo" 
                data-pnr="ofuauj"
+               data-status="available"
                data-budget="87786"
                data-bronze="102786"
                data-silver="114786"
@@ -5219,19 +5367,19 @@
             <div class="flight-leg">
               <div class="flight-city-label">DEL</div>
               <div class="flight-date">01 Feb (Mon)</div>
-              <div class="flight-time">09:40 PM</div>
+              <div class="flight-time">Departure</div>
             </div>
             <div class="flight-path">
               <span class="flight-duration">16 Days Tour</span>
               <div class="flight-arrow-line">
                 <span class="flight-plane-icon">✈️</span>
               </div>
-              <span class="flight-no">Indigo 63</span>
+              <span class="flight-no">Indigo (63)</span>
             </div>
             <div class="flight-leg text-right">
               <div class="flight-city-label">JED / MED</div>
               <div class="flight-date">16 Feb (Tue)</div>
-              <div class="flight-time">01:40 AM</div>
+              <div class="flight-time">Return</div>
             </div>
           </div>
 
@@ -5278,19 +5426,21 @@
           </div>
 
           <div class="dep-action-wrap">
-            <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20book%20Umrah%20departure%20from%20Delhi%20on%2001%20Feb%20(Mon)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B987%2C786).%20PNR%3A%20OFUAUJ.%20Please%20confirm%20availability." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary dep-book-btn">
-              <span>💬 Book Seat via WhatsApp</span>
-            </a>
+            
+              <a href="https://wa.me/919986925592?text=Assalamu%20Alaikum%20Noor-E-Haram!%20I%20want%20to%20inquire%20about%20Umrah%20departure%20from%20Delhi%20on%2001%20Feb%20(Mon)%20(Indigo)%20-%20Budget%20Tier%20(%E2%82%B987%2C786).%20PNR%3A%20OFUAUJ.%20Please%20confirm%20seat%20availability." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-primary dep-book-btn">
+                <span>💬 Book Seat via WhatsApp</span>
+              </a>
+            
           </div>
         </div>
       </article>
 
           <div class="no-results" id="no-results">
             <h3>No departures match your filter</h3>
-            <p style="color:#64748b;margin-top:8px;">Try clearing filters or search to see all 51 available departure dates.</p>
+            <p style="color:#64748b;margin-top:8px;">Try clearing filters or search to see all available departure dates.</p>
             <button type="button" class="btn btn-outline" id="reset-filters" style="margin-top:16px;">Reset All Filters</button>
           </div>
         </div>
@@ -5309,7 +5459,7 @@
           <div style="background:#f8fafc;padding:24px;border-radius:12px;border:1px solid #e2e8f0;">
             <h3 style="font-size:1.1rem;color:#06281e;margin-bottom:12px;">✈️ Flights &amp; Transport</h3>
             <ul style="padding-left:18px;color:#475569;font-size:0.9rem;line-height:1.6;">
-              <li>Return confirmed direct/group flights on Saudi Airlines, IndiGo, Air India.</li>
+              <li>Return confirmed direct/group flights on Saudia, IndiGo, Air India.</li>
               <li>Complete air-conditioned luxury coach transfers (Jeddah–Makkah–Madinah–Airport).</li>
               <li>Free 5-Litre Zamzam water can per pilgrim included.</li>
             </ul>
@@ -5329,8 +5479,8 @@
             <h3 style="font-size:1.1rem;color:#06281e;margin-bottom:12px;">🍽️ Food &amp; Spiritual Guidance</h3>
             <ul style="padding-left:18px;color:#475569;font-size:0.9rem;line-height:1.6;">
               <li>Fresh Indian buffet catering: Breakfast, Lunch, and Dinner served daily.</li>
-              <li>Guided comprehensive tour of 41 blessed Ziyarat landmarks with scholar narration.</li>
-              <li>Dedicated Islamic scholar escort throughout the 15-day pilgrimage.</li>
+              <li>Guided comprehensive tour of blessed historical landmarks with scholar narration.</li>
+              <li>Dedicated Islamic scholar escort throughout the pilgrimage.</li>
             </ul>
           </div>
         </div>
@@ -5371,6 +5521,7 @@
         <h4 style="color:#fff;font-size:0.95rem;margin-bottom:10px;">Head Office</h4>
         <p style="color:#94a3b8;font-size:0.85rem;line-height:1.6;">
           Darga Complex, Hubli, Karnataka, India<br>
+          Email: <a href="mailto:info@nooreharam.com" style="color:#E2C77F;">info@nooreharam.com</a><br>
           WhatsApp: <a href="https://wa.me/919986925592" style="color:#E2C77F;">+91 99869 25592</a>
         </p>
       </div>
@@ -5380,12 +5531,14 @@
   <!-- Interactive JavaScript Engine -->
   <script>
     (function() {
+      var currentStatus = 'active'; // 'active' (upcoming only) or 'all'
       var currentCity = 'all';
       var currentMonth = 'all';
       var currentTier = 'budget';
       var searchQuery = '';
 
       var cards = document.querySelectorAll('.departure-card');
+      var statusPills = document.querySelectorAll('[data-filter-status]');
       var cityPills = document.querySelectorAll('[data-filter-city]');
       var monthPills = document.querySelectorAll('[data-filter-month]');
       var tierToggleBtns = document.querySelectorAll('[data-select-tier]');
@@ -5402,7 +5555,7 @@
         var formattedPrice = '₹' + Number(price).toLocaleString('en-IN');
 
         var bookBtn = card.querySelector('.dep-book-btn');
-        if (bookBtn) {
+        if (bookBtn && !card.classList.contains('departure-card--past')) {
           var msg = 'Assalamu Alaikum Noor-E-Haram! I want to book Umrah departure from ' + city + ' on ' + date + ' (' + airline + ') - ' + tier.toUpperCase() + ' Tier (' + formattedPrice + '). PNR: ' + pnr + '. Please confirm availability.';
           bookBtn.href = 'https://wa.me/919986925592?text=' + encodeURIComponent(msg);
         }
@@ -5412,17 +5565,19 @@
         var visibleCount = 0;
 
         cards.forEach(function(card) {
+          var isPast = card.classList.contains('departure-card--past');
           var city = card.getAttribute('data-city');
           var month = card.getAttribute('data-month');
           var airline = card.getAttribute('data-airline');
           var pnr = card.getAttribute('data-pnr');
           var textContent = (city + ' ' + airline + ' ' + pnr + ' ' + card.innerText).toLowerCase();
 
+          var matchStatus = (currentStatus === 'all') || (!isPast);
           var matchCity = (currentCity === 'all') || (city.indexOf(currentCity) !== -1);
           var matchMonth = (currentMonth === 'all') || (month === currentMonth);
           var matchSearch = (!searchQuery) || (textContent.indexOf(searchQuery) !== -1);
 
-          if (matchCity && matchMonth && matchSearch) {
+          if (matchStatus && matchCity && matchMonth && matchSearch) {
             card.style.display = 'flex';
             visibleCount++;
           } else {
@@ -5436,6 +5591,16 @@
           noResults.style.display = 'none';
         }
       }
+
+      // Status filter events
+      statusPills.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          statusPills.forEach(function(b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          currentStatus = btn.getAttribute('data-filter-status');
+          filterCards();
+        });
+      });
 
       // City filter events
       cityPills.forEach(function(btn) {
@@ -5499,14 +5664,19 @@
 
       // Reset
       resetBtn.addEventListener('click', function() {
+        currentStatus = 'active';
         currentCity = 'all';
         currentMonth = 'all';
         searchQuery = '';
         searchInput.value = '';
+        statusPills.forEach(function(b, idx) { b.classList.toggle('active', idx === 0); });
         cityPills.forEach(function(b, idx) { b.classList.toggle('active', idx === 0); });
         monthPills.forEach(function(b, idx) { b.classList.toggle('active', idx === 0); });
         filterCards();
       });
+
+      // Initial filter execution to hide departed flights by default
+      filterCards();
     })();
   </script>
 </body>

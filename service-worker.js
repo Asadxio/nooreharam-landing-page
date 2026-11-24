@@ -4,7 +4,7 @@
  * and Cache-First for static assets (CSS, JS, images, logos).
  */
 
-const CACHE_NAME = 'nh-cache-v17';
+const CACHE_NAME = 'nh-cache-v18';
 const OFFLINE_URL = './offline.html';
 
 const ASSETS_TO_CACHE = [
@@ -24,6 +24,22 @@ const ASSETS_TO_CACHE = [
   './data/live-departures.json',
   './tools/',
   './tools/index.html',
+  './payment-policy/',
+  './payment-policy/index.html',
+  './refund-and-cancellation-policy/',
+  './refund-and-cancellation-policy/index.html',
+  './terms-and-conditions/',
+  './terms-and-conditions/index.html',
+  './privacy-policy/',
+  './privacy-policy/index.html',
+  './faq/',
+  './faq/index.html',
+  './contact/',
+  './contact/index.html',
+  './branches/',
+  './branches/index.html',
+  './about/',
+  './about/index.html',
   './tools/dua-list-maker/',
   './tools/dua-list-maker/index.html',
   './tools/card-maker/',
