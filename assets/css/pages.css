@@ -372,12 +372,12 @@
   transition: all 0.2s ease;
 }
 .btn-wa-full {
-  background: #25D366;
-  color: var(--white);
+  background: #128c47; /* Darker WhatsApp green — WCAG AA: white text ratio ~5.1:1 */
+  color: #ffffff;
 }
 .btn-wa-full:hover {
-  background: #1eb857;
-  color: var(--white);
+  background: #0e6b36;
+  color: #ffffff;
 }
 .btn-call-full {
   background: var(--gold);

@@ -16,6 +16,8 @@ if (!translations[currentLang]) currentLang = 'en';
 
 function setLang(lang) {
   if (!translations[lang]) return;
+  
+  const previousLang = currentLang;
   currentLang = lang;
   localStorage.setItem('nh_lang', lang);
 
@@ -32,6 +34,14 @@ function setLang(lang) {
     el.classList.toggle('active', el.dataset.lang === lang);
   });
 
+  // ── Performance: skip the full DOM i18n walk if language hasn't changed
+  //    (or if it's English and we're on first load — HTML is already in EN)
+  if (lang === 'en' && previousLang === 'en') {
+    // Still run package rendering for dynamic content
+    _applyDynamicContent(lang);
+    return;
+  }
+
   const t = translations[lang];
 
   // 1. data-i18n dynamic string translation updates
@@ -47,6 +57,14 @@ function setLang(lang) {
   });
 
   applyAllTranslations(t);
+}
+
+// Lightweight dynamic-only path for English (no DOM walk needed — HTML is already in English)
+function _applyDynamicContent(lang) {
+  const t = translations[lang];
+  if (!t) return;
+  try { renderPackageCards(t); } catch (e) { /* non-critical */ }
+  try { updateSchema(t); } catch (e) { /* non-critical */ }
 }
 
 function applyAllTranslations(t) {
