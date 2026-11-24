@@ -516,25 +516,29 @@
   ]
 }
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- DNS prefetch for gtag only (fonts now self-hosted) -->
 <link rel="preconnect" href="https://www.googletagmanager.com">
 <link rel="preconnect" href="https://www.google-analytics.com">
-<link rel="dns-prefetch" href="https://fonts.googleapis.com">
-<link rel="dns-prefetch" href="https://fonts.gstatic.com">
 <link rel="dns-prefetch" href="https://www.googletagmanager.com">
 <link rel="dns-prefetch" href="https://www.google-analytics.com">
+<!-- Self-hosted fonts: preload critical weights to eliminate render-blocking CDN call -->
+<link rel="preload" href="./assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="./assets/fonts/cormorant-400.woff2" as="font" type="font/woff2" crossorigin>
+<!-- Self-hosted font faces (no network round-trip, font-display:swap) -->
+<link rel="stylesheet" href="./assets/css/fonts.css">
+<!-- Critical CSS: load synchronously (design-tokens + core + layout needed for above-fold) -->
+<link rel="preload" href="./assets/css/design-tokens.css" as="style">
 <link rel="preload" href="./assets/css/core.css" as="style">
 <link rel="preload" href="./assets/css/layout.css" as="style">
 <link rel="preload" href="./assets/js/main.js" as="script" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/design-tokens.css">
   <link rel="stylesheet" href="./assets/css/core.css">
   <link rel="stylesheet" href="./assets/css/layout.css">
-  <link rel="stylesheet" href="./assets/css/components.css">
-  <link rel="stylesheet" href="./assets/css/utilities.css">
-  <link rel="stylesheet" href="./assets/css/animations.css">
-  <link rel="stylesheet" href="./assets/css/responsive.css">
+<!-- Non-critical CSS: async load to remove render-blocking penalty -->
+  <link rel="stylesheet" href="./assets/css/components.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="./assets/css/components.css"></noscript>
+  <link rel="stylesheet" href="./assets/css/utilities.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="./assets/css/utilities.css"></noscript>
+  <link rel="stylesheet" href="./assets/css/animations.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="./assets/css/animations.css"></noscript>
+  <link rel="stylesheet" href="./assets/css/responsive.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="./assets/css/responsive.css"></noscript>
   <link rel="stylesheet" href="./assets/css/print.css" media="print">
   <link rel="stylesheet" href="./assets/css/tools.css" media="print" onload="this.media='all'">
 </head>

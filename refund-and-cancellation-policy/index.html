@@ -26,8 +26,11 @@
   </script>
 
   <!-- Styles -->
-  <link rel="stylesheet" href="/assets/css/style.css">
-  <link rel="stylesheet" href="/assets/css/tools.css">
+    <!-- Self-hosted fonts: no CDN round-trip, font-display:swap -->
+  <link rel="stylesheet" href="../assets/css/fonts.css">
+<link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/tools.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="/assets/css/tools.css"></noscript>
+
 
   <style>
     .legal-hero {
@@ -141,7 +144,7 @@
           <div class="legal-box" style="border-left: 4px solid #eab308; background: #fefce8; padding: 20px 24px; border-radius: 8px;">
             <strong style="color: #854d0e; font-size: 1.05rem;">Status: Deduction Slabs Pending Official Management Confirmation</strong>
             <p style="margin: 8px 0 0; color: #713f12; font-size: 0.95rem; line-height: 1.6;">
-              Exact percentage deduction slabs based on days before departure are currently <strong>To be confirmed by management ([[CANCELLATION_SLAB]])</strong>. 
+              Exact percentage deduction slabs based on days before departure are currently <strong>To be confirmed by management (<span style="background:#fef9c3;color:#78350f;border:1px solid #fcd34d;padding:2px 8px;border-radius:4px;font-size:0.85em;font-weight:600;">⏳ To be confirmed by management</span>)</strong>. 
               Because third-party supplier terms (airline group charter contracts and Saudi hotel room blocks) vary by season—particularly during peak Ramadan and Winter periods—cancellation deductions for each pilgrim are strictly governed by the specific terms stated on your individual booking invoice until standardized schedule slabs are officially ratified.
             </p>
           </div>
@@ -159,24 +162,24 @@
             </thead>
             <tbody>
               <tr>
-                <td><strong>[[DAYS_WINDOW_1]]</strong> (e.g. 45+ days prior)</td>
-                <td>[[DEDUCTION_SLAB_1 - To be confirmed by owner]]</td>
-                <td>[[REFUND_ELIGIBILITY_1 - To be confirmed by owner]]</td>
+                <td><strong><span style="background:#fef9c3;color:#78350f;border:1px solid #fcd34d;padding:2px 8px;border-radius:4px;font-size:0.85em;font-weight:600;">⏳ To be confirmed by management</span></strong> (e.g. 45+ days prior)</td>
+                <td><span style="background:#fef9c3;color:#78350f;border:1px solid #fcd34d;padding:2px 8px;border-radius:4px;font-size:0.85em;font-weight:600;">⏳ To be confirmed by management</span></td>
+                <td><span style="background:#fef9c3;color:#78350f;border:1px solid #fcd34d;padding:2px 8px;border-radius:4px;font-size:0.85em;font-weight:600;">⏳ To be confirmed by management</span></td>
               </tr>
               <tr>
-                <td><strong>[[DAYS_WINDOW_2]]</strong> (e.g. 30–44 days prior)</td>
-                <td>[[DEDUCTION_SLAB_2 - To be confirmed by owner]]</td>
-                <td>[[REFUND_ELIGIBILITY_2 - To be confirmed by owner]]</td>
+                <td><strong><span style="background:#fef9c3;color:#78350f;border:1px solid #fcd34d;padding:2px 8px;border-radius:4px;font-size:0.85em;font-weight:600;">⏳ To be confirmed by management</span></strong> (e.g. 30–44 days prior)</td>
+                <td><span style="background:#fef9c3;color:#78350f;border:1px solid #fcd34d;padding:2px 8px;border-radius:4px;font-size:0.85em;font-weight:600;">⏳ To be confirmed by management</span></td>
+                <td><span style="background:#fef9c3;color:#78350f;border:1px solid #fcd34d;padding:2px 8px;border-radius:4px;font-size:0.85em;font-weight:600;">⏳ To be confirmed by management</span></td>
               </tr>
               <tr>
-                <td><strong>[[DAYS_WINDOW_3]]</strong> (e.g. 15–29 days prior)</td>
-                <td>[[DEDUCTION_SLAB_3 - To be confirmed by owner]]</td>
-                <td>[[REFUND_ELIGIBILITY_3 - To be confirmed by owner]]</td>
+                <td><strong><span style="background:#fef9c3;color:#78350f;border:1px solid #fcd34d;padding:2px 8px;border-radius:4px;font-size:0.85em;font-weight:600;">⏳ To be confirmed by management</span></strong> (e.g. 15–29 days prior)</td>
+                <td><span style="background:#fef9c3;color:#78350f;border:1px solid #fcd34d;padding:2px 8px;border-radius:4px;font-size:0.85em;font-weight:600;">⏳ To be confirmed by management</span></td>
+                <td><span style="background:#fef9c3;color:#78350f;border:1px solid #fcd34d;padding:2px 8px;border-radius:4px;font-size:0.85em;font-weight:600;">⏳ To be confirmed by management</span></td>
               </tr>
               <tr>
-                <td><strong>[[DAYS_WINDOW_4]]</strong> (e.g. under 14 days prior)</td>
-                <td>[[DEDUCTION_SLAB_4 - To be confirmed by owner]]</td>
-                <td>[[REFUND_ELIGIBILITY_4 - To be confirmed by owner]]</td>
+                <td><strong><span style="background:#fef9c3;color:#78350f;border:1px solid #fcd34d;padding:2px 8px;border-radius:4px;font-size:0.85em;font-weight:600;">⏳ To be confirmed by management</span></strong> (e.g. under 14 days prior)</td>
+                <td><span style="background:#fef9c3;color:#78350f;border:1px solid #fcd34d;padding:2px 8px;border-radius:4px;font-size:0.85em;font-weight:600;">⏳ To be confirmed by management</span></td>
+                <td><span style="background:#fef9c3;color:#78350f;border:1px solid #fcd34d;padding:2px 8px;border-radius:4px;font-size:0.85em;font-weight:600;">⏳ To be confirmed by management</span></td>
               </tr>
               <tr>
                 <td><strong>Same-Day / No-Show at Airport</strong></td>
@@ -195,7 +198,7 @@
           </ul>
 
           <h2>3. Refund Processing Timeline</h2>
-          <p>Approved refunds are processed via NEFT/RTGS bank transfer to the pilgrim's verified bank account within the management-confirmed timeline ([[REFUND_PROCESSING_DAYS]]) following formal audit of unutilized supplier funds. Cash refunds are strictly prohibited under Indian tax and banking laws.</p>
+          <p>Approved refunds are processed via NEFT/RTGS bank transfer to the pilgrim's verified bank account within the management-confirmed timeline (<span style="background:#fef9c3;color:#78350f;border:1px solid #fcd34d;padding:2px 8px;border-radius:4px;font-size:0.85em;font-weight:600;">⏳ To be confirmed by management</span>) following formal audit of unutilized supplier funds. Cash refunds are strictly prohibited under Indian tax and banking laws.</p>
 
           <h2>4. How to Submit a Cancellation Request</h2>
           <p>To request a cancellation, please email our office at <a href="mailto:info@nooreharam.com" style="color:#06281e;font-weight:700;">info@nooreharam.com</a> with the subject line: <code>Cancellation Request - [Booking ID / PNR] - [Pilgrim Name]</code>, attaching the original booking invoice and cancelled cheque / bank account details.</p>
@@ -227,7 +230,7 @@
         <p style="color:#94a3b8;font-size:0.85rem;line-height:1.6;">
           Darga Complex, Hubli, Karnataka, India<br>
           Official Email: <a href="mailto:info@nooreharam.com" style="color:#E2C77F;">info@nooreharam.com</a><br>
-          Grievance Officer: [[GRIEVANCE_OFFICER]]<br>
+          Grievance Officer: <span style="background:#fef9c3;color:#78350f;border:1px solid #fcd34d;padding:2px 8px;border-radius:4px;font-size:0.85em;font-weight:600;">⏳ To be confirmed by management</span><br>
           WhatsApp Support: <a href="https://wa.me/919986925592" style="color:#E2C77F;">+91 99869 25592</a>
         </p>
       </div>

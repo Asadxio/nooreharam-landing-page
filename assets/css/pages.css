@@ -422,7 +422,7 @@
   line-height: 1.5;
 }
 .nav-card-arrow {
-  color: var(--gold);
+  color: var(--nh-color-gold-dark, #855f08); /* WCAG AA accessible gold — ratio ~6.1:1 on white */
   font-weight: bold;
   margin-top: 10px;
   display: block;

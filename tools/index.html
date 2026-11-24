@@ -34,19 +34,21 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="manifest" href="/manifest.webmanifest">
-  <meta name="theme-color" content="#06281e">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="/assets/css/core.css">
+  <meta name="theme-color" content="#06281e">  
+    <!-- Self-hosted fonts: no CDN round-trip, font-display:swap -->
+  <link rel="stylesheet" href="../assets/css/fonts.css">
+<link rel="stylesheet" href="/assets/css/core.css">
   <link rel="stylesheet" href="/assets/css/layout.css">
-  <link rel="stylesheet" href="/assets/css/components.css">
-  <link rel="stylesheet" href="/assets/css/pages.css">
-  <link rel="stylesheet" href="/assets/css/utilities.css">
-  <link rel="stylesheet" href="/assets/css/responsive.css">
-  <link rel="stylesheet" href="/assets/css/tools.css">
+  <link rel="stylesheet" href="/assets/css/components.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="/assets/css/components.css"></noscript>
+
+  <link rel="stylesheet" href="/assets/css/pages.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="/assets/css/pages.css"></noscript>
+
+  <link rel="stylesheet" href="/assets/css/utilities.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="/assets/css/utilities.css"></noscript>
+
+  <link rel="stylesheet" href="/assets/css/responsive.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="/assets/css/responsive.css"></noscript>
+
+  <link rel="stylesheet" href="/assets/css/tools.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="/assets/css/tools.css"></noscript>
+
 
   <script type="application/ld+json">
   {

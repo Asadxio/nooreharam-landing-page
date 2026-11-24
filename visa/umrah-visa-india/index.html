@@ -34,18 +34,19 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="manifest" href="/manifest.webmanifest">
-  <meta name="theme-color" content="#06281e">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="/assets/css/core.css">
+  <meta name="theme-color" content="#06281e">  
+    <!-- Self-hosted fonts: no CDN round-trip, font-display:swap -->
+  <link rel="stylesheet" href="../../assets/css/fonts.css">
+<link rel="stylesheet" href="/assets/css/core.css">
   <link rel="stylesheet" href="/assets/css/layout.css">
-  <link rel="stylesheet" href="/assets/css/components.css">
-  <link rel="stylesheet" href="/assets/css/pages.css">
-  <link rel="stylesheet" href="/assets/css/utilities.css">
-  <link rel="stylesheet" href="/assets/css/responsive.css">
+  <link rel="stylesheet" href="/assets/css/components.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="/assets/css/components.css"></noscript>
+
+  <link rel="stylesheet" href="/assets/css/pages.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="/assets/css/pages.css"></noscript>
+
+  <link rel="stylesheet" href="/assets/css/utilities.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="/assets/css/utilities.css"></noscript>
+
+  <link rel="stylesheet" href="/assets/css/responsive.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="/assets/css/responsive.css"></noscript>
+
 
   <script type="application/ld+json">
   {
@@ -98,7 +99,7 @@
             "name": "Can Indian women perform Umrah without a Mahram?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes, women aged 45 and above are permitted by Saudi authorities to travel for Umrah without a Mahram, provided they travel as part of an organized and registered group like NOOR-E-HARAM."
+              "text": "Yes. The Saudi Ministry of Hajj and Umrah officially removed the Mahram (male guardian) requirement for Umrah for women of all ages. Indian women can now obtain an Umrah visa and travel as part of an authorised organised group without a Mahram. Rules may be updated: please confirm with our team or the official Nusuk / Saudi Ministry source before booking."
             }
           }
         ]

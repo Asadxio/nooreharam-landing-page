@@ -3,6 +3,8 @@
    Consolidates core design tokens, layout, components, utilities, and responsiveness.
    ========================================================================== */
 
+@import url("./design-tokens.css");
+@import url("./fonts.css");
 @import url("./core.css");
 @import url("./layout.css");
 @import url("./components.css");

@@ -22,9 +22,16 @@
 }
 
 /* ── TYPEWRITER CURSOR BLINK ── */
+/* width:1ch + visibility toggle instead of display toggle = no layout shift (CLS fix) */
 .nh-cursor-blink {
-  display: inline-block; color: #d4ac0d; font-weight: 300;
+  display: inline-block;
+  width: 1ch;
+  color: #d4ac0d;
+  font-weight: 300;
+  overflow: hidden;
+  vertical-align: baseline;
   animation: nhBlink 1s step-end infinite;
+  contain: layout;
 }
 @keyframes nhBlink { 0%,100% { opacity:1; } 50% { opacity:0; } }
 

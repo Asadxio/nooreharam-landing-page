@@ -26,8 +26,11 @@
   </script>
 
   <!-- Styles -->
-  <link rel="stylesheet" href="/assets/css/style.css">
-  <link rel="stylesheet" href="/assets/css/tools.css">
+    <!-- Self-hosted fonts: no CDN round-trip, font-display:swap -->
+  <link rel="stylesheet" href="../assets/css/fonts.css">
+<link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/tools.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="/assets/css/tools.css"></noscript>
+
 
   <style>
     .legal-hero {
@@ -195,7 +198,7 @@
         <p style="color:#94a3b8;font-size:0.85rem;line-height:1.6;">
           Darga Complex, Hubli, Karnataka, India<br>
           Official Email: <a href="mailto:info@nooreharam.com" style="color:#E2C77F;">info@nooreharam.com</a><br>
-          Grievance Officer: [[GRIEVANCE_OFFICER]]<br>
+          Grievance Officer: <span style="background:#fef9c3;color:#78350f;border:1px solid #fcd34d;padding:2px 8px;border-radius:4px;font-size:0.85em;font-weight:600;">⏳ To be confirmed by management</span><br>
           WhatsApp Support: <a href="https://wa.me/919986925592" style="color:#E2C77F;">+91 99869 25592</a>
         </p>
       </div>

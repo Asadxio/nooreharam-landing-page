@@ -27,8 +27,11 @@
   </script>
 
   <!-- Styles -->
-  <link rel="stylesheet" href="/assets/css/style.css">
-  <link rel="stylesheet" href="/assets/css/tools.css">
+    <!-- Self-hosted fonts: no CDN round-trip, font-display:swap -->
+  <link rel="stylesheet" href="../assets/css/fonts.css">
+<link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/tools.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="/assets/css/tools.css"></noscript>
+
 
   <style>
     .dep-hero {
