@@ -50,6 +50,7 @@ function generateCard(d) {
 
   return `
       <article class="departure-card ${isPast ? 'departure-card--past' : ''}" 
+               data-start-date="${d.startDate}" 
                data-city="${d.city.toLowerCase()}" 
                data-month="${monthKey}" 
                data-airline="${d.airline.toLowerCase()}" 
@@ -777,6 +778,30 @@ const fullHtml = `<!DOCTYPE html>
       var searchQuery = '';
 
       var cards = document.querySelectorAll('.departure-card');
+      
+      // Dynamic browser-side expiry check against visitor's local date
+      var todayStr = new Date().toISOString().split('T')[0];
+      cards.forEach(function(card) {
+        var sDate = card.getAttribute('data-start-date');
+        if (sDate && sDate < todayStr) {
+          card.classList.add('departure-card--past');
+          card.setAttribute('data-status', 'departed');
+          var tag = card.querySelector('.dep-urgency-tag');
+          if (tag) {
+            tag.textContent = 'Departed / Closed';
+            tag.style.background = '#e2e8f0';
+            tag.style.color = '#64748b';
+            tag.style.borderColor = '#cbd5e1';
+          }
+          var bookBtn = card.querySelector('.dep-book-btn');
+          if (bookBtn) {
+            bookBtn.textContent = 'Departure Closed';
+            bookBtn.style.background = '#94a3b8';
+            bookBtn.style.pointerEvents = 'none';
+            bookBtn.removeAttribute('href');
+          }
+        }
+      });
       var statusPills = document.querySelectorAll('[data-filter-status]');
       var cityPills = document.querySelectorAll('[data-filter-city]');
       var monthPills = document.querySelectorAll('[data-filter-month]');

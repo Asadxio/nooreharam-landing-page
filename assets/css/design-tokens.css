@@ -94,3 +94,30 @@
     font-size: 0.76rem !important;
   }
 }
+
+/* ── 7. RTL STYLING (URDU & ARABIC) ── */
+[dir="rtl"] {
+  font-family: 'Noto Naskh Arabic', 'Amiri', 'Traditional Arabic', Tahoma, system-ui, sans-serif;
+  text-align: right;
+}
+
+[dir="rtl"] .hero-title,
+[dir="rtl"] .section-title,
+[dir="rtl"] .batch-title {
+  font-family: 'Amiri', 'Noto Naskh Arabic', serif;
+  line-height: 1.4;
+}
+
+[dir="rtl"] .currency-badge,
+[dir="rtl"] .proximity-meters,
+[dir="rtl"] .flight-leg-code {
+  direction: ltr;
+  display: inline-block;
+}
+
+
+/* ── ACCESSIBILITY HIGH CONTRAST FIXES ── */
+.nav-card-arrow {
+  color: #06281e !important;
+  font-weight: 700 !important;
+}

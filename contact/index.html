@@ -17,7 +17,7 @@
   </script>
 
   <link rel="stylesheet" href="/assets/css/style.css">
-  <link rel="stylesheet" href="/assets/css/tools.css">
+  <link rel="stylesheet" href="/assets/css/design-tokens.css">
 </head>
 <body>
   
@@ -106,7 +106,7 @@
           <!-- Quick Form -->
           <div style="background:#f8fafc;padding:30px;border-radius:12px;border:1px solid #e2e8f0;">
             <h3 style="color:#06281e;margin-top:0;margin-bottom:16px;font-size:1.2rem;">Send Direct Inquiry</h3>
-            <form id="contactPageForm" onsubmit="event.preventDefault(); window.open('https://wa.me/919986925592?text=' + encodeURIComponent('Assalamu Alaikum! Name: ' + document.getElementById('cName').value + ' | City: ' + document.getElementById('cCity').value + ' | Msg: ' + document.getElementById('cMsg').value));">
+            <form id="contactPageForm" name="contact-page-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="event.preventDefault(); window.open('https://wa.me/919986925592?text=' + encodeURIComponent('Assalamu Alaikum! Name: ' + document.getElementById('cName').value + ' | City: ' + document.getElementById('cCity').value + ' | Msg: ' + document.getElementById('cMsg').value));">
               <div style="margin-bottom:14px;">
                 <label for="cName" style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:4px;">Full Name *</label>
                 <input type="text" id="cName" required class="form-control" style="width:100%;padding:8px 12px;border-radius:6px;border:1px solid #cbd5e1;">
@@ -122,6 +122,12 @@
               <div style="margin-bottom:18px;">
                 <label for="cMsg" style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:4px;">Message / Package Requirement</label>
                 <textarea id="cMsg" rows="3" class="form-control" style="width:100%;padding:8px 12px;border-radius:6px;border:1px solid #cbd5e1;"></textarea>
+              </div>
+              <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:16px;">
+                <input type="checkbox" id="inq-consent-contact" required style="margin-top:3px;">
+                <label for="inq-consent-contact" style="font-size:0.82rem;color:#475569;line-height:1.4;">
+                  I consent to NOOR-E-HARAM contacting me via WhatsApp/Phone per the <a href="/privacy-policy/" target="_blank" style="color:#06281e;text-decoration:underline;font-weight:600;">Privacy Policy</a>.
+                </label>
               </div>
               <button type="submit" class="btn btn-primary" style="width:100%;padding:12px;font-weight:700;">Submit via Official WhatsApp</button>
             </form>

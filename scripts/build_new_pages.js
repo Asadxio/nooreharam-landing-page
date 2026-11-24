@@ -43,7 +43,7 @@ const baseFooter = `
       <div class="footer-brand">
         <span class="logo-text" style="color:#E2C77F;font-size:1.4rem;font-weight:800;">NOOR-E-HARAM</span>
         <p style="color:#94a3b8;font-size:0.85rem;margin-top:8px;">
-          Government recognized &amp; trusted Hajj &amp; Umrah tour operator serving pilgrims across North Karnataka, Mumbai, and Bangalore since 2016.
+          Government recognized &amp; trusted Hajj &amp; Umrah tour operator serving pilgrims across North Karnataka, Mumbai, and Bangalore .
         </p>
       </div>
       <div class="footer-links">
@@ -83,7 +83,7 @@ const aboutHtml = `<!DOCTYPE html>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About NOOR-E-HARAM | Ethical Hajj &amp; Umrah Operators India</title>
-  <meta name="description" content="Discover the founding story of NOOR-E-HARAM Tours &amp; Travels (established 2016 in Hubli). Dedicated scholar leadership, honest hotel distances, and verified pilgrim service.">
+  <meta name="description" content="Discover the founding story of NOOR-E-HARAM Tours &amp; Travels (established in Hubli, Karnataka). Dedicated scholar leadership, honest hotel distances, and verified pilgrim service.">
   <link rel="canonical" href="https://nooreharam.com/about/">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
 
@@ -96,7 +96,7 @@ const aboutHtml = `<!DOCTYPE html>
   </script>
 
   <link rel="stylesheet" href="/assets/css/style.css">
-  <link rel="stylesheet" href="/assets/css/tools.css">
+  <link rel="stylesheet" href="/assets/css/design-tokens.css">
 
   <script type="application/ld+json">
   {
@@ -107,7 +107,7 @@ const aboutHtml = `<!DOCTYPE html>
         "@id": "https://nooreharam.com/about/#webpage",
         "url": "https://nooreharam.com/about/",
         "name": "About NOOR-E-HARAM | Ethical Hajj & Umrah Operators India",
-        "description": "Founding story, core values, scholar leadership, and verified operations of NOOR-E-HARAM Tours & Travels since 2016."
+        "description": "Founding story, core values, scholar leadership, and verified operations of NOOR-E-HARAM Tours & Travels ."
       },
       {
         "@type": "Organization",
@@ -128,7 +128,7 @@ const aboutHtml = `<!DOCTYPE html>
   <main id="main-content">
     <section class="page-hero" style="background:linear-gradient(135deg, #031812 0%, #06281e 50%, #0a3d2e 100%);color:#fff;padding:120px 0 60px;text-align:center;">
       <div class="container">
-        <span class="eyebrow eyebrow-gold">Established in 2016 • Hubli, Karnataka</span>
+        <span class="eyebrow eyebrow-gold">Founded in Hubli, Karnataka</span>
         <h1 class="hero-title" style="color:#fff;margin-top:12px;">About NOOR-E-HARAM</h1>
         <p style="color:#cbd5e1;max-width:760px;margin:16px auto 0;font-size:1.05rem;line-height:1.7;">
           Founded on the uncompromising pillars of religious authenticity, operational honesty, and sincere Khidmat (service) to the guests of Allah (Dhuyuf ar-Rahman).
@@ -140,7 +140,7 @@ const aboutHtml = `<!DOCTYPE html>
       <div class="container" style="max-width:860px;">
         <h2 style="font-family:'Cormorant Garamond',serif;font-size:2rem;color:#06281e;margin-bottom:16px;">Our Founding Story</h2>
         <p style="color:#334155;line-height:1.8;font-size:1.02rem;">
-          In 2016, <strong>NOOR-E-HARAM</strong> was established in Hubli, Karnataka, by Dr. Khwaja Ibrahim A Darga with a clear mission: to eliminate the deception, hidden charges, and exaggerated hotel claims that too often distress Indian pilgrims. Many families would embark on what should be the most spiritually transformative journey of their lives, only to be placed in remote hotels, stranded without guidance, or subjected to unexpected price hikes.
+          In 2016, <strong>NOOR-E-HARAM</strong> was established in Hubli, Karnataka, by our founding leadership with a clear mission: to eliminate the deception, hidden charges, and exaggerated hotel claims that too often distress Indian pilgrims. Many families would embark on what should be the most spiritually transformative journey of their lives, only to be placed in remote hotels, stranded without guidance, or subjected to unexpected price hikes.
         </p>
         <p style="color:#334155;line-height:1.8;font-size:1.02rem;">
           We built NOOR-E-HARAM on the principle that serving pilgrims is not a transactional business, but a sacred religious trust (Amanah). Starting from North Karnataka, our operations have steadily grown to escort thousands of pilgrims from Mumbai, Bangalore, Hubli, and regional towns across India.
@@ -164,7 +164,7 @@ const aboutHtml = `<!DOCTYPE html>
 
         <h2 style="font-family:'Cormorant Garamond',serif;font-size:2rem;color:#06281e;margin:40px 0 16px;">Leadership &amp; Scholar Guidance</h2>
         <p style="color:#334155;line-height:1.8;font-size:1.02rem;">
-          Our tours are led under the direct supervision of Dr. Khwaja Ibrahim A Darga alongside senior scholars. From pre-departure Manasik orientation workshops in Hubli and Bangalore to the farewell Tawaf in Makkah, our scholars are present 24/7 on the ground to answer Fiqh queries, lead group Du'as, and attend to elderly pilgrims.
+          Our tours are led under the direct supervision of our founding leadership alongside senior scholars. From pre-departure Manasik orientation workshops in Hubli and Bangalore to the farewell Tawaf in Makkah, our scholars are present 24/7 on the ground to answer Fiqh queries, lead group Du'as, and attend to elderly pilgrims.
         </p>
       </div>
     </section>
@@ -191,7 +191,7 @@ const branchesHtml = `<!DOCTYPE html>
   </script>
 
   <link rel="stylesheet" href="/assets/css/style.css">
-  <link rel="stylesheet" href="/assets/css/tools.css">
+  <link rel="stylesheet" href="/assets/css/design-tokens.css">
 
   <script type="application/ld+json">
   {
@@ -246,7 +246,7 @@ const branchesHtml = `<!DOCTYPE html>
             <div style="font-size:0.88rem;color:#334155;margin-bottom:16px;line-height:1.6;">
               <p style="margin:4px 0;">📞 <strong>Phone:</strong> <a href="tel:+919986925592" style="color:#06281e;">+91 99869 25592</a></p>
               <p style="margin:4px 0;">✉️ <strong>Email:</strong> <a href="mailto:info@nooreharam.com" style="color:#06281e;">info@nooreharam.com</a></p>
-              <p style="margin:4px 0;">🕒 <strong>Hours:</strong> Mon – Sat: 10:00 AM – 7:00 PM</p>
+              <p style="margin:4px 0;">🕒 <strong>Hours:</strong> General Office Hours & By Appointment ([[OFFICE_HOURS]])</p>
             </div>
             <a href="https://maps.google.com/?cid=9110780512781257798" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="width:100%;text-align:center;display:block;">
               📍 Open Google Maps Directions
@@ -302,7 +302,7 @@ const contactHtml = `<!DOCTYPE html>
   </script>
 
   <link rel="stylesheet" href="/assets/css/style.css">
-  <link rel="stylesheet" href="/assets/css/tools.css">
+  <link rel="stylesheet" href="/assets/css/design-tokens.css">
 </head>
 <body>
   ${baseNav('contact')}
@@ -412,7 +412,7 @@ const faqHtml = `<!DOCTYPE html>
   </script>
 
   <link rel="stylesheet" href="/assets/css/style.css">
-  <link rel="stylesheet" href="/assets/css/tools.css">
+  <link rel="stylesheet" href="/assets/css/design-tokens.css">
 
   <script type="application/ld+json">
   {
@@ -432,7 +432,7 @@ const faqHtml = `<!DOCTYPE html>
         "name": "Can women perform Umrah without a Mahram?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Saudi Ministry regulations allow women to perform Umrah in an organized group without a Mahram. Last verified: November 2026."
+          "text": "Saudi Ministry regulations allow women to perform Umrah in an organized group without a Mahram. Rules change: confirm with our team / official Nusuk source before booking."
         }
       },
       {
@@ -483,7 +483,7 @@ const faqHtml = `<!DOCTYPE html>
         <div style="background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin-bottom:16px;">
           <h3 style="font-size:1.1rem;color:#06281e;margin-top:0;">Can women travel for Umrah without a Mahram?</h3>
           <p style="color:#475569;font-size:0.92rem;margin:0;line-height:1.6;">
-            Yes, current Saudi Ministry of Hajj &amp; Umrah rules permit women to travel in authorized group tours without a Mahram. (Last verified: November 2026).
+            Yes, current Saudi Ministry of Hajj &amp; Umrah rules permit women to travel in authorized group tours without a Mahram. (Rules change: confirm with our team / official Nusuk source before booking).
           </p>
         </div>
         <div style="background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin-bottom:16px;">

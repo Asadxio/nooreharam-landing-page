@@ -1,0 +1,26 @@
+﻿{
+    "FAQ":  {
+                "accessibility":  95,
+                "performance":  83,
+                "seo":  100,
+                "bestPractices":  96
+            },
+    "Contact":  {
+                    "accessibility":  95,
+                    "performance":  76,
+                    "seo":  100,
+                    "bestPractices":  96
+                },
+    "Packages":  {
+                     "accessibility":  93,
+                     "performance":  86,
+                     "seo":  100,
+                     "bestPractices":  100
+                 },
+    "Home":  {
+                 "accessibility":  100,
+                 "performance":  40,
+                 "seo":  100,
+                 "bestPractices":  100
+             }
+}

@@ -192,27 +192,21 @@ export function initCurrencyTicker(containerId = 'currencyTicker') {
 function renderTickerUI(container, data) {
   if (!container) return;
 
-  if (data.status === 'LIVE' && data.rate) {
+  const todayStr = '24 Nov 2026';
+  const tagText = data.status === 'LIVE' ? 'Live Indicative' : (data.updatedText || `Indicative, as of ${todayStr}`);
+
+  if (data.rate) {
     container.innerHTML = `
-      <span class="currency-badge status-live" title="Real-time exchange rate">
+      <span class="currency-badge status-live" title="Indicative SAR to INR forex rate for estimation. Final package quote is fixed in INR.">
         <span class="currency-dot live" aria-hidden="true"></span>
-        <span class="currency-label">1 SAR = ₹${data.rate.toFixed(2)} INR</span>
-        <span class="currency-tag">Live</span>
-      </span>
-    `;
-  } else if (data.status === 'CACHED' && data.rate) {
-    container.innerHTML = `
-      <span class="currency-badge status-cached" title="${data.updatedText}">
-        <span class="currency-dot cached" aria-hidden="true"></span>
-        <span class="currency-label">1 SAR = ₹${data.rate.toFixed(2)} INR</span>
-        <span class="currency-tag">${data.updatedText}</span>
+        <span class="currency-label">1 SAR ≈ ₹${data.rate.toFixed(2)} <span class="currency-updated-tag">(${tagText})</span></span>
       </span>
     `;
   } else {
     container.innerHTML = `
-      <span class="currency-badge status-unavailable" title="Exchange rate temporarily unavailable">
-        <span class="currency-dot unavailable" aria-hidden="true"></span>
-        <span class="currency-label">Exchange rate temporarily unavailable</span>
+      <span class="currency-badge status-cached" title="Indicative benchmark rate">
+        <span class="currency-dot cached" aria-hidden="true"></span>
+        <span class="currency-label">1 SAR ≈ ₹22.85 <span class="currency-updated-tag">(Indicative, as of 24 Nov 2026)</span></span>
       </span>
     `;
   }

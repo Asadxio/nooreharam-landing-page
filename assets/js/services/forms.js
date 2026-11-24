@@ -328,8 +328,11 @@ Please share live seat availability, hotel options, and the official booking quo
     const text = buildMessage();
     const waBtn = document.getElementById('waSendBtn');
     const emailBtn = document.getElementById('emailSendBtn');
+    const recipientEmail = (typeof window !== 'undefined' && window.NH_USE_FALLBACK_MAILBOX)
+      ? 'nooreharamindia@gmail.com'
+      : 'info@nooreharam.com';
     if (waBtn) waBtn.href = 'https://wa.me/919986925592?text=' + encodeURIComponent(text);
-    if (emailBtn) emailBtn.href = 'mailto:info@nooreharam.com?subject=' + encodeURIComponent('Package Inquiry - Noor-E-Haram') + '&body=' + encodeURIComponent(text);
+    if (emailBtn) emailBtn.href = 'mailto:' + recipientEmail + '?subject=' + encodeURIComponent('Package Inquiry - Noor-E-Haram') + '&body=' + encodeURIComponent(text);
   }
 
   ['inq-name','inq-phone','inq-email','inq-package','inq-message'].forEach(id => {
@@ -354,6 +357,28 @@ Please share live seat availability, hotel options, and the official booking quo
     const submitBtn = form.querySelector('button[type="submit"]');
     const pkgId = document.getElementById('inq-packageId')?.value || (inqPkgSelect ? inqPkgSelect.value : 'general');
     const calculatedPrice = document.getElementById('inq-calculatedPrice')?.value || 0;
+
+    const phoneInput = document.getElementById('inq-phone');
+    const consentInput = document.getElementById('inq-consent');
+
+    if (consentInput && !consentInput.checked) {
+      statusBox.style.display = 'block';
+      statusBox.style.background = '#fef3c7';
+      statusBox.style.color = '#92400e';
+      statusBox.textContent = 'Please agree to the privacy policy consent to submit your inquiry.';
+      return;
+    }
+
+    const phoneVal = phoneInput ? phoneInput.value.trim().replace(/[\s\-]/g, '') : '';
+    const phoneRegex = /^(\+91)?[6-9]\d{9}$/;
+    if (phoneInput && !phoneRegex.test(phoneVal)) {
+      statusBox.style.display = 'block';
+      statusBox.style.background = '#fef3c7';
+      statusBox.style.color = '#92400e';
+      statusBox.textContent = 'Please enter a valid 10-digit Indian mobile number starting with 6-9.';
+      phoneInput.focus();
+      return;
+    }
 
     trackEvent('calculator_submit', 'Form Submit Attempt', pkgId, calculatedPrice);
 

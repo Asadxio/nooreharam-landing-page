@@ -780,12 +780,7 @@ function updateSchema(t) {
       "https://www.facebook.com/share/1E5LeFEY8f/"
     ],
     "areaServed": ["Karnataka","Kerala","India"],
-    "makesOffer": [],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "128"
-    }
+    "makesOffer": []
   };
 
   // Hydrate offers from config dynamically (CTO Recommendation 4)
