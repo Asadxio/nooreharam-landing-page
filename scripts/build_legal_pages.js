@@ -186,184 +186,64 @@ const privacyHtml = `${headerPartial('Privacy Policy', 'https://nooreharam.com/p
     <section class="legal-content-wrap">
       <div class="container">
         <article class="legal-article">
-          <div class="legal-box">
-            <strong>Key Summary:</strong> NOOR-E-HARAM ("we", "our", "us") values the sanctity and privacy of every pilgrim. We collect personal data strictly to issue Saudi Umrah/Hajj visas, book airline tickets, reserve hotel accommodation in Makkah &amp; Madinah, and coordinate ground transport. We never sell or monetize your personal information.
-          </div>
-
-          <h2>1. Information We Collect</h2>
-          <p>When you inquire, register, or book an Umrah or Hajj pilgrimage through our website, office, or official communication channels, we may collect the following categories of information:</p>
-          <ul>
-            <li><strong>Identity &amp; Contact Information:</strong> Full legal name (as per passport), phone number, email address, residential address, emergency contact details, and relation.</li>
-            <li><strong>Travel &amp; Visa Documentation:</strong> Passport copies (first and last page), national ID, passport-size photographs, Mahram relationship documents (where applicable under Saudi law), and polio/meningitis ACWY vaccination records.</li>
-            <li><strong>Payment Information:</strong> Bank transaction reference numbers (UTR), payment mode, and receipt copies. <em>(Note: We do not store credit card or debit card numbers on our servers; payments are processed directly through licensed banking channels).</em></li>
-            <li><strong>Technical &amp; Analytics Data:</strong> IP address, browser type, device information, and anonymous website engagement metrics collected via Google Analytics 4 (GA4).</li>
-          </ul>
-
-          <h2>2. Purpose &amp; Legal Basis of Processing</h2>
-          <p>Under the DPDP Act 2023, your personal data is collected and processed solely for specified, legitimate pilgrimage purposes:</p>
-          <ul>
-            <li>To register and submit your electronic Umrah or Hajj visa applications via the Saudi Ministry of Hajj &amp; Umrah / Nusuk portals.</li>
-            <li>To book confirmed PNR flight tickets with partner airlines (Saudia, IndiGo, Air India, etc.).</li>
-            <li>To register hotel room allocations in Makkah and Madinah compliant with municipal safety standards.</li>
-            <li>To coordinate group transfers, medical emergencies, and on-ground logistics.</li>
-            <li>To send itinerary confirmations, departure schedules, and pre-departure pilgrim orientation guidelines.</li>
-          </ul>
-
-          <h2>3. Data Sharing &amp; Cross-Border Transfers</h2>
-          <p>To fulfill your pilgrimage booking, your data is shared strictly on a need-to-know basis with authorized entities:</p>
-          <ul>
-            <li><strong>Saudi Regulatory Authorities:</strong> Ministry of Hajj &amp; Umrah, Ministry of Foreign Affairs (KSA), and Nusuk portal.</li>
-            <li><strong>Airlines &amp; GDS Providers:</strong> For issuance of non-transferable international flight tickets.</li>
-            <li><strong>Licensed Accommodation &amp; Transport Providers:</strong> Hotels in Makkah/Madinah and authorized United Bus transport operators.</li>
-          </ul>
-          <p>We do not share, lease, or sell your personal data to marketing agencies or third-party advertisers under any circumstances.</p>
-
-          <h2>4. Data Retention &amp; Security Measures</h2>
-          <p>We retain your passport and booking data for the statutory period required under Indian travel regulations and tax audits, or until the pilgrimage tour is completed. Physical documentation is stored securely in locked archives, and digital records are protected by encryption, SSL/TLS, and restricted access controls.</p>
-
-          <h2>5. Pilgrim Rights Under DPDP Act 2023</h2>
-          <p>As a data principal, you have the following legal rights:</p>
-          <ul>
-            <li><strong>Right to Access:</strong> You may request a summary of your personal data processed by us.</li>
-            <li><strong>Right to Correction &amp; Erasure:</strong> You may request correction of inaccurate data or deletion of your records (subject to regulatory visa and accounting obligations).</li>
-            <li><strong>Right to Withdraw Consent:</strong> You may withdraw your consent for non-essential communications at any time.</li>
-          </ul>
-
-          <h2>6. Grievance Redressal Officer</h2>
-          <p>In compliance with the DPDP Act 2023 and the Consumer Protection (E-Commerce) Rules 2020, you may direct any privacy concerns, data rectification requests, or grievances to our designated Grievance Officer:</p>
-          <div class="legal-box">
-            <strong>Grievance Officer:</strong> [[GRIEVANCE_OFFICER]]<br>
-            <strong>Official Entity:</strong> [[LEGAL_ENTITY_NAME]] (NOOR-E-HARAM Tours &amp; Travels)<br>
-            <strong>Registered Address:</strong> Darga Complex, Behind Barnabas Hall, Mantoor Road, Hubli - 580020, Karnataka, India<br>
-            <strong>Official Email:</strong> <a href="mailto:info@nooreharam.com" style="color:#06281e;font-weight:700;">info@nooreharam.com</a><br>
-            <strong>Phone:</strong> +91 99869 25592 (Mon–Sat, 10:00 AM – 6:00 PM IST)
-          </div>
-        </article>
-      </div>
-    </section>
-  </main>
-${footerPartial}`;
-
-// 2. Terms and Conditions Page
-const termsHtml = `${headerPartial('Terms and Conditions', 'https://nooreharam.com/terms-and-conditions/')}
-  <main id="main-content">
-    <section class="legal-hero">
-      <div class="container">
-        <span class="eyebrow eyebrow-gold">Agreement of Service</span>
-        <h1 class="hero-title" style="color:#fff;margin-top:12px;">Terms &amp; Conditions</h1>
-        <p style="color:#cbd5e1;font-size:0.95rem;margin-top:10px;">General Pilgrim Contract &amp; Service Guidelines</p>
-        <p style="color:#94a3b8;font-size:0.8rem;margin-top:6px;">Last Reviewed: 24 November 2026</p>
-      </div>
-    </section>
-
-    <section class="legal-content-wrap">
-      <div class="container">
-        <article class="legal-article">
-          <div class="legal-box">
-            <strong>Important Notice:</strong> By booking any Hajj, Umrah, or Ziyarat tour package with NOOR-E-HARAM, the pilgrim ("traveler") acknowledges and accepts these binding Terms and Conditions. Please review them carefully before remitting any advance payment.
-          </div>
-
-          <h2>1. Scope of Service</h2>
-          <p>NOOR-E-HARAM operates as an authorized Islamic pilgrimage tour organizer, facilitator, and coordinator. Our services include processing Saudi Umrah visas, reserving airline seats on scheduled flights, arranging hotel bookings in the holy cities of Makkah al-Mukarramah and Madinah al-Munawwarah, coordinating air-conditioned coach transfers, providing daily catering, and offering religious guidance through certified scholars.</p>
-
-          <h2>2. Booking Confirmation &amp; Fixed Price Guarantee</h2>
-          <ul>
-            <li>Display package rates on our website are starting prices based on standard room sharing tiers (Quad/Triple/Double).</li>
-            <li><strong>Fixed Price Guarantee:</strong> Once a pilgrim has submitted required documents and paid the designated booking deposit, the package cost is confirmed in writing on an official stamped invoice. This price is locked and will not be altered unless the pilgrim requests post-booking itinerary modifications.</li>
-            <li>Seat confirmation is subject to passport validity (minimum 6 months from travel date) and Saudi visa approval.</li>
-          </ul>
-
-          <h2>3. Visa Approval &amp; Saudi Ministry Regulations</h2>
-          <p>Visa issuance is governed solely by the Ministry of Foreign Affairs (KSA) and the Saudi Ministry of Hajj &amp; Umrah. While NOOR-E-HARAM maintains high submission success through verified channels, visa issuance remains the sovereign prerogative of the Kingdom of Saudi Arabia. We are not liable for delays, rejections, or policy amendments enacted by the Saudi Government.</p>
-
-          <h2>4. Flight Schedules &amp; Airline Policies</h2>
-          <ul>
-            <li>Group flight tickets (Saudia, IndiGo, Air India, etc.) are issued under non-refundable group blocking contracts.</li>
-            <li>Airlines reserve the right to reschedule departure times, terminals, or flight numbers due to air traffic control or operational reasons. NOOR-E-HARAM will coordinate and assist pilgrims in all instances of airline schedule revisions.</li>
-            <li>Baggage limits (typically 20–40KG check-in + 7KG cabin + 5L Zamzam) must be strictly adhered to by the pilgrim. Airline excess baggage charges are the sole responsibility of the passenger.</li>
-          </ul>
-
-          <h2>5. Hotel Accommodation &amp; Distances</h2>
-          <p>Hotel check-in and check-out timings in Makkah and Madinah adhere to Saudi hospitality standards (typically Check-in: 4:00 PM; Check-out: 12:00 PM). Stated distances to the courtyard (e.g., 50m, 250m, 750m) represent verified pedestrian walking routes from the hotel lobby to the outer marble courtyard of the Haramain.</p>
-
-          <h2>6. Pilgrim Conduct &amp; Adherence to Local Law</h2>
-          <p>Pilgrims are expected to maintain Islamic decorum, observe group discipline, and abide by the laws and customs of the Kingdom of Saudi Arabia. The company cannot be held responsible for any legal penalties, fines, or confiscations arising from individual violations of Saudi customs, security, or immigration rules.</p>
-        </article>
-      </div>
-    </section>
-  </main>
-${footerPartial}`;
-
-// 3. Refund and Cancellation Policy Page
-const refundHtml = `${headerPartial('Refund and Cancellation Policy', 'https://nooreharam.com/refund-and-cancellation-policy/')}
-  <main id="main-content">
-    <section class="legal-hero">
-      <div class="container">
-        <span class="eyebrow eyebrow-gold">Transparent Policy</span>
-        <h1 class="hero-title" style="color:#fff;margin-top:12px;">Refund &amp; Cancellation Policy</h1>
-        <p style="color:#cbd5e1;font-size:0.95rem;margin-top:10px;">Clear deduction slabs, non-refundable components, and application process</p>
-        <p style="color:#94a3b8;font-size:0.8rem;margin-top:6px;">Last Reviewed: 24 November 2026</p>
-      </div>
-    </section>
-
-    <section class="legal-content-wrap">
-      <div class="container">
-        <article class="legal-article">
-          <div class="legal-box">
-            <strong>Fair &amp; Transparent Policy:</strong> We understand that unforeseen medical emergencies or family circumstances may force pilgrims to cancel their travel. Because group pilgrimage packages involve non-recoverable financial commitments (group air tickets, visa fees, hotel block reservations in Saudi Arabia), cancellations are subject to the standard deduction schedule below.
+          <div class="legal-box" style="border-left: 4px solid #eab308; background: #fefce8; padding: 20px 24px; border-radius: 8px;">
+            <strong style="color: #854d0e; font-size: 1.05rem;">Status: Deduction Slabs Pending Official Management Confirmation</strong>
+            <p style="margin: 8px 0 0; color: #713f12; font-size: 0.95rem; line-height: 1.6;">
+              Exact percentage deduction slabs based on days before departure are currently <strong>To be confirmed by management ([[CANCELLATION_SLAB]])</strong>. 
+              Because third-party supplier terms (airline group charter contracts and Saudi hotel room blocks) vary by season—particularly during peak Ramadan and Winter periods—cancellation deductions for each pilgrim are strictly governed by the specific terms stated on your individual booking invoice until standardized schedule slabs are officially ratified.
+            </p>
           </div>
 
           <h2>1. Cancellation Deduction Schedule (Slabs)</h2>
-          <p>The refund amount is calculated based on the date written cancellation is received at our Hubli office or via official email (<a href="mailto:info@nooreharam.com">info@nooreharam.com</a>) relative to the flight departure date:</p>
+          <p>Written cancellation must be submitted to our Hubli office or via official email (<a href="mailto:info@nooreharam.com">info@nooreharam.com</a>). The table below reflects the placeholder structure pending final percentage ratification by management:</p>
 
           <table class="legal-table">
             <thead>
               <tr>
-                <th>Cancellation Notice Period</th>
+                <th>Cancellation Notice Window</th>
                 <th>Deduction / Retention Amount</th>
                 <th>Estimated Refund Eligibility</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><strong>45+ Days</strong> before departure</td>
-                <td>Non-refundable Registration Fee (₹5,000 per person) + Visa costs (if issued)</td>
-                <td>Balance advance refunded in full</td>
+                <td><strong>[[DAYS_WINDOW_1]]</strong> (e.g. 45+ days prior)</td>
+                <td>[[DEDUCTION_SLAB_1 - To be confirmed by owner]]</td>
+                <td>[[REFUND_ELIGIBILITY_1 - To be confirmed by owner]]</td>
               </tr>
               <tr>
-                <td><strong>30 to 44 Days</strong> before departure</td>
-                <td>25% of total package cost + Actual visa &amp; airline issuance penalties</td>
-                <td>Remaining balance refunded</td>
+                <td><strong>[[DAYS_WINDOW_2]]</strong> (e.g. 30–44 days prior)</td>
+                <td>[[DEDUCTION_SLAB_2 - To be confirmed by owner]]</td>
+                <td>[[REFUND_ELIGIBILITY_2 - To be confirmed by owner]]</td>
               </tr>
               <tr>
-                <td><strong>15 to 29 Days</strong> before departure</td>
-                <td>50% of total package cost (Hotel room non-refundable block retention)</td>
-                <td>Remaining balance refunded</td>
+                <td><strong>[[DAYS_WINDOW_3]]</strong> (e.g. 15–29 days prior)</td>
+                <td>[[DEDUCTION_SLAB_3 - To be confirmed by owner]]</td>
+                <td>[[REFUND_ELIGIBILITY_3 - To be confirmed by owner]]</td>
               </tr>
               <tr>
-                <td><strong>08 to 14 Days</strong> before departure</td>
-                <td>75% of total package cost</td>
-                <td>25% of package cost refunded</td>
+                <td><strong>[[DAYS_WINDOW_4]]</strong> (e.g. under 14 days prior)</td>
+                <td>[[DEDUCTION_SLAB_4 - To be confirmed by owner]]</td>
+                <td>[[REFUND_ELIGIBILITY_4 - To be confirmed by owner]]</td>
               </tr>
               <tr>
-                <td><strong>0 to 07 Days</strong> or No-Show at Airport</td>
-                <td>100% of total package cost (Non-refundable)</td>
+                <td><strong>Same-Day / No-Show at Airport</strong></td>
+                <td>Non-refundable (Subject to airline &amp; hotel contract forfeitures)</td>
                 <td>No refund available</td>
               </tr>
             </tbody>
           </table>
-          <p class="fs-14 text-mid"><em>Note: If the owner's operational contract mandates specific variance, the final deduction adheres to [[CANCELLATION_SLAB]].</em></p>
 
-          <h2>2. Strictly Non-Refundable Components</h2>
-          <p>Under all circumstances, the following fees incurred on behalf of the pilgrim cannot be refunded once processed:</p>
+          <h2>2. Non-Refundable Statutory &amp; Supplier Components</h2>
+          <p>Irrespective of cancellation timing, the following direct costs incurred with third parties cannot be recovered once issued:</p>
           <ul>
-            <li><strong>Saudi Ministry Visa Fees &amp; Mandatory Health Insurance:</strong> Once approved on the electronic portal, Saudi visa fees are 100% non-refundable by the Ministry.</li>
-            <li><strong>Group PNR Flight Tickets:</strong> Group block airfares are issued under strict airline charter/group contracts and do not permit individual refunds.</li>
-            <li><strong>Bank Transaction &amp; Processing Fees:</strong> Statutory GST, merchant interchange fees, and international remittance bank charges.</li>
+            <li><strong>Saudi Ministry Visa Fees &amp; Mandatory Health Insurance:</strong> Once issued on the official Saudi portal, electronic visa fees are non-refundable per Saudi government regulations.</li>
+            <li><strong>Non-Refundable Airline Group PNRs:</strong> Group booking flight tickets are governed by airline charter cancellation rules.</li>
+            <li><strong>Bank &amp; Payment Gateway Charges:</strong> Transaction fees, GST, and foreign exchange conversion charges.</li>
           </ul>
 
           <h2>3. Refund Processing Timeline</h2>
-          <p>Approved refunds are processed via direct NEFT/RTGS bank transfer to the pilgrim's verified bank account within <strong>14 to 21 working days</strong> following formal audit and receipt of cancellation approval. Cash refunds are strictly prohibited under anti-money laundering and income tax regulations.</p>
+          <p>Approved refunds are processed via NEFT/RTGS bank transfer to the pilgrim's verified bank account within the management-confirmed timeline ([[REFUND_PROCESSING_DAYS]]) following formal audit of unutilized supplier funds. Cash refunds are strictly prohibited under Indian tax and banking laws.</p>
 
           <h2>4. How to Submit a Cancellation Request</h2>
           <p>To request a cancellation, please email our office at <a href="mailto:info@nooreharam.com" style="color:#06281e;font-weight:700;">info@nooreharam.com</a> with the subject line: <code>Cancellation Request - [Booking ID / PNR] - [Pilgrim Name]</code>, attaching the original booking invoice and cancelled cheque / bank account details.</p>
